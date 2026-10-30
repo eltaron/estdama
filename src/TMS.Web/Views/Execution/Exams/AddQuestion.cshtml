@@ -1,0 +1,157 @@
+@model TMS.Web.ViewModels.Execution.ExamQuestionViewModel
+@{
+    ViewData["Title"] = Model.IsEdit ? T["Exams.EditQuestionTitle"] : T["Exams.AddQuestionTitle"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@(Model.IsEdit ? T["Exams.EditQuestionTitle"] : T["Exams.AddNewQuestion"])</h1>
+                <small>@Model.ExamTitle</small>
+            </div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="ManageQuestions" asp-route-id="@Model.ExamId" class="btn btn-secondary">@T["Exams.BackToQuestions"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="@(Model.IsEdit ? "EditQuestion" : "AddQuestion")" method="post">
+                @if (Model.IsEdit) { <input type="hidden" asp-for="Id" /> }
+                <input type="hidden" asp-for="ExamId" />
+                <input type="hidden" asp-for="IsEdit" />
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label asp-for="QuestionTextAr" class="form-label">@T["Exams.QuestionTextAr"]</label>
+                                <textarea asp-for="QuestionTextAr" class="form-control" rows="2" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="QuestionTextEn" class="form-label">@T["Exams.QuestionTextEn"]</label>
+                                <input asp-for="QuestionTextEn" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label asp-for="QuestionType" class="form-label">@T["Exams.QuestionType"]</label>
+                                <select asp-for="QuestionType" asp-items="ViewBag.QuestionTypes" class="form-control" id="questionType"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label asp-for="Scope" class="form-label">@T["Exams.Category"]</label>
+                                <select asp-for="Scope" class="form-control">
+                                    <option value="0">@T["Exams.Theoretical"]</option>
+                                    <option value="1">@T["Exams.Practical"]</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label asp-for="Marks" class="form-label">@T["Exams.Marks"]</label>
+                                <input asp-for="Marks" type="number" min="1" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label asp-for="Order" class="form-label">@T["Exams.Order"]</label>
+                                <input asp-for="Order" type="number" min="1" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <h6>@T["Exams.Options"] <small class="text-muted">@T["Exams.SelectCorrectAnswer"]</small></h6>
+                    <div id="optionsArea">
+                        @for (int i = 0; i < Model.Options.Count; i++)
+                        {
+                            <div class="row option-row mb-2 align-items-center" data-ot="@(i + 1)">
+                                <div class="col-md-1 d-flex justify-content-center">
+                                    <input type="radio" name="correctOption" value="@i"
+                                           class="form-check-input mt-0" @(Model.Options[i].IsCorrect ? "checked" : "") />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-text">@(i + 1)</span>
+                                        <input name="Options[@i].OptionTextAr" value="@Model.Options[i].OptionTextAr"
+                                               class="form-control" placeholder="@T["Exams.OptionArPlaceholder"]" />
+                                        <input name="Options[@i].OptionTextEn" value="@Model.Options[i].OptionTextEn"
+                                               class="form-control" placeholder="@T["Exams.OptionEnPlaceholder"]" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.Save"]</button>
+                    <a asp-action="ManageQuestions" asp-route-id="@Model.ExamId" class="btn btn-secondary">@T["Exams.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('.option-row').each(function (i) {
+                var hidden = $('<input type="hidden" class="option-correct" name="Options[' + i + '].IsCorrect" value="false" />');
+                $(this).append(hidden);
+                $(this).find('input[type="radio"]').attr('name', 'optionRadio');
+            });
+
+            function markCorrect(rowIndex) {
+                $('.option-row').each(function (i) {
+                    $(this).find('input.option-correct').val(i === rowIndex ? 'true' : 'false');
+                    $(this).find('input[type="radio"]').prop('checked', i === rowIndex);
+                });
+            }
+
+            $('#optionsArea input[type="radio"]').on('change', function () {
+                markCorrect($(this).closest('.option-row').index());
+            });
+
+            var firstChecked = $('.option-row:visible input[type="radio"]:checked').first();
+            if (firstChecked.length) {
+                markCorrect(firstChecked.closest('.option-row').index());
+            } else {
+                markCorrect(0);
+            }
+
+            function applyType() {
+                var val = $('#questionType').val();
+                var isTF = val === '1' || val === 'TrueFalse' || val === '1, TrueFalse';
+                $('.option-row').each(function (i) {
+                    if (isTF) {
+                        $(this).toggle(i < 2);
+                        if (i >= 2) {
+                            $(this).find('input[type="text"]').val('');
+                            $(this).find('input.option-correct').val('false');
+                        }
+                    } else {
+                        $(this).show();
+                    }
+                });
+                if (isTF) {
+                    $('.option-row').eq(0).find('input[type="text"]').first().val('@T["Exams.True"]');
+                    $('.option-row').eq(1).find('input[type="text"]').first().val('@T["Exams.False"]');
+                    var correct = $('.option-row:visible input[type="radio"]:checked');
+                    markCorrect(correct.length ? correct.closest('.option-row').index() : 0);
+                }
+            }
+            $('#questionType').on('change', applyType);
+            applyType();
+        });
+    </script>
+}

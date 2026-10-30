@@ -1,0 +1,324 @@
+/* TMS Custom Styles */
+:root {
+    --tms-blue: #00317E;
+    --tms-orange: #EC8133;
+    --tms-blue-light: #195495;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+}
+
+[dir="rtl"] body {
+    font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+}
+
+/* ---- Top navbar (brand colors) ---- */
+.app-header.navbar {
+    background: linear-gradient(90deg, var(--tms-blue) 0%, var(--tms-blue-light) 100%);
+    border-bottom: 3px solid var(--tms-orange) !important;
+}
+
+.app-header.navbar .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.app-header.navbar .navbar-nav .nav-link:hover,
+.app-header.navbar .navbar-nav .nav-link.active {
+    color: var(--tms-orange);
+}
+
+.brand-estidama {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.brand-estidama .brand-image {
+    height: 33px;
+    width: 33px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Dropdown menus under the brand navbar */
+.app-header.navbar .navbar-nav .dropdown-menu {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-header.navbar .dropdown-menu .dropdown-item:hover {
+    background: var(--tms-blue);
+    color: #fff;
+}
+
+.app-header.navbar .dropdown-toggle.active {
+    color: var(--tms-orange);
+}
+
+/* ----- Buttons / accents in brand orange & blue ----- */
+.btn-brand {
+    background: var(--tms-orange);
+    border-color: var(--tms-orange);
+    color: #fff;
+}
+
+.btn-brand:hover {
+    background: #d96f1f;
+    border-color: #d96f1f;
+    color: #fff;
+}
+
+.text-brand {
+    color: var(--tms-blue);
+}
+
+/* ----- Sidebar (brand blue gradient, orange accents) ----- */
+.tms-sidebar.app-sidebar {
+    background: linear-gradient(180deg, var(--tms-blue) 0%, #001f4d 100%);
+}
+
+.tms-sidebar .sidebar-brand .brand-link {
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.tms-sidebar .sidebar-brand .brand-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.tms-sidebar .nav-sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 0.375rem;
+}
+
+.tms-sidebar .nav-sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.tms-sidebar .nav-sidebar > .nav-item > .nav-link.active {
+    background: var(--tms-orange);
+    color: #fff;
+}
+
+.tms-sidebar .nav-sidebar .nav-treeview {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 0.375rem;
+    margin-top: 0.125rem;
+}
+
+.tms-sidebar .nav-sidebar .nav-treeview .nav-link.active {
+    background: rgba(236, 129, 51, 0.35);
+    color: #fff;
+}
+
+.tms-sidebar .sidebar-wrapper {
+    overflow-y: auto;
+    max-height: calc(100vh - 4.5rem);
+}
+
+.tms-sidebar .nav-sidebar .nav-header {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.app-sidebar:hover {
+    min-width: var(--lte-sidebar-width);
+    max-width: var(--lte-sidebar-width);
+}
+
+@media (max-width: 991.98px) {
+    .table-responsive {
+        font-size: 0.85rem;
+    }
+}
+
+/* Footer bar accent */
+.app-footer {
+    border-top: 3px solid var(--tms-orange);
+}
+
+/* ----- Tables ----- */
+.table th {
+    white-space: nowrap;
+}
+
+.btn-group-xs > .btn,
+.btn-xs {
+    padding: .25rem .4rem;
+    font-size: .75rem;
+}
+
+.badge-status {
+    font-size: 0.8em;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-card {
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Page header accent */
+.page-header-tms {
+    border-inline-start: 5px solid var(--tms-orange);
+    padding-inline-start: 0.75rem;
+}
+
+/* ----- Print ----- */
+@page {
+    margin: 12mm 10mm;
+}
+
+@media print {
+    .app-header,
+    .app-footer,
+    .app-sidebar,
+    .no-print,
+    .alert {
+        display: none !important;
+    }
+
+    body,
+    .app-wrapper,
+    .app-main {
+        background: #fff !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .content-header .btn,
+    .content-header a.btn,
+    .content-header button {
+        display: none !important;
+    }
+
+    .container-fluid {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .table-responsive {
+        overflow: visible !important;
+    }
+
+    .table {
+        width: 100% !important;
+        font-size: 11px;
+    }
+
+    .table th {
+        white-space: normal !important;
+    }
+
+    .table thead {
+        display: table-header-group;
+    }
+
+    .table tr,
+    tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .card,
+    .report-plan {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #ddd !important;
+    }
+
+    .bg-primary, .bg-success, .bg-info, .bg-warning, .bg-danger, .bg-secondary, .bg-dark,
+    .table-light, .badge, .small-box, table tfoot, table thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+}
+
+/* ---- Soft pastel small-box palette ---- */
+.small-box.sb-soft-blue { background: #cfe3f7 !important; color: #1a3c5e !important; }
+.small-box.sb-soft-blue:hover { color: #1a3c5e !important; }
+.small-box.sb-soft-blue .small-box-footer,
+.small-box.sb-soft-blue .small-box-footer:hover { color: rgba(26, 60, 94, .8); }
+
+.small-box.sb-soft-green { background: #d7ecdd !important; color: #21603a !important; }
+.small-box.sb-soft-green:hover { color: #21603a !important; }
+.small-box.sb-soft-green .small-box-footer,
+.small-box.sb-soft-green .small-box-footer:hover { color: rgba(33, 96, 58, .8); }
+
+.small-box.sb-soft-sand { background: #f7eccd !important; color: #73591a !important; }
+.small-box.sb-soft-sand:hover { color: #73591a !important; }
+.small-box.sb-soft-sand .small-box-footer,
+.small-box.sb-soft-sand .small-box-footer:hover { color: rgba(115, 89, 26, .8); }
+
+.small-box.sb-soft-lavender { background: #e3dbf4 !important; color: #4a3580 !important; }
+.small-box.sb-soft-lavender:hover { color: #4a3580 !important; }
+.small-box.sb-soft-lavender .small-box-footer,
+.small-box.sb-soft-lavender .small-box-footer:hover { color: rgba(74, 53, 128, .8); }
+
+.small-box.sb-soft-teal { background: #ccedea !important; color: #0f5b57 !important; }
+.small-box.sb-soft-teal:hover { color: #0f5b57 !important; }
+.small-box.sb-soft-teal .small-box-footer,
+.small-box.sb-soft-teal .small-box-footer:hover { color: rgba(15, 91, 87, .8); }
+
+.small-box.sb-soft-peach { background: #fde0d3 !important; color: #8a3e22 !important; }
+.small-box.sb-soft-peach:hover { color: #8a3e22 !important; }
+.small-box.sb-soft-peach .small-box-footer,
+.small-box.sb-soft-peach .small-box-footer:hover { color: rgba(138, 62, 34, .8); }
+
+.small-box.sb-soft-slate { background: #e2e8f0 !important; color: #334155 !important; }
+.small-box.sb-soft-slate:hover { color: #334155 !important; }
+.small-box.sb-soft-slate .small-box-footer,
+.small-box.sb-soft-slate .small-box-footer:hover { color: rgba(51, 65, 85, .8); }
+
+/* ---- Logo identity palette for dashboard cards ---- */
+.small-box.sb-brand-navy,
+.small-box.sb-brand-navy:hover {
+    background: linear-gradient(135deg, #00317E 0%, #001f4d 100%) !important;
+    color: #fff !important;
+}
+
+.small-box.sb-brand-blue,
+.small-box.sb-brand-blue:hover {
+    background: linear-gradient(135deg, #195495 0%, #0f3a6b 100%) !important;
+    color: #fff !important;
+}
+
+.small-box.sb-brand-orange,
+.small-box.sb-brand-orange:hover {
+    background: linear-gradient(135deg, #EC8133 0%, #c6641f 100%) !important;
+    color: #fff !important;
+}
+
+.small-box.sb-brand-navy .small-box-footer,
+.small-box.sb-brand-navy .small-box-footer:hover,
+.small-box.sb-brand-blue .small-box-footer,
+.small-box.sb-brand-blue .small-box-footer:hover,
+.small-box.sb-brand-orange .small-box-footer,
+.small-box.sb-brand-orange .small-box-footer:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.small-box.sb-brand-navy .icon,
+.small-box.sb-brand-blue .icon,
+.small-box.sb-brand-orange .icon {
+    color: rgba(255, 255, 255, 0.9);
+}

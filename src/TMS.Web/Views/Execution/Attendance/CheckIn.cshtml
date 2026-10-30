@@ -1,0 +1,84 @@
+@model TMS.Web.ViewModels.Execution.CheckInViewModel
+@{
+    ViewData["Title"] = @T["Attendance.CheckInTitle"];
+    var isAr = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+
+            <div class="card shadow-sm">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-qrcode me-1"></i> @T["Attendance.CheckInTitle"]</h4>
+                </div>
+                <div class="card-body">
+
+                    @if (!string.IsNullOrEmpty(Model.CourseName))
+                    {
+                        <div class="mb-3">
+                            <strong>@T["Attendance.Course"]:</strong> @Model.CourseName
+                            <span class="mx-2"></span>
+                            <strong>@T["Attendance.SessionDate"]:</strong> @Model.Date.ToString("yyyy-MM-dd")
+                        </div>
+                        <div class="mb-3">
+                            <strong>@T["Attendance.PresentCount"]:</strong>
+                            <span class="badge bg-success">@Model.PresentCount</span>
+                        </div>
+                    }
+
+                    @if (Model.IsSuccess)
+                    {
+                        <div class="alert @(Model.AlreadyMarked ? "alert-warning" : "alert-success")">
+                            <i class="fas fa-check-circle"></i>
+                            @if (Model.AlreadyMarked)
+                            {
+                                @T["Attendance.CheckInAlready"]
+                            }
+                            else
+                            {
+                                @T["Attendance.CheckInSuccess"]
+                            }
+                            <br />
+                            <strong>@Model.TraineeName</strong><br />
+                            <small>
+                                @T["Attendance.CheckInTime"]:
+                                @(Model.CheckInTime.HasValue ? Model.CheckInTime.Value.ToString(@"hh\:mm") : "-")
+                            </small>
+                        </div>
+                        <a asp-action="CheckIn" asp-controller="Attendance" asp-route-code="@Model.Code" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-user-check"></i> @T["Attendance.CheckInAgain"]
+                        </a>
+                    }
+                    else
+                    {
+                        @if (!string.IsNullOrEmpty(Model.Message))
+                        {
+                            <div class="alert alert-danger">@Model.Message</div>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.CourseName))
+                        {
+                            <p class="text-muted">@T["Attendance.CheckInHint"]</p>
+                            <form asp-action="CheckIn" method="post">
+                                <input type="hidden" name="Code" value="@Model.Code" />
+                                <div class="mb-3">
+                                    <label class="form-label">@T["Attendance.EmployeeNumber"]</label>
+                                    <input type="text" name="EmployeeNumber" value="@Model.EmployeeNumber" class="form-control form-control-lg" autocomplete="off" />
+                                </div>
+                                <button type="submit" class="btn btn-success btn-lg w-100">
+                                    <i class="fas fa-user-check"></i> @T["Attendance.CheckInRegister"]
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger text-center">
+                                <i class="fas fa-times-circle"></i> @Model.Message
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

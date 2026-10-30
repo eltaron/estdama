@@ -1,0 +1,69 @@
+@model TMS.Core.Entities.Execution.Exam
+@{
+    ViewData["Title"] = Model.TitleAr;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@Model.TitleAr</h1>
+                <small>@(Model.CourseSchedule?.Course?.NameAr ?? "")</small>
+            </div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="ManageQuestions" asp-route-id="@Model.Id" class="btn btn-primary">
+                    <i class="fas fa-list"></i> @T["Exams.ManageQuestions"]
+                </a>
+                <a asp-action="Index" class="btn btn-secondary">@T["Common.Back"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Exams.ExamData"]</h3></div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>@T["Exams.Type"]</dt>
+                            <dd>@Model.Type</dd>
+                            <dt>@T["Exams.Duration"]</dt>
+                            <dd>@Model.DurationMinutes @T["Exams.Minutes"]</dd>
+                            <dt>@T["Exams.TotalMarks"]</dt>
+                            <dd>@Model.TotalMarks</dd>
+                            <dt>@T["Exams.PassingMarks"]</dt>
+                            <dd>@Model.PassingMarks</dd>
+                            <dt>@T["Exams.QuestionsCount"]</dt>
+                            <dd>@Model.Questions.Count</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Exams.Questions"]</h3></div>
+                    <div class="card-body">
+                        @foreach (var q in Model.Questions.OrderBy(q => q.Order))
+                        {
+                            <div class="mb-3 p-3 border rounded">
+                                <strong>@T["Exams.QuestionNumber"]@(q.Order): @q.QuestionTextAr (@q.Marks @T["Exams.Marks"])</strong>
+                                <ul class="mt-2">
+                                    @foreach (var o in q.Options)
+                                    {
+                                        <li class="@(o.IsCorrect ? "text-success fw-bold" : "")">
+                                            @o.OptionTextAr
+                                            @if (o.IsCorrect) { <i class="fas fa-check"></i> }
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

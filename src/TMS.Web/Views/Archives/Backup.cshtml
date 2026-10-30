@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = @T["ArchiveBackup.Title"];
+    var files = ViewBag.BackupFiles as List<System.IO.FileInfo> ?? new List<System.IO.FileInfo>();
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["ArchiveBackup.Title"]</h1></div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-database"></i> @T["ArchiveBackup.Create"]</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>@T["ArchiveBackup.CreateHint"]</p>
+                        <form asp-action="CreateBackup" method="post">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-hdd"></i> @T["ArchiveBackup.CreateButton"]</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-info-circle"></i> @T["ArchiveBackup.About"]</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-0">@T["ArchiveBackup.Hint"]</p>
+                        <p class="text-muted small mb-0">@T["ArchiveBackup.Location"]: <code>App_Data\Backups</code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@T["ArchiveBackup.Existing"]</h3>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@T["ArchiveBackup.FileName"]</th>
+                            <th>@T["ArchiveBackup.Size"]</th>
+                            <th>@T["ArchiveBackup.CreatedAt"]</th>
+                            <th class="text-center">@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var f in files)
+                        {
+                            <tr>
+                                <td><i class="fas fa-file-archive me-1"></i>@f.Name</td>
+                                <td>@(f.Length / 1024) KB</td>
+                                <td>@f.LastWriteTime.ToString("yyyy-MM-dd HH:mm")</td>
+                                <td class="text-center">
+                                    <a asp-action="DownloadBackup" asp-route-file="@f.Name" class="btn btn-primary btn-sm"><i class="fas fa-download"></i></a>
+                                    <form asp-action="DeleteBackup" asp-route-file="@f.Name" method="post" class="d-inline" onsubmit="return confirm('@T["ArchiveBackup.ConfirmDelete"]');">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        @if (!files.Any())
+                        {
+                            <tr><td colspan="4" class="text-center text-muted py-4">@T["ArchiveBackup.NoBackups"]</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

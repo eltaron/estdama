@@ -1,0 +1,111 @@
+@model TMS.Web.ViewModels.Users.UserFormViewModel
+@{
+    ViewData["Title"] = @T["Title.AddUser"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Title.AddUser"]</h1></div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">@T["Common.BasicData"]</h3></div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="FullNameAr" class="form-label"></label>
+                                    <input asp-for="FullNameAr" class="form-control" />
+                                    <span asp-validation-for="FullNameAr" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="FullNameEn" class="form-label"></label>
+                                    <input asp-for="FullNameEn" class="form-control" />
+                                    <span asp-validation-for="FullNameEn" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="Email" class="form-label"></label>
+                                    <input asp-for="Email" class="form-control" type="email" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="PhoneNumber" class="form-label"></label>
+                                    <input asp-for="PhoneNumber" class="form-control" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4">
+                                    <label asp-for="EmployeeNumber" class="form-label"></label>
+                                    <input asp-for="EmployeeNumber" class="form-control" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label asp-for="NationalId" class="form-label"></label>
+                                    <input asp-for="NationalId" class="form-control" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label asp-for="JobTitle" class="form-label"></label>
+                                    <input asp-for="JobTitle" class="form-control" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="DepartmentId" class="form-label"></label>
+                                    <select asp-for="DepartmentId" asp-items="@((SelectList)ViewBag.Departments)" class="form-select">
+                                        <option value="">@T["Common.WithoutDept"]</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="RoleId" class="form-label"></label>
+                                    <select asp-for="RoleId" asp-items="@((SelectList)ViewBag.Roles)" class="form-select">
+                                        <option value="">@T["Common.ChooseRole"]</option>
+                                    </select>
+                                    <span asp-validation-for="RoleId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">@T["Common.LoginData"]</h3></div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Password" class="form-label"></label>
+                                    <input asp-for="Password" class="form-control" autocomplete="new-password" />
+                                    <div class="form-text">@T["Common.PasswordHint"]</div>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                                    <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check form-switch">
+                                        <input asp-for="IsActive" class="form-check-input" />
+                                        <label asp-for="IsActive" class="form-check-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-right"></i> @T["Common.Back"]</a>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> @T["Users.AddNew"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

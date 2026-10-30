@@ -1,0 +1,125 @@
+@model TMS.Web.ViewModels.Roles.RoleFormViewModel
+@{
+    ViewData["Title"] = @T["Title.EditRole"];
+    var isSystem = Model.Name == "Admin";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Title.EditRole"]</h1></div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-9">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Name" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-user-shield me-1"></i>
+                                @(Model.NameAr ?? Model.Name)
+                            </h3>
+                            <div class="card-tools">
+                                @if (isSystem)
+                                {
+                                    <span class="badge bg-dark">@T["Roles.SystemRoleAllPerms"]</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-5">
+                                    <label asp-for="NameAr" class="form-label"></label>
+                                    <input asp-for="NameAr" class="form-control" />
+                                    <span asp-validation-for="NameAr" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-7">
+                                    <label asp-for="Description" class="form-label"></label>
+                                    <input asp-for="Description" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fas fa-lock me-1"></i> @T["Common.Permissions"]</h3>
+                            @if (!isSystem)
+                            {
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-outline-primary btn-sm" id="checkAll">@T["Common.SelectAll"]</button>
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" id="uncheckAll">@T["Common.UnselectAll"]</button>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-body">
+                            @if (isSystem)
+                            {
+                                <div class="alert alert-warning mb-0">
+                                    @T["Roles.CannotEditAdminPerms"]
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="row g-4">
+                                    @foreach (var module in Model.Modules)
+                                    {
+                                        <div class="col-md-6 col-xl-4">
+                                            <div class="border rounded p-3 h-100">
+                                                <div class="fw-bold mb-2 text-primary">
+                                                    <i class="fas fa-shield-alt me-1"></i> @T["Perm." + module.Key]
+                                                </div>
+                                                @foreach (var action in module.Actions)
+                                                {
+                                                    var permission = module.Permission(action.Key);
+                                                    var isChecked = Model.GrantedPermissions.Contains(permission);
+                                                    <div class="form-check">
+                                                        <input type="checkbox"
+                                                               class="form-check-input perm-check"
+                                                               name="GrantedPermissions"
+                                                               value="@permission"
+                                                               id="perm-@permission"
+                                                               @(isChecked ? "checked" : "") />
+                                                        <label class="form-check-label" for="perm-@permission">@T["PermAction." + action.Key]</label>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-right"></i> @T["Common.Back"]</a>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.SavePermissions"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    @if (!isSystem)
+    {
+        <script>
+            document.getElementById('checkAll').addEventListener('click', function () {
+                document.querySelectorAll('.perm-check').forEach(function (c) { c.checked = true; });
+            });
+            document.getElementById('uncheckAll').addEventListener('click', function () {
+                document.querySelectorAll('.perm-check').forEach(function (c) { c.checked = false; });
+            });
+        </script>
+    }
+}

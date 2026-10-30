@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = @T["ArchiveRestore.Title"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["ArchiveRestore.Title"]</h1></div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="callout callout-danger">
+            <h5><i class="fas fa-exclamation-triangle"></i> @T["ArchiveRestore.Warning"]</h5>
+            <p class="mb-0">@T["ArchiveRestore.WarningHint"]</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-undo-alt"></i> @T["ArchiveRestore.Restore"]</h3>
+            </div>
+            <div class="card-body">
+                <form asp-action="Restore" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label class="form-label">@T["ArchiveRestore.FileLabel"]</label>
+                        <input type="file" name="backupFile" accept=".bak" class="form-control" required />
+                        <div class="form-text">@T["ArchiveRestore.FileHint"]</div>
+                    </div>
+                    <button type="submit" class="btn btn-danger"><i class="fas fa-hdd"></i> @T["ArchiveRestore.RestoreButton"]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

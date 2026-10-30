@@ -1,0 +1,59 @@
+@model TMS.Web.ViewModels.Execution.CertificateFormViewModel
+@{
+    ViewData["Title"] = @T["Certificates.IssueNew"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Certificates.IssueNew"]</h1></div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Index" class="btn btn-secondary">@T["Common.Back"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="TraineeId" class="form-label"></label>
+                            <select asp-for="TraineeId" asp-items="ViewBag.Trainees" class="form-select">
+                                <option value="">@T["Certificates.SelectTrainee"]</option>
+                            </select>
+                            <span asp-validation-for="TraineeId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="CourseScheduleId" class="form-label"></label>
+                            <select asp-for="CourseScheduleId" asp-items="ViewBag.Schedules" class="form-select">
+                                <option value="">@T["Certificates.SelectSchedule"]</option>
+                            </select>
+                            <span asp-validation-for="CourseScheduleId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="IssueDate" class="form-label"></label>
+                            <input asp-for="IssueDate" type="date" class="form-control" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label asp-for="ExpiryDate" class="form-label"></label>
+                            <input asp-for="ExpiryDate" type="date" class="form-control" />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-award"></i> @T["Certificates.Issue"]</button>
+                    <a asp-action="Index" class="btn btn-secondary">@T["Common.Back"]</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

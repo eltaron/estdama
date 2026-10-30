@@ -1,0 +1,127 @@
+@model TMS.Web.ViewModels.Finance.PayrollViewModel
+@{
+    ViewData["Title"] = @T["Finance.Title"];
+}
+@{
+    var monthNames = System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat.MonthNames;
+    var now = DateTime.Now;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Finance.Title"]</h1></div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <form method="get" class="row g-2">
+                    <div class="col-auto"><label class="form-label mt-2">@T["Finance.PayrollSheetMonth"]</label></div>
+                    <div class="col-auto">
+                        <select name="year" class="form-control">
+                            @for (int y = now.Year - 1; y <= now.Year + 1; y++)
+                            {
+                                <option value="@y" selected="@(Model.Year == y)">@y</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <select name="month" class="form-control">
+                            @for (int m = 1; m <= 12; m++)
+                            {
+                                <option value="@m" selected="@(Model.Month == m)">@monthNames[m - 1]</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-auto align-self-end">
+                        <button type="submit" class="btn btn-info">@T["Finance.Show"]</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body p-0">
+                <h5 class="px-3 pt-3">@T["Finance.PayrollSheet"] — @monthNames[Model.Month - 1] @Model.Year</h5>
+                @if (Model.Rows.Any())
+                {
+                    <table class="table table-bordered table-hover mt-2 mb-0">
+                        <thead>
+                            <tr>
+                                <th>@T["Finance.Instructor"]</th>
+                                <th>@T["Finance.CourseCount"]</th>
+                                <th>@T["Finance.TotalHours"]</th>
+                                <th>@T["Finance.HourlyRate"]</th>
+                                <th>@T["Finance.Total"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var r in Model.Rows)
+                            {
+                                <tr>
+                                    <td>@r.Instructor.FirstNameAr @r.Instructor.LastNameAr</td>
+                                    <td>@r.ScheduleCount</td>
+                                    <td>@r.TotalHours.ToString("N2")</td>
+                                    <td>@r.Instructor.HourlyRate.ToString("N2")</td>
+                                    <td><strong>@r.GrossAmount.ToString("N2")</strong></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr class="fw-bold">
+                                <td colspan="2">@T["Finance.PayrollTotal"]</td>
+                                <td>@Model.TotalHours.ToString("N2")</td>
+                                <td></td>
+                                <td>@Model.TotalGross.ToString("N2")</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                }
+                else
+                {
+                    <div class="text-center text-muted py-4">@T["Finance.NoCompletedCourses"]</div>
+                }
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header"><h3 class="card-title">@T["Finance.CourseAccountsCardTitle"]</h3></div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@T["Finance.Course"]</th>
+                            <th>@T["Finance.Trainees"]</th>
+                            <th>@T["Finance.TotalFees"]</th>
+                            <th>@T["Finance.MinistryDeduction"]</th>
+                            <th>@T["Finance.NetAfterDeduction"]</th>
+                            <th>@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var c in Model.CourseCards)
+                        {
+                            <tr>
+                                <td><strong>@c.CourseName</strong><br /><small class="text-muted">@c.CourseCode</small></td>
+                                <td>@c.TraineeCount</td>
+                                <td>@c.TotalFees.ToString("N2")</td>
+                                <td>@c.MinistryDeduction.ToString("N2")</td>
+                                <td>@c.NetAfterMinistry.ToString("N2")</td>
+                                <td>
+                                    <form asp-controller="Finance" asp-action="Details" asp-route-id="@c.CourseId" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-calculator"></i> @T["Finance.CalculateCourse"]</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        @if (!Model.CourseCards.Any())
+                        {
+                            <tr><td colspan="6" class="text-center text-muted py-4">@T["Finance.NoCourses"]</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

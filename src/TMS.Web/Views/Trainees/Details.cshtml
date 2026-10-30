@@ -1,0 +1,99 @@
+@model TMS.Core.Entities.Trainees.Trainee
+@{
+    ViewData["Title"] = Model.User.FullNameAr;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@Model.User.FullNameAr</h1>
+                <small class="text-muted">@Model.User.FullNameEn | @(Model.EmployeeNumber ?? "")</small>
+            </div>
+            <div class="col-sm-6 text-end">
+                @if (User.IsInRole("Admin") || User.IsInRole("Supervisor"))
+                {
+                    <a asp-action="DownloadFile" asp-route-id="@Model.Id" class="btn btn-brand"><i class="fas fa-file-pdf"></i> @T["Trainees.FullFile"]</a>
+                }
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="fas fa-edit"></i> @T["Common.Edit"]</a>
+                <a asp-action="Index" class="btn btn-secondary">@T["Common.Back"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Trainees.PersonalInfo"]</h3></div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>@T["Trainees.Type"]</dt>
+                            <dd>
+                                @if (Model.Type == TMS.Core.Enums.TraineeType.Private)
+                                {
+                                    <span class="badge bg-primary">@T["Trainees.PrivateSector"]</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@T["Trainees.Government"]</span>
+                                }
+                            </dd>
+                            <dt>@T["Trainees.Department"]</dt>
+                            <dd>@(Model.CurrentDepartment?.NameAr ?? "-")</dd>
+                            <dt>@T["Trainees.JobTitle"]</dt>
+                            <dd>@(Model.JobTitle ?? "-")</dd>
+                            <dt>@T["Trainees.Organization"]</dt>
+                            <dd>@(Model.Organization ?? "-")</dd>
+                            <dt>@T["Trainees.Directorate"]</dt>
+                            <dd>@(Model.Directorate ?? "-")</dd>
+                            <dt>@T["Trainees.JobGrade"]</dt>
+                            <dd>@(Model.JobGrade ?? "-")</dd>
+                            <dt>@T["Common.Email"]</dt>
+                            <dd>@(Model.User.Email ?? "-")</dd>
+                            <dt>@T["Trainees.Phone"]</dt>
+                            <dd>@(Model.Phone ?? Model.User.PhoneNumber ?? "-")</dd>
+                            <dt>@T["Trainees.Address"]</dt>
+                            <dd>@(Model.Address ?? "-")</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Trainees.RegisteredCourses"]</h3></div>
+                    <div class="card-body">
+                        @if (Model.Registrations.Any())
+                        {
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>@T["Trainees.Course"]</th>
+                                        <th>@T["Trainees.Date"]</th>
+                                        <th>@T["Common.Status"]</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var r in Model.Registrations)
+                                    {
+                                        <tr>
+                                            <td>@(r.CourseSchedule?.Course?.NameAr ?? "-")</td>
+                                            <td>@(r.CourseSchedule?.StartDate.ToString("yyyy-MM-dd") ?? "-")</td>
+                                            <td>@r.Status</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <div class="text-center text-muted">@T["Trainees.NoRegisteredCourses"]</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

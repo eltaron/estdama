@@ -1,0 +1,84 @@
+@model List<TMS.Core.Entities.Execution.BankQuestion>
+@{
+    ViewData["Title"] = @T["QuestionBank.Title"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["QuestionBank.Title"]</h1></div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> @T["QuestionBank.AddNew"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <form method="get" class="row g-2">
+                    <div class="col-md-4">
+                        <input name="search" value="@ViewBag.Search" class="form-control" placeholder="@T["QuestionBank.SearchPlaceholder"]" />
+                    </div>
+                    <div class="col-md-3">
+                        <select name="category" class="form-control">
+                            <option value="">@T["QuestionBank.AllCategories"]</option>
+                            @foreach (var c in (List<string>)ViewBag.Categories)
+                            {
+                                <option value="@c" selected="@(ViewBag.Category == c)">@c</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-info">@T["Common.Search"]</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width:50px">#</th>
+                            <th>@T["QuestionBank.Question"]</th>
+                            <th>@T["QuestionBank.Type"]</th>
+                            <th>@T["QuestionBank.Marks"]</th>
+                            <th>@T["QuestionBank.Category"]</th>
+                            <th>@T["QuestionBank.Options"]</th>
+                            <th style="width:180px">@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var q in Model)
+                        {
+                            <tr>
+                                <td>@q.Id</td>
+                                <td>@q.QuestionTextAr</td>
+                                <td>@(q.QuestionType == TMS.Core.Enums.QuestionType.MultipleChoice ? T["QuestionBank.MultipleChoice"] : T["QuestionBank.TrueFalse"])</td>
+                                <td>@q.Marks</td>
+                                <td>@(q.Category ?? "-")</td>
+                                <td>
+                                    @foreach (var o in q.Options.OrderBy(o => o.Order))
+                                    {
+                                        <div class="@(o.IsCorrect ? "text-success fw-bold" : "")">@o.OptionTextAr @if(o.IsCorrect){<i class="fas fa-check"></i>}</div>
+                                    }
+                                </td>
+                                <td class="text-nowrap">
+                                    <a asp-action="Edit" asp-route-id="@q.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                    <form asp-action="Delete" asp-route-id="@q.Id" method="post" class="d-inline" onsubmit="return confirm('@T["QuestionBank.DeleteQuestionConfirm"]')">
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        @if (!Model.Any())
+                        {
+                            <tr><td colspan="7" class="text-center text-muted py-4">@T["QuestionBank.Empty"]</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

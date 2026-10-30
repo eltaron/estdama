@@ -1,0 +1,66 @@
+@model List<TMS.Core.Entities.Execution.Exam>
+@{
+    ViewData["Title"] = @T["StudentExam.MyExams"];
+    var submissions = ViewBag.Submissions as Dictionary<int, TMS.Core.Entities.Execution.ExamSubmission> ?? new();
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <h1>@T["StudentExam.Welcome"] @ViewBag.TraineeName</h1>
+        <p class="text-muted">@T["StudentExam.ChooseExam"]</p>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        @if (!Model.Any())
+        {
+            <div class="alert alert-warning">@T["StudentExam.NoExams"]</div>
+        }
+        @foreach (var exam in Model)
+        {
+            var done = submissions.ContainsKey(exam.Id);
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h5>@exam.TitleAr</h5>
+                            <small class="text-muted">@exam.TitleEn | @T["StudentExam.Duration"]: @exam.DurationMinutes @T["StudentExam.MinutesUnit"] | @T["StudentExam.Marks"]: @exam.TotalMarks | @T["StudentExam.Passing"]: @exam.PassingMarks</small>
+                            <div class="mt-1">
+                                @if (exam.Scope == TMS.Core.Enums.ExamScope.TheoreticalAndPractical)
+                                {
+                                    <span class="badge bg-warning">@T["StudentExam.TheoreticalAndPractical"]</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-info">@T["StudentExam.TheoreticalOnly"]</span>
+                                }
+                                <span class="badge bg-secondary">@exam.Type</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            @if (done)
+                            {
+                                <span class="badge bg-success mb-2">@T["StudentExam.Submitted"]</span><br />
+                                <a asp-action="Result" asp-route-examId="@exam.Id" asp-route-traineeId="@ViewBag.TraineeId" class="btn btn-info btn-sm">@T["StudentExam.ViewResult"]</a>
+                            }
+                            else
+                            {
+                                @if (exam.Scope == TMS.Core.Enums.ExamScope.TheoreticalAndPractical)
+                                {
+                                    <a asp-action="Take" asp-route-examId="@exam.Id" asp-route-traineeId="@ViewBag.TraineeId" asp-route-scope="0" class="btn btn-primary btn-sm me-1"><i class="fas fa-pen"></i> @T["StudentExam.TheoreticalExam"]</a>
+                                    <a asp-action="Take" asp-route-examId="@exam.Id" asp-route-traineeId="@ViewBag.TraineeId" asp-route-scope="1" class="btn btn-warning btn-sm"><i class="fas fa-tools"></i> @T["StudentExam.PracticalExam"]</a>
+                                }
+                                else
+                                {
+                                    <a asp-action="Take" asp-route-examId="@exam.Id" asp-route-traineeId="@ViewBag.TraineeId" class="btn btn-success"><i class="fas fa-play"></i> @T["StudentExam.StartExam"]</a>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <a asp-action="Login" class="btn btn-secondary">@T["StudentExam.Logout"]</a>
+    </div>
+</section>

@@ -1,0 +1,258 @@
+@model TMS.Web.ViewModels.TrainingPlans.TrainingPlansReportViewModel
+@using TMS.Core.Enums
+@{
+    ViewData["Title"] = @T["TrainingPlans.ReportTitle"];
+
+    var isAr = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
+    var statusName = new Dictionary<PlanStatus, string>
+    {
+        [PlanStatus.Draft] = T["TrainingPlans.StatusDraft"].Value,
+        [PlanStatus.Approved] = T["TrainingPlans.StatusApproved"].Value,
+        [PlanStatus.Active] = T["TrainingPlans.StatusActive"].Value,
+        [PlanStatus.Closed] = T["TrainingPlans.StatusClosed"].Value
+    };
+    var statusBadge = new Dictionary<PlanStatus, string>
+    {
+        [PlanStatus.Draft] = "bg-secondary",
+        [PlanStatus.Approved] = "bg-primary",
+        [PlanStatus.Active] = "bg-success",
+        [PlanStatus.Closed] = "bg-dark"
+    };
+    var categoryName = new Dictionary<TrainingPlanCategory, string>
+    {
+        [TrainingPlanCategory.GovernmentAdmin] = T["TrainingPlans.AdminPlan"].Value,
+        [TrainingPlanCategory.Sapqar] = T["TrainingPlans.SapqarPlan"].Value,
+        [TrainingPlanCategory.ComputerScience] = T["TrainingPlans.ComputerSciencePlan"].Value
+    };
+
+    string DisplayName(string? ar, string? en) => isAr ? ar ?? en ?? "-" : en ?? ar ?? "-";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["TrainingPlans.ReportTitle"]</h1></div>
+            <div class="col-sm-6 text-end no-print">
+                <button class="btn btn-brand" onclick="window.print()"><i class="fas fa-print"></i> @T["TrainingPlans.Print"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="card mb-3" id="reportFilters">
+            <div class="card-header no-print">
+                <h5 class="mb-0"><i class="fas fa-filter"></i> @T["TrainingPlans.Filter"]</h5>
+            </div>
+            <div class="card-body no-print">
+                <form method="get" class="row g-2">
+                    <div class="col-md-4">
+                        <input type="text" name="search" value="@Model.Search" class="form-control" placeholder="@T["TrainingPlans.SearchPlaceholder"]" />
+                    </div>
+                    <div class="col-md-2">
+                        <select name="category" class="form-select">
+                            <option value="">@T["TrainingPlans.AllCategories"]</option>
+                            @foreach (var kv in categoryName)
+                            {
+                                <option value="@((int)kv.Key)" selected="@(Model.Category == kv.Key)">@kv.Value</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <select name="year" class="form-select">
+                            <option value="">@T["TrainingPlans.AllYears"]</option>
+                            @foreach (var y in Model.Years)
+                            {
+                                <option value="@y" selected="@(Model.Year == y)">@y</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <select name="quarter" class="form-select">
+                            <option value="">@T["TrainingPlans.AllQuarters"]</option>
+                            @for (var q = 1; q <= 4; q++)
+                            {
+                                <option value="@q" selected="@(Model.Quarter == q)">@(T["TrainingPlans.Quarter"].Value + " " + q)</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="status" class="form-select">
+                            <option value="">@T["TrainingPlans.AllStatuses"]</option>
+                            @foreach (var kv in statusName)
+                            {
+                                <option value="@((int)kv.Key)" selected="@(Model.Status == kv.Key)">@kv.Value</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> @T["Common.Search"]</button>
+                        <a asp-action="Report" class="btn btn-secondary"><i class="fas fa-undo"></i> @T["TrainingPlans.Reset"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row g-2 mb-3">
+            <div class="col">
+                <div class="small-box bg-info">
+                    <div class="inner"><h3>@Model.TotalPlans</h3><p>@T["TrainingPlans.TotalPlans"]</p></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="small-box bg-primary">
+                    <div class="inner"><h3>@Model.TotalCourses</h3><p>@T["TrainingPlans.TotalCourses"]</p></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="small-box bg-success">
+                    <div class="inner"><h3>@Model.TotalHours</h3><p>@T["TrainingPlans.TotalHours"]</p></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="small-box bg-warning">
+                    <div class="inner"><h3>@Model.TotalSchedules</h3><p>@T["TrainingPlans.TotalSchedules"]</p></div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="small-box bg-danger">
+                    <div class="inner"><h3>@Model.TotalRegistrations</h3><p>@T["TrainingPlans.TotalRegistrations"]</p></div>
+                </div>
+            </div>
+        </div>
+
+        @if (!Model.Plans.Any())
+        {
+            <div class="card">
+                <div class="card-body text-center text-muted py-5"><i class="fas fa-file-invoice fa-2x mb-2"></i><div>@T["TrainingPlans.NoResults"]</div></div>
+            </div>
+        }
+
+        @{ var planIndex = 0; }
+        @foreach (var p in Model.Plans)
+        {
+            planIndex++;
+            <div class="card mb-4 report-plan">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                        <div>
+                            <h5 class="mb-0">
+                                <span class="badge bg-secondary me-1">@planIndex</span>
+                                @p.Plan.NameAr
+                            </h5>
+                            <small class="text-muted">@p.Plan.NameEn</small>
+                        </div>
+                        <div class="text-nowrap">
+                            <span class="badge bg-secondary">@categoryName[p.Plan.Category]</span>
+                            <span class="badge @statusBadge[p.Plan.Status]">@statusName[p.Plan.Status]</span>
+                            <span class="badge bg-light text-dark border">@p.Plan.Year</span>
+                            <span class="badge bg-light text-dark border">@(p.Plan.Quarter.HasValue ? T["TrainingPlans.Quarter"].Value + " " + p.Plan.Quarter : "-")</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(p.Plan.Description))
+                    {
+                        <div class="mb-2"><strong>@T["Common.Description"]:</strong> @p.Plan.Description</div>
+                    }
+                    <div class="mb-3 text-muted small">
+                        <i class="fas fa-user"></i> @T["TrainingPlans.CreatedBy"]: @DisplayName(p.Plan.CreatedBy?.FullNameAr, p.Plan.CreatedBy?.FullNameEn)
+                        <span class="ms-2"><i class="fas fa-calendar"></i> @p.Plan.CreatedAt.ToString("yyyy-MM-dd")</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-sm mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="text-center" style="width:40px">#</th>
+                                    <th>@T["TrainingPlans.CourseCode"]</th>
+                                    <th>@T["TrainingPlans.CourseName"]</th>
+                                    <th class="text-center">@T["Courses.Hours"]</th>
+                                    <th>@T["TrainingPlans.TargetDepartment"]</th>
+                                    <th class="text-center">@T["TrainingPlans.PlannedQuarter"]</th>
+                                    <th class="text-center">@T["TrainingPlans.Schedules"]</th>
+                                    <th>@T["TrainingPlans.Period"]</th>
+                                    <th>@T["TrainingPlans.Instructor"]</th>
+                                    <th class="text-center">@T["TrainingPlans.Registrations"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ var itemIndex = 0; }
+                                @foreach (var it in p.Items)
+                                {
+                                    itemIndex++;
+                                    <tr>
+                                        <td class="text-center">@itemIndex</td>
+                                        <td><code>@it.Course.Code</code></td>
+                                        <td>
+                                            @it.Course.NameAr
+                                            @if (!string.IsNullOrEmpty(it.Course.NameEn) && it.Course.NameEn != it.Course.NameAr)
+                                            {
+                                                <small class="text-muted d-block">@it.Course.NameEn</small>
+                                            }
+                                            @if (!string.IsNullOrEmpty(it.Notes))
+                                            {
+                                                <small class="text-muted d-block"><i class="fas fa-sticky-note"></i> @it.Notes</small>
+                                            }
+                                        </td>
+                                        <td class="text-center"><span class="badge bg-info">@it.Course.Hours</span></td>
+                                        <td>@(it.TargetDepartmentName ?? "-")</td>
+                                        <td class="text-center">@(it.PlannedQuarter.HasValue ? it.PlannedQuarter.Value.ToString() : "-")</td>
+                                        <td class="text-center">@it.ScheduleCount</td>
+                                        <td>
+                                            @if (it.FirstScheduleStart.HasValue && it.LastScheduleEnd.HasValue)
+                                            {
+                                                <span>@it.FirstScheduleStart.Value.ToString("yyyy-MM-dd")</span>
+                                                <span>→</span>
+                                                <span>@it.LastScheduleEnd.Value.ToString("yyyy-MM-dd")</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">-</span>
+                                            }
+                                        </td>
+                                        <td>@(it.Instructors ?? "-")</td>
+                                        <td class="text-center"><span class="badge @(it.Registrations > 0 ? "bg-success" : "bg-secondary")">@it.Registrations</span></td>
+                                    </tr>
+                                }
+                                @if (!p.Items.Any())
+                                {
+                                    <tr><td colspan="10" class="text-center text-muted py-3">@T["TrainingPlans.NoCourses"]</td></tr>
+                                }
+                            </tbody>
+                            <tfoot class="table-light fw-bold">
+                                <tr>
+                                    <td colspan="3" class="text-end">@T["Trainees.Total"]</td>
+                                    <td class="text-center">@p.TotalHours</td>
+                                    <td colspan="2"></td>
+                                    <td class="text-center">@p.TotalSchedules</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-center">@p.TotalRegistrations</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="text-end text-muted small mb-3">
+            @T["TrainingPlans.PrintedOn"]: @DateTime.Now.ToString("yyyy-MM-dd HH:mm")
+        </div>
+
+    </div>
+</section>
+
+<style>
+    @@media print {
+        .main-header, .main-footer, .no-print, .content-header .btn { display: none !important; }
+        body { background: #fff !important; }
+        .report-plan { break-inside: avoid; }
+        .table { font-size: 11px; }
+        .content-wrapper { padding-bottom: 0 !important; }
+    }
+</style>

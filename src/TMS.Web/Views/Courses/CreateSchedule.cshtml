@@ -1,0 +1,83 @@
+@model TMS.Web.ViewModels.Courses.ScheduleFormViewModel
+@{
+    ViewData["Title"] = @T["Courses.CreateScheduleTitle"];
+}
+
+<div class="content-header">
+    <div class="container-fluid"><h1>@T["Courses.CreateScheduleTitle"]: @ViewBag.CourseName</h1></div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="CreateSchedule" method="post">
+                <input type="hidden" asp-for="CourseId" />
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="StartDate" class="form-label"></label>
+                                <input asp-for="StartDate" class="form-control" type="date" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="EndDate" class="form-label"></label>
+                                <input asp-for="EndDate" class="form-control" type="date" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="StartTime" class="form-label"></label>
+                                <input asp-for="StartTime" class="form-control" type="time" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="EndTime" class="form-label"></label>
+                                <input asp-for="EndTime" class="form-control" type="time" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="RoomId" class="form-label"></label>
+                                <select asp-for="RoomId" asp-items="ViewBag.Rooms" class="form-control">
+                                    <option value="">-- @T["Courses.SelectRoom"] --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="InstructorId" class="form-label"></label>
+                                <select asp-for="InstructorId" asp-items="ViewBag.Instructors" class="form-control">
+                                    <option value="">-- @T["Courses.SelectInstructor"] --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label asp-for="Notes" class="form-label"></label>
+                                <textarea asp-for="Notes" class="form-control" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.Save"]</button>
+                    <a asp-action="Details" asp-route-id="@Model.CourseId" class="btn btn-secondary">@T["Courses.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

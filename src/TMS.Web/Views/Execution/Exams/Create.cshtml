@@ -1,0 +1,110 @@
+@model TMS.Core.Entities.Execution.Exam
+@{
+    ViewData["Title"] = @T["Exams.CreateTitle"];
+}
+
+<div class="content-header">
+    <div class="container-fluid"><h1>@T["Exams.CreateNewTitle"]</h1></div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="Create" method="post">
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label asp-for="CourseScheduleId" class="form-label">@T["Exams.Schedule"] <span class="text-danger">*</span></label>
+                                <select asp-for="CourseScheduleId" asp-items="ViewBag.Schedules" class="form-control" required>
+                                    <option value="">@T["Exams.SelectSchedule"]</option>
+                                </select>
+                                <span asp-validation-for="CourseScheduleId" class="text-danger"></span>
+                                @if (ViewBag.Schedules is SelectList sl && !sl.Any())
+                                {
+                                    <small class="text-warning">@T["Exams.NoSchedules"] <a asp-controller="Courses" asp-action="Index">@T["Exams.CoursesLink"]</a>.</small>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="TitleAr" class="form-label">@T["Exams.TitleAr"]</label>
+                                <input asp-for="TitleAr" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="TitleEn" class="form-label">@T["Exams.TitleEn"]</label>
+                                <input asp-for="TitleEn" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Type" class="form-label">@T["Exams.Type"]</label>
+                                <select asp-for="Type" asp-items="ViewBag.ExamTypes" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Scope" class="form-label">@T["Exams.Scope"]</label>
+                                <select asp-for="Scope" class="form-control">
+                                    <option value="0">@T["Exams.TheoreticalOnly"]</option>
+                                    <option value="1">@T["Exams.TheoreticalAndPractical"]</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-3">
+                                <label asp-for="DurationMinutes" class="form-label">@T["Exams.DurationMinutes"]</label>
+                                <input asp-for="DurationMinutes" class="form-control" type="number" min="1" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-3">
+                                <label asp-for="TotalMarks" class="form-label">@T["Exams.TotalMarks"]</label>
+                                <input asp-for="TotalMarks" class="form-control" type="number" min="1" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-3">
+                                <label asp-for="PassingMarks" class="form-label">@T["Exams.PassingMarks"]</label>
+                                <input asp-for="PassingMarks" class="form-control" type="number" min="1" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="StartTime" class="form-label">@T["Exams.StartTime"]</label>
+                                <input asp-for="StartTime" class="form-control" type="datetime-local" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="EndTime" class="form-label">@T["Exams.EndTime"]</label>
+                                <input asp-for="EndTime" class="form-control" type="datetime-local" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input asp-for="ShuffleQuestions" class="form-check-input" />
+                        <label asp-for="ShuffleQuestions" class="form-check-label">@T["Exams.ShuffleQuestions"]</label>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.Save"]</button>
+                    <a asp-action="Index" class="btn btn-secondary">@T["Exams.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

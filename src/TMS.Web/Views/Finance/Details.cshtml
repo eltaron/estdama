@@ -1,0 +1,234 @@
+@model TMS.Web.ViewModels.Finance.CourseAccountsViewModel
+@{
+    ViewData["Title"] = @T["Finance.CourseAccountsTitle"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Finance.Accounts"]: @Model.Course.NameAr</h1>
+                <small class="text-muted">@Model.Course.Code</small>
+            </div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> @T["Finance.Title"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>@Model.TraineeCount</h3>
+                        <p>@T["Finance.RegisteredTrainees"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@Model.TotalFees.ToString("N2")</h3>
+                        <p>@T["Finance.TotalFees"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>@Model.MinistryDeduction.ToString("N2")</h3>
+                        <p>@T["Finance.MinistryDeduction"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-landmark"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>@Model.InstructorCost.ToString("N2")</h3>
+                        <p>@T["Finance.InstructorCost"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-outline card-success">
+            <div class="card-header">
+                <h3 class="card-title">@T["Finance.NetProfit"]</h3>
+            </div>
+            <div class="card-body">
+                <h2 class="text-success">@Model.NetProfit.ToString("N2")</h2>
+                <small class="text-muted">@T["Finance.NetProfitFormula"]</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Finance.TraineeFeesPayments"]</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-bordered table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>@T["Finance.Trainee"]</th>
+                                    <th>@T["Finance.EmployeeNumber"]</th>
+                                    <th>@T["Finance.Fees"]</th>
+                                    <th>@T["Finance.Paid"]</th>
+                                    <th>@T["Finance.Remaining"]</th>
+                                    <th>@T["Finance.PaymentStatus"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var t in Model.TraineeStatements)
+                                {
+                                    var remaining = (t.FeeAmount ?? 0) - (t.AmountPaid ?? 0);
+                                    <tr>
+                                        <td>@t.TraineeName</td>
+                                        <td>@(t.EmployeeNumber ?? T["Finance.PrivateTrainee"].Value)</td>
+                                        <td>@(t.FeeAmount?.ToString("N2") ?? "-")</td>
+                                        <td>@(t.AmountPaid?.ToString("N2") ?? "-")</td>
+                                        <td>@remaining.ToString("N2")</td>
+                                        <td>
+                                            @switch (t.PaymentStatusLabel)
+                                            {
+                                                case "مسدد بالكامل":
+                                                    <span class="badge bg-success">@T["Finance.StatusFullyPaid"]</span>
+                                                    break;
+                                                case "مسدد جزئياً":
+                                                    <span class="badge bg-warning">@T["Finance.StatusPartiallyPaid"]</span>
+                                                    break;
+                                                default:
+                                                    <span class="badge bg-danger">@T["Finance.StatusUnpaid"]</span>
+                                                    break;
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Finance.TransactionsTitle"]</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-bordered table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>@T["Finance.Date"]</th>
+                                    <th>@T["Finance.Type"]</th>
+                                    <th>@T["Common.Description"]</th>
+                                    <th>@T["Finance.Amount"]</th>
+                                    <th>@T["Finance.Reference"]</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var t in Model.Transactions)
+                                {
+                                    <tr>
+                                        <td>@t.TransactionDate.ToString("yyyy-MM-dd")</td>
+                                        <td>
+                                            @switch (t.Type)
+                                            {
+                                                case TMS.Core.Enums.FinanceTransactionType.TraineeFee:
+                                                    <span class="badge bg-info">@T["Finance.TransactionTraineeFee"]</span>
+                                                    break;
+                                                case TMS.Core.Enums.FinanceTransactionType.MinistryDeduction:
+                                                    <span class="badge bg-warning">@T["Finance.TransactionMinistryDeduction"]</span>
+                                                    break;
+                                                case TMS.Core.Enums.FinanceTransactionType.InstructorCost:
+                                                    <span class="badge bg-danger">@T["Finance.TransactionInstructorCost"]</span>
+                                                    break;
+                                                case TMS.Core.Enums.FinanceTransactionType.Expense:
+                                                    <span class="badge bg-secondary">@T["Finance.TransactionExpense"]</span>
+                                                    break;
+                                                case TMS.Core.Enums.FinanceTransactionType.OtherIncome:
+                                                    <span class="badge bg-success">@T["Finance.TransactionOtherIncome"]</span>
+                                                    break;
+                                                case TMS.Core.Enums.FinanceTransactionType.Refund:
+                                                    <span class="badge bg-dark">@T["Finance.TransactionRefund"]</span>
+                                                    break;
+                                                default:
+                                                    <span class="badge bg-light">@t.Type</span>
+                                                    break;
+                                            }
+                                        </td>
+                                        <td>@t.DescriptionAr</td>
+                                        <td>@t.Amount.ToString("N2")</td>
+                                        <td>@(t.ReferenceNo ?? "-")</td>
+                                        <td>
+                                            <form asp-action="DeleteTransaction" asp-route-id="@t.Id" asp-route-courseId="@t.CourseId" method="post" class="d-inline" onsubmit="return confirm('@T["Finance.ConfirmDeleteTransaction"]')">
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                                @if (!Model.Transactions.Any())
+                                {
+                                    <tr><td colspan="6" class="text-center text-muted py-4">@T["Finance.NoTransactions"]</td></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Finance.AddTransactionTitle"]</h3></div>
+                    <div class="card-body">
+                        <form asp-action="AddTransaction" method="post">
+                            <input type="hidden" name="CourseId" value="@Model.Course.Id" />
+                            <div class="mb-2">
+                                <label class="form-label">@T["Finance.Type"]</label>
+                                @{
+                                    var tTypes = Enum.GetValues(typeof(TMS.Core.Enums.FinanceTransactionType))
+                                        .Cast<TMS.Core.Enums.FinanceTransactionType>()
+                                        .Where(t => t != TMS.Core.Enums.FinanceTransactionType.TraineeFee);
+                                }
+                                <select name="Type" class="form-control" required>
+                                    @foreach (var t in tTypes)
+                                    {
+                                        <option value="@((int)t)">@t</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">@T["Finance.Amount"]</label>
+                                <input name="Amount" type="number" step="0.01" min="0" class="form-control" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">@T["Common.Description"]</label>
+                                <input name="DescriptionAr" class="form-control" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">@T["Finance.ReferenceOptional"]</label>
+                                <input name="ReferenceNo" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">@T["Finance.Notes"]</label>
+                                <textarea name="Notes" class="form-control" rows="2"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-brand"><i class="fas fa-save"></i> @T["Finance.SaveTransaction"]</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

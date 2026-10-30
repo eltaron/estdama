@@ -1,0 +1,74 @@
+@model TMS.Core.Entities.Courses.TrainingPlan
+@{
+    ViewData["Title"] = @T["TrainingPlans.Create"];
+}
+
+<div class="content-header">
+    <div class="container-fluid"><h1>@T["TrainingPlans.Create"]</h1></div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="Create" method="post">
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="NameAr" class="form-label">@T["TrainingPlans.NameAr"]</label>
+                                <input asp-for="NameAr" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="NameEn" class="form-label">@T["TrainingPlans.NameEn"]</label>
+                                <input asp-for="NameEn" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Year" class="form-label">@T["TrainingPlans.Year"]</label>
+                                <input asp-for="Year" class="form-control" type="number" min="2024" value="@DateTime.Now.Year" required />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Quarter" class="form-label">@T["TrainingPlans.Quarter"]</label>
+                                <input asp-for="Quarter" class="form-control" type="number" min="1" max="4" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Category" class="form-label">@T["TrainingPlans.Type"]</label>
+                                <select asp-for="Category" class="form-control">
+                                    <option value="0">@T["TrainingPlans.AdminPlan"]</option>
+                                    <option value="1">@T["TrainingPlans.SapqarPlan"]</option>
+                                    <option value="2">@T["TrainingPlans.ComputerSciencePlan"]</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label asp-for="Description" class="form-label">@T["Common.Description"]</label>
+                                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.Save"]</button>
+                    <a asp-action="Index" class="btn btn-secondary">@T["TrainingPlans.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

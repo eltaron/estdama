@@ -1,0 +1,168 @@
+@model TMS.Core.Entities.Execution.Exam
+@{
+    ViewData["Title"] = @T["Exams.QuestionsTitle"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Exams.Questions"]: @Model.TitleAr</h1>
+                <small>
+                    @(Model.CourseSchedule?.Course?.NameAr ?? "") | @T["Exams.Total"]: @Model.TotalMarks @T["Exams.Marks"] |
+                    @if (Model.Scope == TMS.Core.Enums.ExamScope.TheoreticalAndPractical)
+                    {
+                        <span class="badge bg-warning">@T["Exams.TheoreticalAndPractical"]</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-info">@T["Exams.TheoreticalOnly"]</span>
+                    }
+                </small>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-end">
+                    @if (Model.Scope == TMS.Core.Enums.ExamScope.TheoreticalAndPractical)
+                    {
+                        <a asp-action="AddQuestion" asp-route-examId="@Model.Id" asp-route-scope="0" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> @T["Exams.TheoreticalQuestion"]
+                        </a>
+                        <a asp-action="AddQuestion" asp-route-examId="@Model.Id" asp-route-scope="1" class="btn btn-warning">
+                            <i class="fas fa-tools"></i> @T["Exams.PracticalQuestion"]
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-action="AddQuestion" asp-route-examId="@Model.Id" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> @T["Exams.AddQuestion"]
+                        </a>
+                    }
+                    <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#bankModal">
+                        <i class="fas fa-database"></i> @T["Exams.FromQuestionBank"]
+                    </a>
+                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">@T["Exams.Details"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body p-0">
+                @if (Model.Questions.Any())
+                {
+                    <table class="table table-bordered table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th style="width:50px">#</th>
+                                <th>@T["Exams.Question"]</th>
+                                <th>@T["Exams.Type"]</th>
+                                <th style="width:80px">@T["Exams.Marks"]</th>
+                                <th>@T["Exams.Options"]</th>
+                                <th style="width:150px">@T["Common.Actions"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var q in Model.Questions.OrderBy(q => q.Order))
+                            {
+                                <tr>
+                                    <td>@q.Order</td>
+                                    <td>
+                                        @q.QuestionTextAr
+                                        @if (q.Scope == TMS.Core.Enums.QuestionScope.Practical)
+                                        {
+                                            <span class="badge bg-warning ms-1">@T["Exams.Practical"]</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-info ms-1">@T["Exams.Theoretical"]</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (q.QuestionType == TMS.Core.Enums.QuestionType.MultipleChoice)
+                                        {
+                                            <span class="badge bg-info">@T["Exams.MultipleChoice"]</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">@T["Exams.TrueFalse"]</span>
+                                        }
+                                    </td>
+                                    <td>@q.Marks</td>
+                                    <td>
+                                        @foreach (var o in q.Options.OrderBy(o => o.Order))
+                                        {
+                                            <div class="@(o.IsCorrect ? "text-success fw-bold" : "")">
+                                                @o.OptionTextAr @if (o.IsCorrect) { <i class="fas fa-check"></i> }
+                                            </div>
+                                        }
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <a asp-action="EditQuestion" asp-route-id="@q.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                        <form asp-action="DeleteQuestion" asp-route-id="@q.Id" method="post" class="d-inline" onsubmit="return confirm('@T["Exams.DeleteQuestionConfirm"]')">
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="text-center text-muted py-5">
+                        @T["Exams.NoQuestions"]
+                        <div class="mt-3">
+                            <a asp-action="AddQuestion" asp-route-examId="@Model.Id" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> @T["Exams.AddQuestion"]
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="bankModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@T["Exams.ChooseFromBank"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="bankModalBody">
+                <div class="text-center text-muted">@T["Exams.Loading"]</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    document.getElementById('bankModal').addEventListener('show.bs.modal', function () {
+        fetch('@Url.Action("Index", "QuestionBank")')
+            .then(r => r.text())
+            .then(html => {
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, 'text/html');
+                var rows = doc.querySelectorAll('table tbody tr');
+                var container = document.getElementById('bankModalBody');
+                if (!rows.length) { container.innerHTML = '<div class="text-muted text-center py-3">@T["Exams.EmptyBank"]</div>'; return; }
+                var table = '<table class="table table-bordered table-sm"><thead><tr><th>@T["Exams.Question"]</th><th>@T["Exams.Type"]</th><th></th></tr></thead><tbody>';
+                rows.forEach(function(tr) {
+                    if (tr.querySelector('td[colspan]')) return;
+                    var tds = tr.querySelectorAll('td');
+                    var id = tds[0].innerText.trim();
+                    var text = tds[1].innerText.trim();
+                    var type = tds[2].innerText.trim();
+                    table += '<tr><td>' + text + '</td><td>' + type + '</td><td><form method="post" action="@Url.Action("ImportToExam", "QuestionBank")"><input type="hidden" name="bankQuestionId" value="' + id + '"/><input type="hidden" name="examId" value="@Model.Id"/><button type="submit" class="btn btn-primary btn-sm">@T["Exams.Import"]</button></form></td></tr>';
+                });
+                table += '</tbody></table>';
+                container.innerHTML = table;
+            });
+    });
+    </script>
+}

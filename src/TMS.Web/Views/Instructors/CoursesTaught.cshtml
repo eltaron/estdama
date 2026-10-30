@@ -1,0 +1,82 @@
+@model IEnumerable<TMS.Core.Entities.Courses.CourseSchedule>
+@{
+    ViewData["Title"] = @T["Instructors.CoursesTaught"];
+    var regCounts = ViewBag.RegistrationCounts as Dictionary<int, int> ?? new();
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Instructors.CoursesTaught"]</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <form asp-action="CoursesTaught" method="get" class="d-flex gap-2 align-items-center">
+                    <label class="form-label mb-0 fw-semibold">@T["Instructors.ChooseInstructor"]</label>
+                    <select name="instructorId" asp-items="ViewBag.Instructors" class="form-select form-select-sm" style="width:auto;">
+                        <option value="">@T["Instructors.AllInstructors"]</option>
+                    </select>
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-filter"></i> @T["Instructors.Filter"]</button>
+                </form>
+            </div>
+            <div class="card-body">
+                @if (!Model.Any())
+                {
+                    <div class="text-center text-muted py-4">@T["Instructors.NoCoursesTaught"]</div>
+                }
+                else
+                {
+                    var grouped = Model.GroupBy(s => s.Instructor);
+                    var grandTotalHours = 0;
+                    var grandTotalTrainees = 0;
+
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>@T["Instructors.Instructor"]</th>
+                                <th>@T["Instructors.CourseCode"]</th>
+                                <th>@T["Instructors.CourseName"]</th>
+                                <th>@T["Instructors.StartDate"]</th>
+                                <th>@T["Instructors.EndDate"]</th>
+                                <th>@T["Instructors.Hours"]</th>
+                                <th>@T["Instructors.Trainees"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var schedule in Model)
+                            {
+                                var totalHours = schedule.Course?.Hours ?? 0;
+                                var totalTrainees = regCounts.ContainsKey(schedule.Id) ? regCounts[schedule.Id] : 0;
+                                grandTotalHours += totalHours;
+                                grandTotalTrainees += totalTrainees;
+                                <tr>
+                                    <td>@($"{schedule.Instructor?.FirstNameAr} {schedule.Instructor?.LastNameAr}")</td>
+                                    <td><code>@schedule.Course?.Code</code></td>
+                                    <td>@(schedule.Course?.NameAr ?? "-")</td>
+                                    <td>@schedule.StartDate.ToString("yyyy-MM-dd")</td>
+                                    <td>@schedule.EndDate.ToString("yyyy-MM-dd")</td>
+                                    <td><span class="badge bg-info">@totalHours @T["Instructors.HoursUnit"]</span></td>
+                                    <td><span class="badge bg-success">@totalTrainees @T["Instructors.TraineesUnit"]</span></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot class="table-warning fw-bold">
+                            <tr>
+                                <td colspan="5" class="text-end">@T["Instructors.Total"]</td>
+                                <td><span class="badge bg-primary">@grandTotalHours @T["Instructors.HoursUnit"]</span></td>
+                                <td><span class="badge bg-primary">@grandTotalTrainees @T["Instructors.TraineesUnit"]</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\TMS.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\TMS.Core.AssemblyInfoInputs.cache
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\TMS.Core.AssemblyInfo.cs
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\TMS.Core.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\bin\Debug\net10.0\TMS.Core.deps.json
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\bin\Debug\net10.0\TMS.Core.dll
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\bin\Debug\net10.0\TMS.Core.pdb
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\TMS.Core.csproj.AssemblyReference.cache
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\TMS.Core.dll
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\refint\TMS.Core.dll
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\TMS.Core.pdb
+C:\Users\Ahmed\Desktop\openai\TMS\src\TMS.Core\obj\Debug\net10.0\ref\TMS.Core.dll

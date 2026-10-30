@@ -1,0 +1,69 @@
+@model List<TMS.Core.Entities.Execution.Certificate>
+@{
+    ViewData["Title"] = @T["Trainees.MyCertificates"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <h1>@T["Trainees.MyCertificates"]</h1>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        @if (!Model.Any())
+        {
+            <div class="card">
+                <div class="card-body text-center text-muted py-4">@T["Trainees.NoCertificates"]</div>
+            </div>
+        }
+        else
+        {
+            <div class="card">
+                <div class="card-body p-0">
+                    <table class="table table-bordered table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>@T["Trainees.SerialNumber"]</th>
+                                <th>@T["Trainees.Course"]</th>
+                                <th>@T["Trainees.IssueDate"]</th>
+                                <th>@T["Trainees.EndDate"]</th>
+                                <th>@T["Common.Status"]</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in Model)
+                            {
+                                <tr>
+                                    <td>@c.SerialNumber</td>
+                                    <td>@c.CourseSchedule.Course.NameAr</td>
+                                    <td>@c.IssueDate.ToString("yyyy-MM-dd")</td>
+                                    <td>@(c.ExpiryDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                                    <td>
+                                        @if (c.IsRevoked)
+                                        {
+                                            <span class="badge bg-danger">@T["Trainees.Revoked"]</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-success">@T["Trainees.Valid"]</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (!c.IsRevoked)
+                                        {
+                                            <a asp-controller="Certificates" asp-action="DownloadPdf" asp-route-id="@c.Id" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-download"></i> @T["Trainees.DownloadPdf"]
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+</section>

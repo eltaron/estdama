@@ -1,0 +1,109 @@
+@model List<TMS.Web.ViewModels.Courses.CourseListViewModel>
+@{
+    ViewData["Title"] = @T["Courses.Title"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Courses.Title"]</h1>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-end">
+                    <a asp-action="Create" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> @T["Courses.AddNew"]
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <form method="get" class="row g-2">
+                    <div class="col-md-3">
+                        <input type="text" name="search" value="@ViewBag.Search" class="form-control" placeholder="@T["Courses.SearchPlaceholder"]" />
+                    </div>
+                    <div class="col-md-3">
+                        <select name="status" asp-items="ViewBag.StatusFilter" class="form-control">
+                            <option value="">-- @T["Courses.AllStatuses"] --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="categoryId" asp-items="ViewBag.Categories" class="form-control">
+                            <option value="">-- @T["Courses.AllCategories"] --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> @T["Common.Search"]</button>
+                        <a asp-action="Index" class="btn btn-secondary">@T["Courses.Reset"]</a>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>@T["Courses.Code"]</th>
+                            <th>@T["Courses.CourseName"]</th>
+                            <th>@T["Courses.Category"]</th>
+                            <th>@T["Courses.Hours"]</th>
+                            <th>@T["Courses.MaxCapacity"]</th>
+                            <th>@T["Common.Status"]</th>
+                            <th>@T["Courses.Schedules"]</th>
+                            <th>@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var course in Model)
+                        {
+                            <tr>
+                                <td><code>@course.Code</code></td>
+                                <td>@course.Name</td>
+                                <td>@(course.CategoryName ?? "-")</td>
+                                <td>@course.Hours</td>
+                                <td>@course.MaxTrainees</td>
+                                <td>
+                                    @switch (course.Status)
+                                    {
+                                        case CourseStatus.Planned:
+                                            <span class="badge bg-secondary">@T["Courses.StatusPlanned"]</span>
+                                            break;
+                                        case CourseStatus.OpenForRegistration:
+                                            <span class="badge bg-primary">@T["Courses.StatusOpen"]</span>
+                                            break;
+                                        case CourseStatus.InProgress:
+                                            <span class="badge bg-warning">@T["Courses.StatusInProgress"]</span>
+                                            break;
+                                        case CourseStatus.Completed:
+                                            <span class="badge bg-success">@T["Courses.StatusCompleted"]</span>
+                                            break;
+                                        case CourseStatus.Cancelled:
+                                            <span class="badge bg-danger">@T["Courses.StatusCancelled"]</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>@course.ScheduleCount</td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@course.Id" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                                    <a asp-action="Edit" asp-route-id="@course.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                    <form asp-action="Delete" asp-route-id="@course.Id" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('@T["Courses.ConfirmDelete"]');"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @if (!Model.Any())
+                {
+                    <div class="text-center text-muted py-4">@T["Courses.NoCourses"]</div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

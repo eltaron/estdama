@@ -1,0 +1,135 @@
+@using TMS.Web.ViewModels.Surveys
+@model SurveyFillViewModel
+@{
+    ViewData["Title"] = @T["Surveys.Fill"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Surveys.Fill"]</h1>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-end align-items-center">
+                <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-right me-1"></i> @T["Common.Back"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <h5 class="mb-3">@Model.CourseName</h5>
+                        <p class="mb-1"><i class="fas fa-chalkboard-teacher text-muted me-1"></i> @Model.InstructorName</p>
+                        <p class="mb-0 text-muted">@Model.StartDate.ToString("yyyy-MM-dd") — @Model.EndDate.ToString("yyyy-MM-dd")</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-outline card-info">
+                    <div class="card-body">
+                        <p class="mb-2">@T["Surveys.RatingScale"]</p>
+                        <input type="checkbox" class="btn-check" id="anonymousToggle" checked />
+                        <label class="btn btn-outline-secondary" for="anonymousToggle">
+                            <i class="fas fa-user-secret me-1"></i> @T["Surveys.Anonymous"]
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form method="post" asp-action="Fill">
+            <input type="hidden" asp-for="CourseScheduleId" />
+            <input type="hidden" asp-for="CourseName" />
+            <input type="hidden" asp-for="InstructorName" />
+            <input type="hidden" asp-for="StartDate" />
+            <input type="hidden" asp-for="EndDate" />
+            <input type="hidden" name="@Html.NameFor(m => m.IsAnonymous)" id="anonymousValue" value="true" />
+            <div class="card">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>@T["Surveys.Trainee"]</th>
+                                    <th class="text-center">@T["Surveys.InstructorRating"]</th>
+                                    <th class="text-center">@T["Surveys.ContentRating"]</th>
+                                    <th class="text-center">@T["Surveys.FacilitiesRating"]</th>
+                                    <th>@T["Surveys.Notes"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Rows.Count; i++)
+                                {
+                                    var r = Model.Rows[i];
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Rows[i].TraineeId" />
+                                            <input type="hidden" asp-for="@Model.Rows[i].TraineeName" />
+                                            @r.TraineeName
+                                            @if (r.HasExisting)
+                                            {
+                                                <span class="badge bg-warning ms-1">@T["Surveys.AlreadySaved"]</span>
+                                            }
+                                        </td>
+                                        <td class="text-center">
+                                            <select asp-for="@Model.Rows[i].InstructorRating" class="form-select form-select-sm mx-auto" style="min-width:90px;">
+                                                <option value="">—</option>
+                                                @for (int v = 1; v <= 5; v++)
+                                                {
+                                                    <option value="@v" selected="@(r.InstructorRating == v)">@v</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class="text-center">
+                                            <select asp-for="@Model.Rows[i].ContentRating" class="form-select form-select-sm mx-auto" style="min-width:90px;">
+                                                <option value="">—</option>
+                                                @for (int v = 1; v <= 5; v++)
+                                                {
+                                                    <option value="@v" selected="@(r.ContentRating == v)">@v</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class="text-center">
+                                            <select asp-for="@Model.Rows[i].FacilitiesRating" class="form-select form-select-sm mx-auto" style="min-width:90px;">
+                                                <option value="">—</option>
+                                                @for (int v = 1; v <= 5; v++)
+                                                {
+                                                    <option value="@v" selected="@(r.FacilitiesRating == v)">@v</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input asp-for="@Model.Rows[i].Notes" class="form-control form-control-sm" />
+                                        </td>
+                                    </tr>
+                                }
+                                @if (Model.Rows.Count == 0)
+                                {
+                                    <tr><td colspan="5" class="text-center text-muted py-4">@T["Reports.NoData"]</td></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" @(Model.Rows.Count == 0 ? "disabled" : "")>
+                        <i class="fas fa-save me-1"></i> @T["Surveys.SaveRatings"]
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.getElementById('anonymousToggle').addEventListener('change', function () {
+            document.getElementById('anonymousValue').value = this.checked ? 'true' : 'false';
+        });
+    </script>
+}

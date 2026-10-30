@@ -1,0 +1,162 @@
+@model List<TMS.Web.ViewModels.Reports.CourseReportRow>
+@using TMS.Core.Enums
+@{
+    ViewData["Title"] = @T["Reports.CoursesReport"];
+
+    var isAr = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
+    var statusName = new Dictionary<CourseStatus, string>
+    {
+        [CourseStatus.Planned] = T["Courses.StatusPlanned"].Value,
+        [CourseStatus.OpenForRegistration] = T["Courses.StatusOpen"].Value,
+        [CourseStatus.InProgress] = T["Courses.StatusInProgress"].Value,
+        [CourseStatus.Completed] = T["Courses.StatusCompleted"].Value,
+        [CourseStatus.Cancelled] = T["Courses.StatusCancelled"].Value
+    };
+    var statusBadge = new Dictionary<CourseStatus, string>
+    {
+        [CourseStatus.Planned] = "bg-secondary",
+        [CourseStatus.OpenForRegistration] = "bg-primary",
+        [CourseStatus.InProgress] = "bg-warning",
+        [CourseStatus.Completed] = "bg-success",
+        [CourseStatus.Cancelled] = "bg-danger"
+    };
+
+    var totalSchedules = Model.Sum(c => c.ScheduleCount);
+    var totalRegistrations = Model.Sum(c => c.RegistrationCount);
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Reports.CoursesReport"]</h1></div>
+            <div class="col-sm-6 text-end no-print">
+                <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-right"></i> @T["Common.Back"]</a>
+                <button class="btn btn-brand" onclick="window.print()"><i class="fas fa-print"></i> @T["TrainingPlans.Print"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="card mb-3">
+            <div class="card-header no-print">
+                <h5 class="mb-0"><i class="fas fa-filter"></i> @T["TrainingPlans.Filter"]</h5>
+            </div>
+            <div class="card-body no-print">
+                <form method="get" class="row g-2">
+                    <div class="col-md-4">
+                        <input type="text" name="search" value="@ViewBag.SearchFilter" class="form-control" placeholder="@T["TrainingPlans.SearchPlaceholder"]" />
+                    </div>
+                    <div class="col-md-2">
+                        <select name="categoryId" class="form-select">
+                            <option value="">@T["Courses.AllCategories"]</option>
+                            @foreach (var c in ViewBag.Categories)
+                            {
+                                <option value="@c.Value" selected="@(ViewBag.CategoryFilter?.ToString() == c.Value)">@c.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="year" class="form-select">
+                            <option value="">@T["Reports.AllYears"]</option>
+                            @foreach (int y in ViewBag.Years)
+                            {
+                                <option value="@y" selected="@(ViewBag.YearFilter?.ToString() == y.ToString())">@y</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="status" class="form-select">
+                            <option value="">@T["Courses.AllStatuses"]</option>
+                            @foreach (var kv in statusName)
+                            {
+                                <option value="@((int)kv.Key)" selected="@(ViewBag.StatusFilter != null && (int)ViewBag.StatusFilter == (int)kv.Key)">@kv.Value</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> @T["Common.Search"]</button>
+                        <a asp-action="CourseReport" class="btn btn-secondary" title="@T["TrainingPlans.Reset"]"><i class="fas fa-undo"></i></a>
+                        <button type="submit" name="export" value="excel" class="btn btn-success" title="@T["Exports.ExcelTitle"]"><i class="fas fa-file-excel"></i> @T["Exports.Excel"]</button>
+                        <button type="submit" name="export" value="pdf" class="btn btn-danger" title="@T["Exports.PdfTitle"]"><i class="fas fa-file-pdf"></i> @T["Exports.Pdf"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row g-2 mb-3">
+            <div class="col-md-3">
+                <div class="small-box bg-info">
+                    <div class="inner"><h3>@Model.Count</h3><p>@T["Reports.TotalCourses"]</p></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-primary">
+                    <div class="inner"><h3>@totalSchedules</h3><p>@T["Reports.ScheduleCount"]</p></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-success">
+                    <div class="inner"><h3>@totalRegistrations</h3><p>@T["Reports.RegisteredCount"]</p></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-warning">
+                    <div class="inner"><h3>@Model.Sum(c => c.Hours)</h3><p>@T["Courses.Hours"]</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>@T["Courses.Code"]</th>
+                                <th>@T["Reports.Course"]</th>
+                                <th>@T["Reports.Category"]</th>
+                                <th class="text-center">@T["Courses.Hours"]</th>
+                                <th>@T["Common.Status"]</th>
+                                <th class="text-center">@T["Reports.ScheduleCount"]</th>
+                                <th class="text-center">@T["Reports.RegisteredCount"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in Model)
+                            {
+                                <tr>
+                                    <td>@c.Code</td>
+                                    <td>@(isAr ? c.NameAr : c.NameEn)</td>
+                                    <td>@c.CategoryName</td>
+                                    <td class="text-center">@c.Hours</td>
+                                    <td><span class="badge @statusBadge[c.Status]">@statusName[c.Status]</span></td>
+                                    <td class="text-center">@c.ScheduleCount</td>
+                                    <td class="text-center"><span class="badge bg-primary">@c.RegistrationCount</span></td>
+                                </tr>
+                            }
+                            @if (!Model.Any())
+                            {
+                                <tr><td colspan="7" class="text-center text-muted py-4">@T["Reports.NoResults"]</td></tr>
+                            }
+                        </tbody>
+                        @if (Model.Any())
+                        {
+                            <tfoot class="table-light">
+                                <tr>
+                                    <th colspan="4">@T["Reports.Total"]</th>
+                                    <th></th>
+                                    <th class="text-center">@totalSchedules</th>
+                                    <th class="text-center">@totalRegistrations</th>
+                                </tr>
+                            </tfoot>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

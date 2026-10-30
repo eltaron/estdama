@@ -1,0 +1,98 @@
+@model List<TMS.Core.Entities.Resources.Equipment>
+@{
+    ViewData["Title"] = @T["Equipment.Title"];
+
+    var categories = new Dictionary<EquipmentCategory, string>
+    {
+        [EquipmentCategory.Projector] = T["Equipment.CategoryProjector"].Value,
+        [EquipmentCategory.Laptop] = T["Equipment.CategoryLaptop"].Value,
+        [EquipmentCategory.Whiteboard] = T["Equipment.CategoryWhiteboard"].Value,
+        [EquipmentCategory.Other] = T["Equipment.CategoryOther"].Value
+    };
+
+    var conditions = new Dictionary<EquipmentCondition, string>
+    {
+        [EquipmentCondition.Good] = T["Equipment.ConditionGood"].Value,
+        [EquipmentCondition.Fair] = T["Equipment.ConditionFair"].Value,
+        [EquipmentCondition.Poor] = T["Equipment.ConditionPoor"].Value,
+        [EquipmentCondition.UnderMaintenance] = T["Equipment.ConditionUnderMaintenance"].Value
+    };
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Equipment.Title"]</h1></div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> @T["Equipment.AddNew"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@T["Equipment.Name"]</th>
+                            <th>@T["Equipment.Code"]</th>
+                            <th>@T["Equipment.Category"]</th>
+                            <th>@T["Equipment.Condition"]</th>
+                            <th>@T["Equipment.Availability"]</th>
+                            <th>@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var e in Model)
+                        {
+                            <tr>
+                                <td>@e.NameAr <small class="text-muted">@e.NameEn</small></td>
+                                <td><code>@e.Code</code></td>
+                                <td>@(categories.TryGetValue(e.Category, out var c) ? c : e.Category.ToString())</td>
+                                <td>
+                                    @if (e.Condition == EquipmentCondition.UnderMaintenance)
+                                    {
+                                        <span class="badge bg-warning">@T["Equipment.ConditionUnderMaintenance"]</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">@conditions[e.Condition]</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (e.IsAvailable)
+                                    {
+                                        <span class="badge bg-success">@T["Equipment.Available"]</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">@T["Equipment.Unavailable"]</span>
+                                    }
+                                </td>
+                                <td class="text-nowrap">
+                                    <form asp-action="ToggleAvailability" asp-route-id="@e.Id" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm @(e.IsAvailable ? "btn-outline-danger" : "btn-outline-success")" title="@(e.IsAvailable ? T["Common.Disable"] : T["Common.Enable"])">
+                                            <i class="fas @(e.IsAvailable ? "fa-ban" : "fa-check")"></i>
+                                        </button>
+                                    </form>
+                                    <form asp-action="Delete" asp-route-id="@e.Id" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('@T["Equipment.DeleteConfirm"]')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        @if (!Model.Any())
+                        {
+                            <tr><td colspan="6" class="text-center text-muted py-4">@T["Equipment.Empty"]</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

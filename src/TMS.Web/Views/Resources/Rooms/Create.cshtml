@@ -1,0 +1,63 @@
+@model TMS.Core.Entities.Resources.Room
+@{
+    ViewData["Title"] = @T["Rooms.AddNew"];
+}
+
+<div class="content-header"><div class="container-fluid"><h1>@T["Rooms.AddNewTitle"]</h1></div></div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="Create" method="post">
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="NameAr" class="form-label">@T["Rooms.NameAr"]</label>
+                                <input asp-for="NameAr" class="form-control" />
+                                <span asp-validation-for="NameAr" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="NameEn" class="form-label">@T["Rooms.NameEn"]</label>
+                                <input asp-for="NameEn" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Code" class="form-label">@T["Rooms.Code"]</label>
+                                <input asp-for="Code" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Capacity" class="form-label">@T["Rooms.Capacity"]</label>
+                                <input asp-for="Capacity" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Location" class="form-label">@T["Rooms.Location"]</label>
+                                <input asp-for="Location" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Facilities" class="form-label">@T["Rooms.Facilities"]</label>
+                                <input asp-for="Facilities" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.Save"]</button>
+                    <a asp-action="Index" class="btn btn-secondary">@T["Rooms.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

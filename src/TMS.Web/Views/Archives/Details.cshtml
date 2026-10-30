@@ -1,0 +1,138 @@
+@model TMS.Core.Entities.Archive.ArchiveDocument
+@{
+    ViewData["Title"] = @T["Archives.DetailsTitle"] + " " + Model.Code;
+    var typeName = new Dictionary<TMS.Core.Enums.ArchiveDocumentType, string>
+    {
+        [TMS.Core.Enums.ArchiveDocumentType.Incoming] = T["Archives.TypeIncoming"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.Outgoing] = T["Archives.TypeOutgoing"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.InternalMemo] = T["Archives.TypeInternalMemo"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.Other] = T["Archives.TypeOther"].Value
+    };
+
+    string FormatSize(long bytes)
+    {
+        if (bytes >= 1024 * 1024) return $"{bytes / (1024.0 * 1024.0):0.###} MB";
+        if (bytes >= 1024) return $"{bytes / 1024.0:0.#} KB";
+        return $"{bytes} bytes";
+    }
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Archives.DetailsTitle"]</h1></div>
+            <div class="col-sm-6">
+                <div class="float-end">
+                    <a asp-action="Download" asp-route-id="@Model.Id" class="btn btn-primary"><i class="fas fa-download"></i> @T["Archives.DownloadFile"]</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-right"></i> @T["Archives.BackToSearch"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@Model.TitleAr</h3>
+                        <div class="card-tools"><span class="badge bg-secondary">@typeName[Model.DocType]</span></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-4"><strong class="text-muted">@T["Archives.ArchiveNumber"]</strong></div>
+                            <div class="col-md-8"><span class="badge bg-primary" style="font-size:1rem;">@Model.Code</span></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4"><strong class="text-muted">@T["Archives.DocumentDate"]</strong></div>
+                            <div class="col-md-8">@Model.DocumentDate.ToString("yyyy-MM-dd")</div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.SenderName))
+                        {
+                            <div class="row mb-3">
+                                <div class="col-md-4"><strong class="text-muted">@T["Archives.IncomingFrom"]</strong></div>
+                                <div class="col-md-8">@Model.SenderName</div>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.RecipientName))
+                        {
+                            <div class="row mb-3">
+                                <div class="col-md-4"><strong class="text-muted">@T["Archives.OutgoingTo"]</strong></div>
+                                <div class="col-md-8">@Model.RecipientName</div>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.Subject))
+                        {
+                            <div class="row mb-3">
+                                <div class="col-md-4"><strong class="text-muted">@T["Archives.Subject"]</strong></div>
+                                <div class="col-md-8">@Model.Subject</div>
+                            </div>
+                        }
+                        <div class="row mb-3">
+                            <div class="col-md-4"><strong class="text-muted">@T["Common.Department"]</strong></div>
+                            <div class="col-md-8">@(Model.Department?.NameAr ?? "-")</div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.Notes))
+                        {
+                            <div class="row mb-3">
+                                <div class="col-md-4"><strong class="text-muted">@T["Archives.Notes"]</strong></div>
+                                <div class="col-md-8">@Model.Notes</div>
+                            </div>
+                        }
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4"><strong class="text-muted">@T["Archives.DocumentFile"]</strong></div>
+                            <div class="col-md-8">
+                                <i class="fas fa-file-alt text-primary me-1"></i> @Model.OriginalFileName
+                                <span class="badge bg-light text-dark ms-1">@FormatSize(Model.FileSize)</span>
+                                @if (Model.FilePath != null && System.IO.Path.GetExtension(Model.FilePath).ToLowerInvariant() is ".pdf" or ".jpg" or ".jpeg" or ".png")
+                                {
+                                    <div class="mt-2">
+                                        <iframe src="~/@Model.FilePath" style="width:100%;height:500px;border:1px solid #dee2e6;border-radius:5px;"></iframe>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
+                            @T["Archives.AddedOn"] @Model.CreatedAt.ToString("yyyy-MM-dd HH:mm")
+                            @if (Model.CreatedBy != null)
+                            {
+                                <text>@T["Archives.AddedBy"] @Model.CreatedBy.FullNameAr</text>
+                            }
+                        </small>
+                        <form asp-action="Delete" method="post" class="d-inline float-end"
+                              onsubmit="return confirm('@T["Archives.ConfirmDeleteDocument"]');">
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> @T["Archives.DeleteDocument"]</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Archives.ArchiveInfo"]</h3></div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>@T["Archives.Year"]</span><strong>@Model.Year</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>@T["Archives.SequenceNumber"]</span><strong>@Model.Sequence</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>@T["Archives.OriginalFileName"]</span><strong class="text-truncate" style="max-width:160px;">@Model.OriginalFileName</strong>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>@T["Archives.FileSize"]</span><strong>@FormatSize(Model.FileSize)</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

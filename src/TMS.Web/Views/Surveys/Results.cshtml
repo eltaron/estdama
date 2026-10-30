@@ -1,0 +1,133 @@
+@using TMS.Web.ViewModels.Surveys
+@model SurveyResultsViewModel
+@{
+    ViewData["Title"] = @T["Surveys.Results"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Surveys.Results"]</h1>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-end align-items-center">
+                <a asp-action="Fill" asp-route-id="@Model.CourseScheduleId" class="btn btn-primary me-1">
+                    <i class="fas fa-pen me-1"></i> @T["Surveys.Fill"]
+                </a>
+                <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-right me-1"></i> @T["Common.Back"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@Model.CourseName</h3>
+                        <p>@Model.InstructorName</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@Model.ResponseCount</h3>
+                        <p>@T["Surveys.Responses"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>@(Model.InstructorOverallAverage?.ToString("0.00") ?? "—")</h3>
+                        <p>@T["Surveys.Overall"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>@Model.InstructorEvaluationCount</h3>
+                        <p>@T["Surveys.EvaluationCount"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Surveys.AverageRating"]</h3></div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>@T["Surveys.Question"]</th>
+                                    <th class="text-center">@T["Surveys.AverageRating"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var q in Model.Questions)
+                                {
+                                    <tr>
+                                        <td>@q.Title</td>
+                                        <td class="text-center">
+                                            @if (q.Average.HasValue)
+                                            {
+                                                <span class="text-warning"><i class="fas fa-star"></i> @q.Average.Value.ToString("0.00") / 5</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">@T["Reports.NoData"]</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                                @if (Model.Questions.Count == 0)
+                                {
+                                    <tr><td colspan="2" class="text-center text-muted py-3">@T["Reports.NoData"]</td></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Surveys.Comments"]</h3></div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            @foreach (var c in Model.Comments)
+                            {
+                                <li class="list-group-item">
+                                    <div class="small text-muted mb-1">
+                                        @if (c.Anonymous)
+                                        {
+                                            <span class="badge bg-secondary">@T["Surveys.Anonymous"]</span>
+                                        }
+                                        else
+                                        {
+                                            @c.TraineeName
+                                        }
+                                    </div>
+                                    @c.Text
+                                </li>
+                            }
+                            @if (Model.Comments.Count == 0)
+                            {
+                                <li class="list-group-item text-center text-muted py-4">@T["Surveys.NoComments"]</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

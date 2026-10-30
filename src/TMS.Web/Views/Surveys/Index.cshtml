@@ -1,0 +1,73 @@
+@using TMS.Web.ViewModels.Surveys
+@model List<SurveyListItemViewModel>
+@{
+    ViewData["Title"] = @T["Surveys.Title"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Surveys.Title"]</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>@T["Surveys.Course"]</th>
+                                <th>@T["Surveys.Instructor"]</th>
+                                <th>@T["Surveys.Period"]</th>
+                                <th class="text-center">@T["Surveys.Responses"]</th>
+                                <th class="text-center">@T["Surveys.AverageRating"]</th>
+                                <th class="text-center">@T["Surveys.Actions"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var s in Model)
+                            {
+                                <tr>
+                                    <td>@s.CourseName</td>
+                                    <td>@s.InstructorName</td>
+                                    <td>@s.StartDate.ToString("yyyy-MM-dd") ⇦ @s.EndDate.ToString("yyyy-MM-dd")</td>
+                                    <td class="text-center">
+                                        <span class="badge @(s.ResponseCount > 0 ? "bg-success" : "bg-secondary")">@s.ResponseCount</span>
+                                    </td>
+                                    <td class="text-center">
+                                        @if (s.AverageRating.HasValue)
+                                        {
+                                            <span class="text-warning"><i class="fas fa-star"></i> @s.AverageRating.Value.ToString("0.00")</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">—</span>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        <a asp-action="Fill" asp-route-id="@s.ScheduleId" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-pen"></i> @T["Surveys.Fill"]
+                                        </a>
+                                        <a asp-action="Results" asp-route-id="@s.ScheduleId" class="btn btn-sm btn-info">
+                                            <i class="fas fa-chart-bar"></i> @T["Surveys.Results"]
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                            @if (Model.Count == 0)
+                            {
+                                <tr><td colspan="6" class="text-center text-muted py-4">@T["Reports.NoData"]</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

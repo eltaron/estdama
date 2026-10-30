@@ -1,0 +1,91 @@
+@{
+    ViewData["Title"] = @T["Trainees.MyTrainingReport"];
+    var name = ViewBag.TraineeName as string ?? "-";
+    var nationalId = ViewBag.NationalId as string;
+    var organization = ViewBag.Organization as string;
+    var directorate = ViewBag.Directorate as string;
+    var jobTitle = ViewBag.JobTitle as string;
+    var courses = (List<TMS.Infrastructure.Services.TraineeFileCourse>)ViewBag.CompletedCourses;
+    var totalCourses = ViewBag.TotalCourses as int? ?? 0;
+    var totalHours = ViewBag.TotalHours as int? ?? 0;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Trainees.MyTrainingReport"]</h1></div>
+            <div class="col-sm-6 text-end">
+                <button class="btn btn-brand" onclick="window.print()"><i class="fas fa-print"></i> @T["Trainees.Print"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="border-bottom pb-3 mb-3 row">
+                    <div class="col-md-4"><strong>@T["Trainees.Name"]:</strong> @name</div>
+                    <div class="col-md-4"><strong>@T["Trainees.NationalId"]:</strong> @(nationalId ?? "-")</div>
+                    <div class="col-md-4"><strong>@T["Trainees.JobTitle"]:</strong> @(jobTitle ?? "-")</div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-md-6"><strong>@T["Trainees.Organization"]:</strong> @(organization ?? "-")</div>
+                    <div class="col-md-6"><strong>@T["Trainees.Directorate"]:</strong> @(directorate ?? "-")</div>
+                </div>
+
+                <h5 class="mb-3"><i class="fas fa-graduation-cap"></i> @T["Trainees.CompletedCourses"]</h5>
+
+                @if (!courses.Any())
+                {
+                    <div class="text-center text-muted py-4">@T["Trainees.NoCompletedCourses"]</div>
+                }
+                else
+                {
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>@T["Trainees.CourseCode"]</th>
+                                <th>@T["Trainees.CourseName"]</th>
+                                <th>@T["Trainees.Instructor"]</th>
+                                <th>@T["Trainees.StartDate"]</th>
+                                <th>@T["Trainees.EndDate"]</th>
+                                <th>@T["Trainees.Hours"]</th>
+                                <th>@T["Common.Status"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in courses)
+                            {
+                                <tr>
+                                    <td><code>@c.CourseCode</code></td>
+                                    <td>@c.CourseName</td>
+                                    <td>@c.TrainerName</td>
+                                    <td>@c.StartDate.ToString("yyyy-MM-dd")</td>
+                                    <td>@c.EndDate.ToString("yyyy-MM-dd")</td>
+                                    <td><span class="badge bg-info">@c.Hours @T["Trainees.HoursUnit"]</span></td>
+                                    <td><span class="badge bg-success">@c.Status</span></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot class="table-warning fw-bold">
+                            <tr>
+                                <td colspan="5" class="text-end">@T["Trainees.Total"]</td>
+                                <td>@totalHours @T["Trainees.HoursUnit"]</td>
+                                <td>@totalCourses @T["Trainees.CoursesUnit"]</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @@media print {
+        .main-header, .main-footer, .content-header .btn { display: none !important; }
+        body { background: #fff; }
+    }
+</style>

@@ -1,0 +1,35 @@
+@model TMS.Core.Entities.Courses.Course
+@{
+    ViewData["Title"] = @T["Courses.PostponeTitle"];
+}
+
+<div class="content-header">
+    <div class="container-fluid"><h1>@T["Courses.PostponeTitle"]: @Model.NameAr</h1></div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="Postpone" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-clock"></i> @T["Courses.PostponeHint"]
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">@T["Courses.PostponeDays"]</label>
+                                <input type="number" name="days" class="form-control" min="1" value="7" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-warning"><i class="fas fa-clock"></i> @T["Courses.Postpone"]</button>
+                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">@T["Courses.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

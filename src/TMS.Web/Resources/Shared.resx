@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Title.Dashboard" xml:space="preserve"><value>Dashboard</value></data>
+  <data name="Title.Users" xml:space="preserve"><value>Users</value></data>
+  <data name="Title.AddUser" xml:space="preserve"><value>Add User</value></data>
+  <data name="Title.EditUser" xml:space="preserve"><value>Edit User</value></data>
+  <data name="Title.ResetPassword" xml:space="preserve"><value>Reset Password</value></data>
+  <data name="Title.Roles" xml:space="preserve"><value>Roles &amp; Permissions</value></data>
+  <data name="Title.AddRole" xml:space="preserve"><value>Add Role</value></data>
+  <data name="Title.EditRole" xml:space="preserve"><value>Edit Role &amp; Permissions</value></data>
+  <data name="Title.Login" xml:space="preserve"><value>Sign In</value></data>
+  <data name="Title.AccessDenied" xml:space="preserve"><value>Access Denied</value></data>
+  <data name="Title.Error" xml:space="preserve"><value>Error</value></data>
+
+  <data name="Common.Back" xml:space="preserve"><value>Back</value></data>
+  <data name="Common.Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Common.SaveChanges" xml:space="preserve"><value>Save Changes</value></data>
+  <data name="Common.SavePermissions" xml:space="preserve"><value>Save Permissions</value></data>
+  <data name="Common.Add" xml:space="preserve"><value>Add</value></data>
+  <data name="Common.Edit" xml:space="preserve"><value>Edit</value></data>
+  <data name="Common.Delete" xml:space="preserve"><value>Delete</value></data>
+  <data name="Common.Search" xml:space="preserve"><value>Search</value></data>
+  <data name="Common.Actions" xml:space="preserve"><value>Actions</value></data>
+  <data name="Common.Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Common.Active" xml:space="preserve"><value>Active</value></data>
+  <data name="Common.Inactive" xml:space="preserve"><value>Inactive</value></data>
+  <data name="Common.Disable" xml:space="preserve"><value>Disable</value></data>
+  <data name="Common.Enable" xml:space="preserve"><value>Enable</value></data>
+  <data name="Common.Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Common.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Common.Password" xml:space="preserve"><value>Password</value></data>
+  <data name="Common.Role" xml:space="preserve"><value>Role</value></data>
+  <data name="Common.Department" xml:space="preserve"><value>Department</value></data>
+  <data name="Common.Description" xml:space="preserve"><value>Description</value></data>
+  <data name="Common.All" xml:space="preserve"><value>All</value></data>
+  <data name="Common.System" xml:space="preserve"><value>System</value></data>
+  <data name="Common.ConfirmDelete" xml:space="preserve"><value>Are you sure you want to delete this item?</value></data>
+  <data name="Common.NoResults" xml:space="preserve"><value>No matching records found</value></data>
+  <data name="Common.ResetPassword" xml:space="preserve"><value>Reset Password</value></data>
+  <data name="Common.Permissions" xml:space="preserve"><value>Permissions</value></data>
+  <data name="Common.SelectAll" xml:space="preserve"><value>Select All</value></data>
+  <data name="Common.UnselectAll" xml:space="preserve"><value>Deselect All</value></data>
+  <data name="Common.RecordAttendance" xml:space="preserve"><value>Record Attendance</value></data>
+  <data name="Common.User" xml:space="preserve"><value>User</value></data>
+  <data name="Common.BasicData" xml:space="preserve"><value>Basic Information</value></data>
+  <data name="Common.LoginData" xml:space="preserve"><value>Account Credentials</value></data>
+  <data name="Common.PasswordHint" xml:space="preserve"><value>Password must be at least 6 characters and contain numbers and lowercase/uppercase English letters</value></data>
+  <data name="Common.NewPassword" xml:space="preserve"><value>New Password</value></data>
+  <data name="Common.WithoutDept" xml:space="preserve"><value>No Department</value></data>
+  <data name="Common.ChooseRole" xml:space="preserve"><value>Select role</value></data>
+
+  <data name="Nav.Dashboard" xml:space="preserve"><value>Dashboard</value></data>
+  <data name="Nav.Courses" xml:space="preserve"><value>Courses</value></data>
+  <data name="Nav.CourseCategories" xml:space="preserve"><value>Course Categories</value></data>
+  <data name="Nav.TrainingPlans" xml:space="preserve"><value>Training Plans</value></data>
+  <data name="Nav.Trainees" xml:space="preserve"><value>Trainees</value></data>
+  <data name="Nav.TraineeList" xml:space="preserve"><value>Trainee List</value></data>
+  <data name="Nav.AddTrainee" xml:space="preserve"><value>Add Trainee</value></data>
+  <data name="Nav.Import" xml:space="preserve"><value>Import</value></data>
+  <data name="Nav.Instructors" xml:space="preserve"><value>Instructors</value></data>
+  <data name="Nav.InstructorList" xml:space="preserve"><value>Instructor List</value></data>
+  <data name="Nav.AddInstructor" xml:space="preserve"><value>Add Instructor</value></data>
+  <data name="Nav.CoursesTaught" xml:space="preserve"><value>Courses Taught</value></data>
+  <data name="Nav.Operations" xml:space="preserve"><value>Operations</value></data>
+  <data name="Nav.Attendance" xml:space="preserve"><value>Attendance</value></data>
+  <data name="Nav.Exams" xml:space="preserve"><value>Exams</value></data>
+  <data name="Nav.QuestionBank" xml:space="preserve"><value>Question Bank</value></data>
+  <data name="Nav.Resources" xml:space="preserve"><value>Resources</value></data>
+  <data name="Nav.Finance" xml:space="preserve"><value>Finance</value></data>
+  <data name="Nav.Archive" xml:space="preserve"><value>Archive</value></data>
+  <data name="Nav.ArchiveDashboard" xml:space="preserve"><value>Archive Dashboard</value></data>
+  <data name="Nav.SearchArchive" xml:space="preserve"><value>Search Archive</value></data>
+  <data name="Nav.ArchiveNewDocument" xml:space="preserve"><value>Archive New Document</value></data>
+  <data name="Nav.Reports" xml:space="preserve"><value>Reports</value></data>
+  <data name="Nav.UsersPermissions" xml:space="preserve"><value>Users &amp; Permissions</value></data>
+  <data name="Nav.Users" xml:space="preserve"><value>Users</value></data>
+  <data name="Nav.Roles" xml:space="preserve"><value>Roles</value></data>
+  <data name="Nav.Logout" xml:space="preserve"><value>Logout</value></data>
+  <data name="Nav.ToggleLanguage" xml:space="preserve"><value>English</value></data>
+  <data name="Nav.MyTrainingReport" xml:space="preserve"><value>My Training Report</value></data>
+  <data name="Nav.MySchedule" xml:space="preserve"><value>My Training Schedule</value></data>
+  <data name="Nav.MyCertificates" xml:space="preserve"><value>My Certificates</value></data>
+  <data name="Nav.Version" xml:space="preserve"><value>Version</value></data>
+
+  <data name="Users.Manage" xml:space="preserve"><value>User Management</value></data>
+  <data name="Users.AddNew" xml:space="preserve"><value>Add User</value></data>
+  <data name="Users.Count" xml:space="preserve"><value>users</value></data>
+  <data name="Users.SearchPlaceholder" xml:space="preserve"><value>Search by name, email, or employee number</value></data>
+  <data name="Users.AllRoles" xml:space="preserve"><value>All roles</value></data>
+  <data name="Users.Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Users.EmployeeNumber" xml:space="preserve"><value>Employee Number</value></data>
+  <data name="Users.LoginData" xml:space="preserve"><value>Account Credentials</value></data>
+
+  <data name="Roles.Role" xml:space="preserve"><value>Role</value></data>
+  <data name="Roles.ManagePermissions" xml:space="preserve"><value>Manage Permissions</value></data>
+  <data name="Roles.AddNew" xml:space="preserve"><value>Add Role</value></data>
+  <data name="Roles.Manage" xml:space="preserve"><value>Role Management</value></data>
+  <data name="Roles.Count" xml:space="preserve"><value>roles</value></data>
+  <data name="Roles.UserCount" xml:space="preserve"><value>Users</value></data>
+  <data name="Roles.PermissionCount" xml:space="preserve"><value>Permissions</value></data>
+  <data name="Roles.SystemRole" xml:space="preserve"><value>System</value></data>
+  <data name="Roles.ConfirmDelete" xml:space="preserve"><value>Are you sure you want to delete this role?</value></data>
+  <data name="Roles.RoleData" xml:space="preserve"><value>Role Details</value></data>
+  <data name="Roles.AfterCreateHint" xml:space="preserve"><value>After creating the role you will be redirected to the permissions screen.</value></data>
+  <data name="Roles.SystemRoleAllPerms" xml:space="preserve"><value>System role - has all permissions</value></data>
+  <data name="Roles.CannotEditAdminPerms" xml:space="preserve"><value>Admin role permissions cannot be modified; it automatically has all permissions.</value></data>
+  <data name="Roles.CreateRole" xml:space="preserve"><value>Create Role</value></data>
+
+  <data name="Denied.NoAccess" xml:space="preserve"><value>You do not have permission</value></data>
+  <data name="Denied.Message" xml:space="preserve"><value>You are not authorized to access this page</value></data>
+  <data name="Denied.Hint" xml:space="preserve"><value>This page is only available to certain permissions in the system.</value></data>
+  <data name="Denied.BackHome" xml:space="preserve"><value>Back to Home</value></data>
+
+  <data name="Dash.ActiveCourses" xml:space="preserve"><value>Active Courses</value></data>
+  <data name="Dash.RegisteredTrainees" xml:space="preserve"><value>Registered Trainees</value></data>
+  <data name="Dash.Instructors" xml:space="preserve"><value>Instructors</value></data>
+  <data name="Dash.IssuedCertificates" xml:space="preserve"><value>Issued Certificates</value></data>
+  <data name="Dash.More" xml:space="preserve"><value>More</value></data>
+  <data name="Dash.StatsLast6Months" xml:space="preserve"><value>Last 6 Months Statistics</value></data>
+  <data name="Dash.UpcomingSchedules" xml:space="preserve"><value>Upcoming Schedules</value></data>
+  <data name="Dash.InProgress" xml:space="preserve"><value>in progress</value></data>
+  <data name="Dash.NoUpcoming" xml:space="preserve"><value>No upcoming schedules</value></data>
+  <data name="Dash.RecordAttendance" xml:space="preserve"><value>Record Attendance</value></data>
+  <data name="Dash.CoursesAdded" xml:space="preserve"><value>Courses Added</value></data>
+  <data name="Dash.CertificatesIssued" xml:space="preserve"><value>Certificates Issued</value></data>
+
+  <data name="Login.Subtitle" xml:space="preserve"><value>Estidama | Training Management System</value></data>
+  <data name="Login.Hero" xml:space="preserve"><value>Your unified platform for managing<br/>training and professional development</value></data>
+  <data name="Login.HeroText" xml:space="preserve"><value>Track training paths, manage trainees and instructors, prepare plans and classes, and evaluate results — all in one integrated, secure system.</value></data>
+  <data name="Login.FeaturePlans" xml:space="preserve"><value>Guided training plans and categories</value></data>
+  <data name="Login.FeatureAttendance" xml:space="preserve"><value>Interactive attendance tracking</value></data>
+  <data name="Login.FeatureExams" xml:space="preserve"><value>Exams, question bank, and certificates</value></data>
+  <data name="Login.FeatureReports" xml:space="preserve"><value>Detailed reports and finance</value></data>
+  <data name="Login.Copyright" xml:space="preserve"><value>All rights reserved</value></data>
+  <data name="Login.SignIn" xml:space="preserve"><value>Sign In</value></data>
+  <data name="Login.Prompt" xml:space="preserve"><value>Enter your details to access the dashboard</value></data>
+  <data name="Login.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Login.Password" xml:space="preserve"><value>Password</value></data>
+  <data name="Login.RememberMe" xml:space="preserve"><value>Remember me</value></data>
+  <data name="Login.Submit" xml:space="preserve"><value>Sign In</value></data>
+  <data name="Login.Help" xml:space="preserve"><value>Having trouble signing in? Contact the system administrator</value></data>
+  <data name="Login.PlaceholderEmail" xml:space="preserve"><value>name@example.com</value></data>
+  <data name="Login.BrandTagline" xml:space="preserve"><value>Estidama | Training Management System</value></data>
+
+  <data name="Common.JobTitle" xml:space="preserve"><value>Job Title</value></data>
+  <data name="Common.NationalId" xml:space="preserve"><value>National ID</value></data>
+  <data name="Common.PhoneNumber" xml:space="preserve"><value>Mobile Number</value></data>
+  <data name="Common.ConfirmPassword" xml:space="preserve"><value>Confirm Password</value></data>
+  <data name="Common.IsActive" xml:space="preserve"><value>Active</value></data>
+
+  <data name="Perm.users" xml:space="preserve"><value>Users</value></data>
+  <data name="Perm.roles" xml:space="preserve"><value>Roles &amp; Permissions</value></data>
+  <data name="Perm.courses" xml:space="preserve"><value>Courses</value></data>
+  <data name="Perm.training" xml:space="preserve"><value>Trainees &amp; Training</value></data>
+  <data name="Perm.instructors" xml:space="preserve"><value>Instructors</value></data>
+  <data name="Perm.accounts" xml:space="preserve"><value>Accounts &amp; Payments</value></data>
+  <data name="Perm.archive" xml:space="preserve"><value>Archive</value></data>
+  <data name="Perm.reports" xml:space="preserve"><value>Reports</value></data>
+  <data name="PermAction.view" xml:space="preserve"><value>View</value></data>
+  <data name="PermAction.create" xml:space="preserve"><value>Create</value></data>
+  <data name="PermAction.edit" xml:space="preserve"><value>Edit</value></data>
+  <data name="PermAction.delete" xml:space="preserve"><value>Delete</value></data>
+
+  <data name="UserForm.FullNameAr" xml:space="preserve"><value>Arabic Name</value></data>
+  <data name="UserForm.FullNameEn" xml:space="preserve"><value>English Name</value></data>
+  <data name="UserForm.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="UserForm.PhoneNumber" xml:space="preserve"><value>Mobile Number</value></data>
+  <data name="UserForm.EmployeeNumber" xml:space="preserve"><value>Employee Number</value></data>
+  <data name="UserForm.NationalId" xml:space="preserve"><value>National ID</value></data>
+  <data name="UserForm.DepartmentId" xml:space="preserve"><value>Department</value></data>
+  <data name="UserForm.JobTitle" xml:space="preserve"><value>Job Title</value></data>
+  <data name="UserForm.RoleId" xml:space="preserve"><value>Role</value></data>
+  <data name="UserForm.Password" xml:space="preserve"><value>Password</value></data>
+  <data name="UserForm.ConfirmPassword" xml:space="preserve"><value>Confirm Password</value></data>
+  <data name="UserForm.IsActive" xml:space="preserve"><value>User is active</value></data>
+
+  <data name="RoleForm.Name" xml:space="preserve"><value>Technical Name (EN)</value></data>
+  <data name="RoleForm.NameAr" xml:space="preserve"><value>Arabic Name</value></data>
+  <data name="RoleForm.Description" xml:space="preserve"><value>Role Description</value></data>
+  <data name="RoleForm.NameArPlaceholder" xml:space="preserve"><value>e.g. Human Resources Manager</value></data>
+
+  <data name="ResetPwd.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="ResetPwd.NewPassword" xml:space="preserve"><value>New Password</value></data>
+  <data name="ResetPwd.ConfirmPassword" xml:space="preserve"><value>Confirm Password</value></data>
+
+  <data name="LoginV.RememberMe" xml:space="preserve"><value>Remember me?</value></data>
+<data name="CourseForm.NameAr" xml:space="preserve"><value>Arabic Name</value></data>
+  <data name="CourseForm.NameArRequired" xml:space="preserve"><value>Course name is required</value></data>
+  <data name="CourseForm.NameEn" xml:space="preserve"><value>English Name</value></data>
+  <data name="CourseForm.NameEnRequired" xml:space="preserve"><value>English course name is required</value></data>
+  <data name="CourseForm.DescriptionAr" xml:space="preserve"><value>Arabic Description</value></data>
+  <data name="CourseForm.DescriptionEn" xml:space="preserve"><value>Description (EN)</value></data>
+  <data name="CourseForm.ObjectivesAr" xml:space="preserve"><value>Arabic Objectives</value></data>
+  <data name="CourseForm.ObjectivesEn" xml:space="preserve"><value>Objectives (EN)</value></data>
+  <data name="CourseForm.TargetAudience" xml:space="preserve"><value>Target Audience</value></data>
+  <data name="CourseForm.Hours" xml:space="preserve"><value>Number of Hours</value></data>
+  <data name="CourseForm.MaxTrainees" xml:space="preserve"><value>Maximum Trainees</value></data>
+  <data name="CourseForm.MinTrainees" xml:space="preserve"><value>Minimum Trainees</value></data>
+  <data name="CourseForm.CategoryId" xml:space="preserve"><value>Category</value></data>
+  <data name="CourseForm.FeePerTrainee" xml:space="preserve"><value>Trainee Fee</value></data>
+
+  <data name="ScheduleForm.StartDate" xml:space="preserve"><value>Start Date</value></data>
+  <data name="ScheduleForm.EndDate" xml:space="preserve"><value>End Date</value></data>
+  <data name="ScheduleForm.StartTime" xml:space="preserve"><value>Start Time</value></data>
+  <data name="ScheduleForm.EndTime" xml:space="preserve"><value>End Time</value></data>
+  <data name="ScheduleForm.RoomId" xml:space="preserve"><value>Room</value></data>
+  <data name="ScheduleForm.InstructorId" xml:space="preserve"><value>Instructor</value></data>
+  <data name="ScheduleForm.Notes" xml:space="preserve"><value>Notes</value></data>
+
+  <data name="TraineeForm.Type" xml:space="preserve"><value>Trainee Type</value></data>
+  <data name="TraineeForm.FullNameAr" xml:space="preserve"><value>Arabic Name</value></data>
+  <data name="TraineeForm.FullNameArRequired" xml:space="preserve"><value>Arabic name is required</value></data>
+  <data name="TraineeForm.FullNameEn" xml:space="preserve"><value>English Name</value></data>
+  <data name="TraineeForm.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="TraineeForm.NationalId" xml:space="preserve"><value>National ID</value></data>
+  <data name="TraineeForm.Phone" xml:space="preserve"><value>Phone</value></data>
+  <data name="TraineeForm.Address" xml:space="preserve"><value>Address</value></data>
+  <data name="TraineeForm.JobTitle" xml:space="preserve"><value>Job Title</value></data>
+  <data name="TraineeForm.Organization" xml:space="preserve"><value>Organization</value></data>
+  <data name="TraineeForm.Directorate" xml:space="preserve"><value>Directorate</value></data>
+  <data name="TraineeForm.JobGrade" xml:space="preserve"><value>Job Grade</value></data>
+  <data name="TraineeForm.Notes" xml:space="preserve"><value>Notes</value></data>
+
+  <data name="InstructorForm.FirstNameAr" xml:space="preserve"><value>First Name (AR)</value></data>
+  <data name="InstructorForm.FirstNameArRequired" xml:space="preserve"><value>Arabic first name is required</value></data>
+  <data name="InstructorForm.LastNameAr" xml:space="preserve"><value>Last Name (AR)</value></data>
+  <data name="InstructorForm.FirstNameEn" xml:space="preserve"><value>First Name (EN)</value></data>
+  <data name="InstructorForm.FirstNameEnRequired" xml:space="preserve"><value>English first name is required</value></data>
+  <data name="InstructorForm.LastNameEn" xml:space="preserve"><value>Last Name (EN)</value></data>
+  <data name="InstructorForm.NationalId" xml:space="preserve"><value>National ID</value></data>
+  <data name="InstructorForm.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="InstructorForm.Phone" xml:space="preserve"><value>Phone</value></data>
+  <data name="InstructorForm.SpecializationAr" xml:space="preserve"><value>Specialization (AR)</value></data>
+  <data name="InstructorForm.SpecializationEn" xml:space="preserve"><value>Specialization (EN)</value></data>
+  <data name="InstructorForm.Type" xml:space="preserve"><value>Instructor Type</value></data>
+  <data name="InstructorForm.HourlyRate" xml:space="preserve"><value>Hourly Rate</value></data>
+  <data name="InstructorForm.BankName" xml:space="preserve"><value>Bank Name</value></data>
+  <data name="InstructorForm.IBAN" xml:space="preserve"><value>IBAN</value></data>
+  <data name="InstructorForm.AccountNumber" xml:space="preserve"><value>Account Number</value></data>
+
+  <data name="ArchiveForm.DocType" xml:space="preserve"><value>Document Type</value></data>
+  <data name="ArchiveForm.DocTypeRequired" xml:space="preserve"><value>Select document type</value></data>
+  <data name="ArchiveForm.DocumentDate" xml:space="preserve"><value>Document Date</value></data>
+  <data name="ArchiveForm.DocumentDateRequired" xml:space="preserve"><value>Enter document date</value></data>
+  <data name="ArchiveForm.TitleAr" xml:space="preserve"><value>Document Title</value></data>
+  <data name="ArchiveForm.TitleArRequired" xml:space="preserve"><value>Enter document title</value></data>
+  <data name="ArchiveForm.Subject" xml:space="preserve"><value>Subject</value></data>
+  <data name="ArchiveForm.SenderName" xml:space="preserve"><value>Incoming From</value></data>
+  <data name="ArchiveForm.RecipientName" xml:space="preserve"><value>Outgoing To</value></data>
+  <data name="ArchiveForm.DepartmentId" xml:space="preserve"><value>Department</value></data>
+  <data name="ArchiveForm.Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="ArchiveForm.File" xml:space="preserve"><value>Document File</value></data>
+  <data name="ArchiveForm.FileRequired" xml:space="preserve"><value>Upload document file</value></data>
+  <data name="Courses.Title" xml:space="preserve"><value>Courses &amp; Programs</value></data>
+  <data name="Courses.AddNew" xml:space="preserve"><value>Add New Course</value></data>
+  <data name="Courses.CreateTitle" xml:space="preserve"><value>Add New Training Course</value></data>
+  <data name="Courses.SearchPlaceholder" xml:space="preserve"><value>Search...</value></data>
+  <data name="Courses.AllStatuses" xml:space="preserve"><value>All Statuses</value></data>
+  <data name="Courses.AllCategories" xml:space="preserve"><value>All Categories</value></data>
+  <data name="Courses.Reset" xml:space="preserve"><value>Reset</value></data>
+  <data name="Courses.Code" xml:space="preserve"><value>Code</value></data>
+  <data name="Courses.CourseName" xml:space="preserve"><value>Course Name</value></data>
+  <data name="Courses.Category" xml:space="preserve"><value>Category</value></data>
+  <data name="Courses.Hours" xml:space="preserve"><value>Hours</value></data>
+  <data name="Courses.MaxCapacity" xml:space="preserve"><value>Max Capacity</value></data>
+  <data name="Courses.Schedules" xml:space="preserve"><value>Schedules</value></data>
+  <data name="Courses.StatusPlanned" xml:space="preserve"><value>Planned</value></data>
+  <data name="Courses.StatusOpen" xml:space="preserve"><value>Open for Registration</value></data>
+  <data name="Courses.StatusInProgress" xml:space="preserve"><value>In Progress</value></data>
+  <data name="Courses.StatusCompleted" xml:space="preserve"><value>Completed</value></data>
+  <data name="Courses.StatusCancelled" xml:space="preserve"><value>Cancelled</value></data>
+  <data name="Courses.ConfirmDelete" xml:space="preserve"><value>Are you sure you want to delete?</value></data>
+  <data name="Courses.NoCourses" xml:space="preserve"><value>No courses found</value></data>
+  <data name="Courses.Data" xml:space="preserve"><value>Course Data</value></data>
+  <data name="Courses.Select" xml:space="preserve"><value>Select</value></data>
+  <data name="Courses.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Courses.Edit" xml:space="preserve"><value>Edit Course</value></data>
+  <data name="Courses.EditTitle" xml:space="preserve"><value>Edit Training Course</value></data>
+  <data name="Courses.Operations" xml:space="preserve"><value>Course Operations</value></data>
+  <data name="Courses.HoursUnit" xml:space="preserve"><value>hours</value></data>
+  <data name="Courses.TargetAudience" xml:space="preserve"><value>Target Audience</value></data>
+  <data name="Courses.MinMax" xml:space="preserve"><value>Min / Max Trainees</value></data>
+  <data name="Courses.Fee" xml:space="preserve"><value>Fee</value></data>
+  <data name="Courses.ConfirmStart" xml:space="preserve"><value>Start the course?</value></data>
+  <data name="Courses.Start" xml:space="preserve"><value>Start Course</value></data>
+  <data name="Courses.Postpone" xml:space="preserve"><value>Postpone Course</value></data>
+  <data name="Courses.ConfirmComplete" xml:space="preserve"><value>Complete the course?</value></data>
+  <data name="Courses.Complete" xml:space="preserve"><value>Complete Course</value></data>
+  <data name="Courses.ConfirmCancel" xml:space="preserve"><value>Cancel the course?</value></data>
+  <data name="Courses.CancelCourse" xml:space="preserve"><value>Cancel Course</value></data>
+  <data name="Courses.ScheduleTitle" xml:space="preserve"><value>Training Schedules</value></data>
+  <data name="Courses.NewSchedule" xml:space="preserve"><value>New Schedule</value></data>
+  <data name="Courses.Date" xml:space="preserve"><value>Date</value></data>
+  <data name="Courses.Time" xml:space="preserve"><value>Time</value></data>
+  <data name="Courses.Room" xml:space="preserve"><value>Room</value></data>
+  <data name="Courses.Instructor" xml:space="preserve"><value>Instructor</value></data>
+  <data name="Courses.Registered" xml:space="preserve"><value>Registered</value></data>
+  <data name="Courses.To" xml:space="preserve"><value>to</value></data>
+  <data name="Courses.ScheduleScheduled" xml:space="preserve"><value>Scheduled</value></data>
+  <data name="Courses.RegisteredTrainees" xml:space="preserve"><value>Registered Trainees</value></data>
+  <data name="Courses.TakeAttendance" xml:space="preserve"><value>Take Attendance</value></data>
+  <data name="Courses.ConfirmDeleteSchedule" xml:space="preserve"><value>Delete schedule?</value></data>
+  <data name="Courses.NoSchedules" xml:space="preserve"><value>No schedules yet - add a new one</value></data>
+  <data name="Courses.PostponeTitle" xml:space="preserve"><value>Postpone Course</value></data>
+  <data name="Courses.PostponeHint" xml:space="preserve"><value>Postponing the course will shift all its schedules by the number of days you enter.</value></data>
+  <data name="Courses.PostponeDays" xml:space="preserve"><value>Number of days to postpone</value></data>
+  <data name="Courses.CreateScheduleTitle" xml:space="preserve"><value>Create Schedule</value></data>
+  <data name="Courses.SelectRoom" xml:space="preserve"><value>Select Room</value></data>
+  <data name="Courses.SelectInstructor" xml:space="preserve"><value>Select Instructor</value></data>
+  <data name="CourseCategories.Title" xml:space="preserve"><value>Course Categories</value></data>
+  <data name="CourseCategories.AddNew" xml:space="preserve"><value>Add New Category</value></data>
+  <data name="CourseCategories.NameAr" xml:space="preserve"><value>Arabic Name</value></data>
+  <data name="CourseCategories.NameEn" xml:space="preserve"><value>English Name</value></data>
+  <data name="CourseCategories.Add" xml:space="preserve"><value>Add</value></data>
+  <data name="CourseCategories.Name" xml:space="preserve"><value>Name</value></data>
+  <data name="CourseCategories.SubCategory" xml:space="preserve"><value>Sub Category</value></data>
+  <data name="CourseCategories.CourseCount" xml:space="preserve"><value>Course Count</value></data>
+  <data name="CourseCategories.ConfirmDelete" xml:space="preserve"><value>Delete category?</value></data>
+  <data name="CourseCategories.NoCategories" xml:space="preserve"><value>No categories</value></data>
+  <data name="CourseCategories.Edit" xml:space="preserve"><value>Edit Category</value></data>
+  <data name="CourseCategories.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="TrainingPlans.Title" xml:space="preserve"><value>Training Plans</value></data>
+  <data name="TrainingPlans.AdminPlan" xml:space="preserve"><value>Administrative Training Plan</value></data>
+  <data name="TrainingPlans.SapqarPlan" xml:space="preserve"><value>Sapqar Plan</value></data>
+  <data name="TrainingPlans.ComputerSciencePlan" xml:space="preserve"><value>Computer Science Training Center Plan</value></data>
+  <data name="TrainingPlans.AddNew" xml:space="preserve"><value>New Plan</value></data>
+  <data name="TrainingPlans.All" xml:space="preserve"><value>All</value></data>
+  <data name="TrainingPlans.Name" xml:space="preserve"><value>Name</value></data>
+  <data name="TrainingPlans.Type" xml:space="preserve"><value>Plan Type</value></data>
+  <data name="TrainingPlans.Year" xml:space="preserve"><value>Year</value></data>
+  <data name="TrainingPlans.Quarter" xml:space="preserve"><value>Quarter</value></data>
+  <data name="TrainingPlans.CourseCount" xml:space="preserve"><value>Course Count</value></data>
+  <data name="TrainingPlans.NoPlans" xml:space="preserve"><value>No training plans in this category</value></data>
+  <data name="TrainingPlans.Create" xml:space="preserve"><value>Create Training Plan</value></data>
+  <data name="TrainingPlans.NameAr" xml:space="preserve"><value>Arabic Plan Name</value></data>
+  <data name="TrainingPlans.NameEn" xml:space="preserve"><value>English Name</value></data>
+  <data name="TrainingPlans.Data" xml:space="preserve"><value>Plan Details</value></data>
+  <data name="TrainingPlans.StatusDraft" xml:space="preserve"><value>Draft</value></data>
+  <data name="TrainingPlans.StatusApproved" xml:space="preserve"><value>Approved</value></data>
+  <data name="TrainingPlans.StatusActive" xml:space="preserve"><value>Active</value></data>
+  <data name="TrainingPlans.StatusClosed" xml:space="preserve"><value>Closed</value></data>
+  <data name="TrainingPlans.CreatedAt" xml:space="preserve"><value>Created At</value></data>
+  <data name="TrainingPlans.ChangeStatus" xml:space="preserve"><value>Change Status</value></data>
+  <data name="TrainingPlans.Approve" xml:space="preserve"><value>Approve Plan</value></data>
+  <data name="TrainingPlans.Activate" xml:space="preserve"><value>Activate Plan</value></data>
+  <data name="TrainingPlans.Close" xml:space="preserve"><value>Close Plan</value></data>
+  <data name="TrainingPlans.ConfirmDelete" xml:space="preserve"><value>Delete the entire plan?</value></data>
+  <data name="TrainingPlans.Delete" xml:space="preserve"><value>Delete Plan</value></data>
+  <data name="TrainingPlans.CoursesTitle" xml:space="preserve"><value>Courses in Plan</value></data>
+  <data name="TrainingPlans.CourseUnit" xml:space="preserve"><value>Courses</value></data>
+  <data name="TrainingPlans.Course" xml:space="preserve"><value>Course</value></data>
+  <data name="TrainingPlans.TargetDepartment" xml:space="preserve"><value>Target Department</value></data>
+  <data name="TrainingPlans.PlannedQuarter" xml:space="preserve"><value>Planned Quarter</value></data>
+  <data name="TrainingPlans.Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="TrainingPlans.ConfirmRemoveItem" xml:space="preserve"><value>Remove course from plan?</value></data>
+  <data name="TrainingPlans.NoCourses" xml:space="preserve"><value>No courses added to the plan yet</value></data>
+  <data name="TrainingPlans.AddCourse" xml:space="preserve"><value>Add Course to Plan</value></data>
+  <data name="TrainingPlans.SelectCourse" xml:space="preserve"><value>Select Course</value></data>
+  <data name="TrainingPlans.OptionalDepartment" xml:space="preserve"><value>Department (optional)</value></data>
+  <data name="TrainingPlans.Add" xml:space="preserve"><value>Add</value></data>
+  <data name="TrainingPlans.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Registrations.Title" xml:space="preserve"><value>Course Registrations</value></data>
+  <data name="Registrations.RegisteredTrainees" xml:space="preserve"><value>Registered Trainees</value></data>
+  <data name="Registrations.AddNew" xml:space="preserve"><value>Register Trainee</value></data>
+  <data name="Registrations.Courses" xml:space="preserve"><value>Courses</value></data>
+  <data name="Registrations.AllSchedules" xml:space="preserve"><value>All Schedules</value></data>
+  <data name="Registrations.Filter" xml:space="preserve"><value>Filter</value></data>
+  <data name="Registrations.Trainee" xml:space="preserve"><value>Trainee</value></data>
+  <data name="Registrations.CourseSchedule" xml:space="preserve"><value>Course / Schedule</value></data>
+  <data name="Registrations.Fee" xml:space="preserve"><value>Fee</value></data>
+  <data name="Registrations.Paid" xml:space="preserve"><value>Paid</value></data>
+  <data name="Registrations.PaymentStatus" xml:space="preserve"><value>Payment Status</value></data>
+  <data name="Registrations.UpdateFee" xml:space="preserve"><value>Update Fee</value></data>
+  <data name="Registrations.PrivateTrainee" xml:space="preserve"><value>Private Trainee</value></data>
+  <data name="Registrations.StatusRegistered" xml:space="preserve"><value>Registered</value></data>
+  <data name="Registrations.StatusConfirmed" xml:space="preserve"><value>Confirmed</value></data>
+  <data name="Registrations.StatusCompleted" xml:space="preserve"><value>Completed</value></data>
+  <data name="Registrations.StatusDropped" xml:space="preserve"><value>Dropped</value></data>
+  <data name="Registrations.StatusWaitlisted" xml:space="preserve"><value>Waitlisted</value></data>
+  <data name="Registrations.PaymentUnpaid" xml:space="preserve"><value>Unpaid</value></data>
+  <data name="Registrations.PaymentPartial" xml:space="preserve"><value>Partial</value></data>
+  <data name="Registrations.PaymentPaid" xml:space="preserve"><value>Paid</value></data>
+  <data name="Registrations.SaveFee" xml:space="preserve"><value>Save Fee</value></data>
+  <data name="Registrations.Confirm" xml:space="preserve"><value>Confirm</value></data>
+  <data name="Registrations.ConfirmDrop" xml:space="preserve"><value>Drop registration?</value></data>
+  <data name="Registrations.Drop" xml:space="preserve"><value>Drop</value></data>
+  <data name="Registrations.NoResults" xml:space="preserve"><value>No registrations - choose a schedule from the filter, then "Register Trainee"</value></data>
+  <data name="Registrations.RegisterTrainee" xml:space="preserve"><value>Register New Trainee</value></data>
+  <data name="Registrations.SelectTrainee" xml:space="preserve"><value>Select Trainee</value></data>
+  <data name="Registrations.RegistrationStatus" xml:space="preserve"><value>Registration Status</value></data>
+  <data name="Registrations.FeeWithDefault" xml:space="preserve"><value>Fee (default {0})</value></data>
+  <data name="Registrations.AmountPaid" xml:space="preserve"><value>Amount Paid</value></data>
+  <data name="Registrations.Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="Registrations.Register" xml:space="preserve"><value>Register</value></data>
+  <data name="Registrations.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Trainees.Title" xml:space="preserve"><value>Trainees</value></data>
+  <data name="Trainees.AddNew" xml:space="preserve"><value>Add Trainee</value></data>
+  <data name="Trainees.SearchPlaceholder" xml:space="preserve"><value>Search by name or number...</value></data>
+  <data name="Trainees.Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Trainees.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Trainees.OrganizationOrPhone" xml:space="preserve"><value>Organization / Phone</value></data>
+  <data name="Trainees.JobTitle" xml:space="preserve"><value>Job Title</value></data>
+  <data name="Trainees.PrivateSector" xml:space="preserve"><value>Private Sector</value></data>
+  <data name="Trainees.Government" xml:space="preserve"><value>Government</value></data>
+  <data name="Trainees.NoTrainees" xml:space="preserve"><value>No trainees registered</value></data>
+  <data name="Trainees.TypeInfoHint" xml:space="preserve"><value>Government = full employment data; Private = registers and pays for the course (basic data only).</value></data>
+  <data name="Trainees.BasicData" xml:space="preserve"><value>Basic Data</value></data>
+  <data name="Trainees.EmailDefaultHint" xml:space="preserve"><value>If left empty, a default email will be created</value></data>
+  <data name="Trainees.EmploymentData" xml:space="preserve"><value>Employment Data (Government)</value></data>
+  <data name="Trainees.PrivateTypeHint" xml:space="preserve"><value>Private trainees do not need employment data - they register with name, national ID, phone, and address.</value></data>
+  <data name="Trainees.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Trainees.Edit" xml:space="preserve"><value>Edit Trainee</value></data>
+  <data name="Trainees.FullFile" xml:space="preserve"><value>Full File</value></data>
+  <data name="Trainees.PersonalInfo" xml:space="preserve"><value>Personal Information</value></data>
+  <data name="Trainees.Department" xml:space="preserve"><value>Department</value></data>
+  <data name="Trainees.Organization" xml:space="preserve"><value>Organization</value></data>
+  <data name="Trainees.Directorate" xml:space="preserve"><value>Directorate</value></data>
+  <data name="Trainees.JobGrade" xml:space="preserve"><value>Job Grade</value></data>
+  <data name="Trainees.Phone" xml:space="preserve"><value>Phone</value></data>
+  <data name="Trainees.Address" xml:space="preserve"><value>Address</value></data>
+  <data name="Trainees.RegisteredCourses" xml:space="preserve"><value>Registered Courses</value></data>
+  <data name="Trainees.Course" xml:space="preserve"><value>Course</value></data>
+  <data name="Trainees.Date" xml:space="preserve"><value>Date</value></data>
+  <data name="Trainees.NoRegisteredCourses" xml:space="preserve"><value>Not registered in any course yet</value></data>
+  <data name="Trainees.MyTrainingReport" xml:space="preserve"><value>My Training Report</value></data>
+  <data name="Trainees.Print" xml:space="preserve"><value>Print</value></data>
+  <data name="Trainees.NationalId" xml:space="preserve"><value>National ID</value></data>
+  <data name="Trainees.CompletedCourses" xml:space="preserve"><value>Completed Courses</value></data>
+  <data name="Trainees.NoCompletedCourses" xml:space="preserve"><value>No training course has been completed yet - this report will be available once courses are completed.</value></data>
+  <data name="Trainees.CourseCode" xml:space="preserve"><value>Course Code</value></data>
+  <data name="Trainees.CourseName" xml:space="preserve"><value>Course Name</value></data>
+  <data name="Trainees.Instructor" xml:space="preserve"><value>Instructor</value></data>
+  <data name="Trainees.StartDate" xml:space="preserve"><value>Start Date</value></data>
+  <data name="Trainees.EndDate" xml:space="preserve"><value>End Date</value></data>
+  <data name="Trainees.Hours" xml:space="preserve"><value>Hours</value></data>
+  <data name="Trainees.HoursUnit" xml:space="preserve"><value>hours</value></data>
+  <data name="Trainees.CoursesUnit" xml:space="preserve"><value>courses</value></data>
+  <data name="Trainees.Total" xml:space="preserve"><value>Total</value></data>
+  <data name="Trainees.MyCertificates" xml:space="preserve"><value>My Certificates</value></data>
+  <data name="Trainees.NoCertificates" xml:space="preserve"><value>No certificates yet.</value></data>
+  <data name="Trainees.SerialNumber" xml:space="preserve"><value>Serial Number</value></data>
+  <data name="Trainees.IssueDate" xml:space="preserve"><value>Issue Date</value></data>
+  <data name="Trainees.Revoked" xml:space="preserve"><value>Revoked</value></data>
+  <data name="Trainees.Valid" xml:space="preserve"><value>Valid</value></data>
+  <data name="Trainees.DownloadPdf" xml:space="preserve"><value>Download PDF</value></data>
+  <data name="Trainees.MySchedule" xml:space="preserve"><value>My Training Schedule</value></data>
+  <data name="Trainees.NotLinkedHint" xml:space="preserve"><value>Your account is not linked to a trainee profile. Contact your supervisor.</value></data>
+  <data name="Trainees.NoScheduledCourses" xml:space="preserve"><value>You have no registered courses yet.</value></data>
+  <data name="Trainees.Registered" xml:space="preserve"><value>Registered</value></data>
+  <data name="Trainees.Confirmed" xml:space="preserve"><value>Confirmed</value></data>
+  <data name="Trainees.Completed" xml:space="preserve"><value>Completed</value></data>
+  <data name="Trainees.Dropped" xml:space="preserve"><value>Dropped</value></data>
+  <data name="Trainees.Waitlisted" xml:space="preserve"><value>Waitlisted</value></data>
+  <data name="Instructors.Title" xml:space="preserve"><value>Instructors</value></data>
+  <data name="Instructors.AddNew" xml:space="preserve"><value>Add Instructor</value></data>
+  <data name="Instructors.SearchPlaceholder" xml:space="preserve"><value>Search...</value></data>
+  <data name="Instructors.AllTypes" xml:space="preserve"><value>-- All Types --</value></data>
+  <data name="Instructors.ArabicName" xml:space="preserve"><value>Arabic Name</value></data>
+  <data name="Instructors.EnglishName" xml:space="preserve"><value>English Name</value></data>
+  <data name="Instructors.Specialization" xml:space="preserve"><value>Specialization</value></data>
+  <data name="Instructors.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Instructors.HourlyRate" xml:space="preserve"><value>Hourly Rate</value></data>
+  <data name="Instructors.Internal" xml:space="preserve"><value>Internal</value></data>
+  <data name="Instructors.External" xml:space="preserve"><value>External</value></data>
+  <data name="Instructors.ConfirmDelete" xml:space="preserve"><value>Are you sure?</value></data>
+  <data name="Instructors.NoInstructors" xml:space="preserve"><value>No instructors registered</value></data>
+  <data name="Instructors.BankData" xml:space="preserve"><value>Bank Details</value></data>
+  <data name="Instructors.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Instructors.Edit" xml:space="preserve"><value>Edit Instructor</value></data>
+  <data name="Instructors.SaveChanges" xml:space="preserve"><value>Save Changes</value></data>
+  <data name="Instructors.PersonalInfo" xml:space="preserve"><value>Personal Information</value></data>
+  <data name="Instructors.NationalId" xml:space="preserve"><value>National ID</value></data>
+  <data name="Instructors.Phone" xml:space="preserve"><value>Phone</value></data>
+  <data name="Instructors.SAR" xml:space="preserve"><value>SAR</value></data>
+  <data name="Instructors.BankName" xml:space="preserve"><value>Bank</value></data>
+  <data name="Instructors.Iban" xml:space="preserve"><value>IBAN</value></data>
+  <data name="Instructors.AccountNumber" xml:space="preserve"><value>Account Number</value></data>
+  <data name="Instructors.CoursesTaught" xml:space="preserve"><value>Courses Taught</value></data>
+  <data name="Instructors.ChooseInstructor" xml:space="preserve"><value>Choose instructor:</value></data>
+  <data name="Instructors.AllInstructors" xml:space="preserve"><value>-- All Instructors --</value></data>
+  <data name="Instructors.Filter" xml:space="preserve"><value>Filter</value></data>
+  <data name="Instructors.NoCoursesTaught" xml:space="preserve"><value>No courses recorded yet</value></data>
+  <data name="Instructors.Instructor" xml:space="preserve"><value>Instructor</value></data>
+  <data name="Instructors.CourseCode" xml:space="preserve"><value>Course Code</value></data>
+  <data name="Instructors.CourseName" xml:space="preserve"><value>Course Name</value></data>
+  <data name="Instructors.StartDate" xml:space="preserve"><value>Start Date</value></data>
+  <data name="Instructors.EndDate" xml:space="preserve"><value>End Date</value></data>
+  <data name="Instructors.Hours" xml:space="preserve"><value>Hours</value></data>
+  <data name="Instructors.Trainees" xml:space="preserve"><value>Trainees</value></data>
+  <data name="Instructors.HoursUnit" xml:space="preserve"><value>hours</value></data>
+  <data name="Instructors.TraineesUnit" xml:space="preserve"><value>trainees</value></data>
+  <data name="Instructors.Total" xml:space="preserve"><value>Total</value></data>
+  <data name="StudentExam.LoginTitle" xml:space="preserve"><value>Student Exam Login</value></data>
+  <data name="StudentExam.LoginSubtitle" xml:space="preserve"><value>Enter your National ID and training course number</value></data>
+  <data name="StudentExam.NationalId" xml:space="preserve"><value>National ID</value></data>
+  <data name="StudentExam.NationalIdPlaceholder" xml:space="preserve"><value>e.g. 2990101...</value></data>
+  <data name="StudentExam.CourseCode" xml:space="preserve"><value>Training Course Number</value></data>
+  <data name="StudentExam.CourseCodePlaceholder" xml:space="preserve"><value>e.g. TMS-2026-001</value></data>
+  <data name="StudentExam.CourseCodeHint" xml:space="preserve"><value>Enter the course code exactly as shown in the course details</value></data>
+  <data name="StudentExam.Enter" xml:space="preserve"><value>Enter</value></data>
+  <data name="StudentExam.MyExams" xml:space="preserve"><value>My Exams</value></data>
+  <data name="StudentExam.Welcome" xml:space="preserve"><value>Welcome</value></data>
+  <data name="StudentExam.ChooseExam" xml:space="preserve"><value>Choose an exam to take</value></data>
+  <data name="StudentExam.NoExams" xml:space="preserve"><value>No exams are available for this course at the moment</value></data>
+  <data name="StudentExam.Duration" xml:space="preserve"><value>Duration</value></data>
+  <data name="StudentExam.MinutesUnit" xml:space="preserve"><value>minutes</value></data>
+  <data name="StudentExam.Marks" xml:space="preserve"><value>Marks</value></data>
+  <data name="StudentExam.Passing" xml:space="preserve"><value>Passing</value></data>
+  <data name="StudentExam.TheoreticalAndPractical" xml:space="preserve"><value>Theoretical &amp; Practical</value></data>
+  <data name="StudentExam.TheoreticalOnly" xml:space="preserve"><value>Theoretical Only</value></data>
+  <data name="StudentExam.Submitted" xml:space="preserve"><value>Completed</value></data>
+  <data name="StudentExam.ViewResult" xml:space="preserve"><value>View Result</value></data>
+  <data name="StudentExam.TheoreticalExam" xml:space="preserve"><value>Theoretical Exam</value></data>
+  <data name="StudentExam.PracticalExam" xml:space="preserve"><value>Practical Exam</value></data>
+  <data name="StudentExam.StartExam" xml:space="preserve"><value>Start Exam</value></data>
+  <data name="StudentExam.Logout" xml:space="preserve"><value>Logout</value></data>
+  <data name="StudentExam.Practical" xml:space="preserve"><value>Practical</value></data>
+  <data name="StudentExam.SubmitAnswers" xml:space="preserve"><value>Submit Answers</value></data>
+  <data name="StudentExam.ResultTitle" xml:space="preserve"><value>Exam Result</value></data>
+  <data name="StudentExam.Passed" xml:space="preserve"><value>Passed</value></data>
+  <data name="StudentExam.Failed" xml:space="preserve"><value>Failed</value></data>
+  <data name="StudentExam.SubmitDate" xml:space="preserve"><value>Submission date</value></data>
+  <data name="StudentExam.BackToExams" xml:space="preserve"><value>Back to Exams</value></data>
+  <data name="Attendance.Title" xml:space="preserve"><value>Attendance</value></data>
+  <data name="Attendance.RecordTitle" xml:space="preserve"><value>Attendance Record</value></data>
+  <data name="Attendance.Record" xml:space="preserve"><value>Record Attendance</value></data>
+  <data name="Attendance.Log" xml:space="preserve"><value>Attendance Log</value></data>
+  <data name="Attendance.SelectCourse" xml:space="preserve"><value>-- Select Course --</value></data>
+  <data name="Attendance.EmptyState" xml:space="preserve"><value>Select a course to view the attendance record or record attendance directly</value></data>
+  <data name="Attendance.Date" xml:space="preserve"><value>Date</value></data>
+  <data name="Attendance.Trainee" xml:space="preserve"><value>Trainee</value></data>
+  <data name="Attendance.CheckIn" xml:space="preserve"><value>Check-in Time</value></data>
+  <data name="Attendance.CheckOut" xml:space="preserve"><value>Check-out Time</value></data>
+  <data name="Attendance.Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="Attendance.Present" xml:space="preserve"><value>Present</value></data>
+  <data name="Attendance.Absent" xml:space="preserve"><value>Absent</value></data>
+  <data name="Attendance.Excused" xml:space="preserve"><value>Excused</value></data>
+  <data name="Attendance.Late" xml:space="preserve"><value>Late</value></data>
+  <data name="Attendance.SessionDate" xml:space="preserve"><value>Session Date</value></data>
+  <data name="Attendance.AllPresent" xml:space="preserve"><value>All Present</value></data>
+  <data name="Attendance.AllAbsent" xml:space="preserve"><value>All Absent</value></data>
+  <data name="Attendance.RegisteredTrainees" xml:space="preserve"><value>Registered Trainees</value></data>
+  <data name="Attendance.PreviousStatus" xml:space="preserve"><value>Previous Status</value></data>
+  <data name="Attendance.NoTrainees" xml:space="preserve"><value>No trainees are registered for this schedule</value></data>
+  <data name="Attendance.SaveAttendance" xml:space="preserve"><value>Save Attendance</value></data>
+  <data name="Attendance.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Exams.Title" xml:space="preserve"><value>Exams</value></data>
+  <data name="Exams.Create" xml:space="preserve"><value>Create Exam</value></data>
+  <data name="Exams.CreateTitle" xml:space="preserve"><value>Create Exam</value></data>
+  <data name="Exams.CreateNewTitle" xml:space="preserve"><value>Create New Exam</value></data>
+  <data name="Exams.TitleLabel" xml:space="preserve"><value>Title</value></data>
+  <data name="Exams.TitleAr" xml:space="preserve"><value>Title (AR)</value></data>
+  <data name="Exams.TitleEn" xml:space="preserve"><value>Title (EN)</value></data>
+  <data name="Exams.Course" xml:space="preserve"><value>Course</value></data>
+  <data name="Exams.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Exams.Duration" xml:space="preserve"><value>Duration</value></data>
+  <data name="Exams.DurationMinutes" xml:space="preserve"><value>Duration (minutes)</value></data>
+  <data name="Exams.Minutes" xml:space="preserve"><value>minutes</value></data>
+  <data name="Exams.TotalMarks" xml:space="preserve"><value>Total Marks</value></data>
+  <data name="Exams.PassingMarks" xml:space="preserve"><value>Passing Marks</value></data>
+  <data name="Exams.SubmissionsCount" xml:space="preserve"><value>Submissions</value></data>
+  <data name="Exams.NoExams" xml:space="preserve"><value>No exams found</value></data>
+  <data name="Exams.ManageQuestions" xml:space="preserve"><value>Manage Questions</value></data>
+  <data name="Exams.Schedule" xml:space="preserve"><value>Training Schedule</value></data>
+  <data name="Exams.SelectSchedule" xml:space="preserve"><value>-- Select Schedule --</value></data>
+  <data name="Exams.NoSchedules" xml:space="preserve"><value>No schedules are available. Create a course and schedule first from</value></data>
+  <data name="Exams.CoursesLink" xml:space="preserve"><value>Programs and Courses</value></data>
+  <data name="Exams.Scope" xml:space="preserve"><value>Exam Scope</value></data>
+  <data name="Exams.TheoreticalOnly" xml:space="preserve"><value>Theoretical Only</value></data>
+  <data name="Exams.TheoreticalAndPractical" xml:space="preserve"><value>Theoretical and Practical</value></data>
+  <data name="Exams.Theoretical" xml:space="preserve"><value>Theoretical</value></data>
+  <data name="Exams.Practical" xml:space="preserve"><value>Practical</value></data>
+  <data name="Exams.StartTime" xml:space="preserve"><value>Exam Start</value></data>
+  <data name="Exams.EndTime" xml:space="preserve"><value>Exam End</value></data>
+  <data name="Exams.ShuffleQuestions" xml:space="preserve"><value>Shuffle Questions</value></data>
+  <data name="Exams.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Exams.ExamData" xml:space="preserve"><value>Exam Details</value></data>
+  <data name="Exams.QuestionsCount" xml:space="preserve"><value>Number of Questions</value></data>
+  <data name="Exams.Questions" xml:space="preserve"><value>Questions</value></data>
+  <data name="Exams.QuestionsTitle" xml:space="preserve"><value>Exam Questions</value></data>
+  <data name="Exams.QuestionNumber" xml:space="preserve"><value>Q</value></data>
+  <data name="Exams.Marks" xml:space="preserve"><value>marks</value></data>
+  <data name="Exams.Question" xml:space="preserve"><value>Question</value></data>
+  <data name="Exams.Options" xml:space="preserve"><value>Options</value></data>
+  <data name="Exams.Total" xml:space="preserve"><value>Total</value></data>
+  <data name="Exams.MultipleChoice" xml:space="preserve"><value>Multiple Choice</value></data>
+  <data name="Exams.TrueFalse" xml:space="preserve"><value>True/False</value></data>
+  <data name="Exams.DeleteQuestionConfirm" xml:space="preserve"><value>Delete this question?</value></data>
+  <data name="Exams.NoQuestions" xml:space="preserve"><value>No questions yet - add the first question</value></data>
+  <data name="Exams.TheoreticalQuestion" xml:space="preserve"><value>Theoretical Question</value></data>
+  <data name="Exams.PracticalQuestion" xml:space="preserve"><value>Practical Question</value></data>
+  <data name="Exams.AddQuestion" xml:space="preserve"><value>Add Question</value></data>
+  <data name="Exams.AddQuestionTitle" xml:space="preserve"><value>Add Question</value></data>
+  <data name="Exams.AddNewQuestion" xml:space="preserve"><value>Add New Question</value></data>
+  <data name="Exams.EditQuestionTitle" xml:space="preserve"><value>Edit Question</value></data>
+  <data name="Exams.FromQuestionBank" xml:space="preserve"><value>From Question Bank</value></data>
+  <data name="Exams.Details" xml:space="preserve"><value>Details</value></data>
+  <data name="Exams.BackToQuestions" xml:space="preserve"><value>Back to Questions</value></data>
+  <data name="Exams.QuestionTextAr" xml:space="preserve"><value>Question Text (AR)</value></data>
+  <data name="Exams.QuestionTextEn" xml:space="preserve"><value>Question Text (EN)</value></data>
+  <data name="Exams.QuestionType" xml:space="preserve"><value>Question Type</value></data>
+  <data name="Exams.Category" xml:space="preserve"><value>Category</value></data>
+  <data name="Exams.Order" xml:space="preserve"><value>Order</value></data>
+  <data name="Exams.SelectCorrectAnswer" xml:space="preserve"><value>(Select the correct answer)</value></data>
+  <data name="Exams.OptionArPlaceholder" xml:space="preserve"><value>Option (AR)</value></data>
+  <data name="Exams.OptionEnPlaceholder" xml:space="preserve"><value>Option (EN)</value></data>
+  <data name="Exams.ChooseFromBank" xml:space="preserve"><value>Choose from the Question Bank</value></data>
+  <data name="Exams.Loading" xml:space="preserve"><value>Loading...</value></data>
+  <data name="Exams.EmptyBank" xml:space="preserve"><value>Question bank is empty</value></data>
+  <data name="Exams.Import" xml:space="preserve"><value>Import</value></data>
+  <data name="Exams.True" xml:space="preserve"><value>True</value></data>
+  <data name="Exams.False" xml:space="preserve"><value>False</value></data>
+  <data name="Import.Title" xml:space="preserve"><value>Import Employees</value></data>
+  <data name="Import.ExcelTitle" xml:space="preserve"><value>Import Employees from Excel</value></data>
+  <data name="Import.Step1" xml:space="preserve"><value>1. Download the template and fill in employee data.</value></data>
+  <data name="Import.Step2" xml:space="preserve"><value>2. Upload the file to populate the system. An account will be created for each employee with a default password</value></data>
+  <data name="Import.EmployeeNumber" xml:space="preserve"><value>employee number</value></data>
+  <data name="Import.DownloadTemplate" xml:space="preserve"><value>Download Excel Template</value></data>
+  <data name="Import.Import" xml:space="preserve"><value>Import</value></data>
+  <data name="Certificates.Title" xml:space="preserve"><value>Certificates</value></data>
+  <data name="Certificates.SerialNumber" xml:space="preserve"><value>Serial Number</value></data>
+  <data name="Certificates.Trainee" xml:space="preserve"><value>Trainee</value></data>
+  <data name="Certificates.Course" xml:space="preserve"><value>Course</value></data>
+  <data name="Certificates.IssueDate" xml:space="preserve"><value>Issue Date</value></data>
+  <data name="Certificates.Revoked" xml:space="preserve"><value>Revoked</value></data>
+  <data name="Certificates.Valid" xml:space="preserve"><value>Valid</value></data>
+  <data name="Certificates.DetailsTitle" xml:space="preserve"><value>Certificate {0}</value></data>
+  <data name="Certificates.TrainingCertificate" xml:space="preserve"><value>Training Certificate</value></data>
+  <data name="Certificates.CompletionTitle" xml:space="preserve"><value>Certificate of Completion of a Training Course</value></data>
+  <data name="Certificates.CertifyThat" xml:space="preserve"><value>This is to certify that</value></data>
+  <data name="Certificates.CompletedSuccessfully" xml:space="preserve"><value>has successfully completed the course</value></data>
+  <data name="QuestionBank.Title" xml:space="preserve"><value>Question Bank</value></data>
+  <data name="QuestionBank.AddNew" xml:space="preserve"><value>New Question</value></data>
+  <data name="QuestionBank.AddQuestionTitle" xml:space="preserve"><value>Add Question</value></data>
+  <data name="QuestionBank.AddNewQuestion" xml:space="preserve"><value>Add New Question</value></data>
+  <data name="QuestionBank.EditQuestionTitle" xml:space="preserve"><value>Edit Question</value></data>
+  <data name="QuestionBank.BackToBank" xml:space="preserve"><value>Back to Question Bank</value></data>
+  <data name="QuestionBank.SearchPlaceholder" xml:space="preserve"><value>Search in question text</value></data>
+  <data name="QuestionBank.AllCategories" xml:space="preserve"><value>All categories</value></data>
+  <data name="QuestionBank.Question" xml:space="preserve"><value>Question</value></data>
+  <data name="QuestionBank.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="QuestionBank.Marks" xml:space="preserve"><value>Marks</value></data>
+  <data name="QuestionBank.Category" xml:space="preserve"><value>Category</value></data>
+  <data name="QuestionBank.Options" xml:space="preserve"><value>Options</value></data>
+  <data name="QuestionBank.MultipleChoice" xml:space="preserve"><value>Multiple Choice</value></data>
+  <data name="QuestionBank.TrueFalse" xml:space="preserve"><value>True/False</value></data>
+  <data name="QuestionBank.DeleteQuestionConfirm" xml:space="preserve"><value>Delete this question?</value></data>
+  <data name="QuestionBank.Empty" xml:space="preserve"><value>No questions in the bank</value></data>
+  <data name="QuestionBank.QuestionTextAr" xml:space="preserve"><value>Question Text (AR)</value></data>
+  <data name="QuestionBank.QuestionTextEn" xml:space="preserve"><value>Question Text (EN)</value></data>
+  <data name="QuestionBank.QuestionType" xml:space="preserve"><value>Question Type</value></data>
+  <data name="QuestionBank.CategoryPlaceholder" xml:space="preserve"><value>e.g. IT, Management</value></data>
+  <data name="QuestionBank.Order" xml:space="preserve"><value>Order</value></data>
+  <data name="QuestionBank.SelectCorrectAnswer" xml:space="preserve"><value>(Select the correct answer)</value></data>
+  <data name="QuestionBank.OptionArPlaceholder" xml:space="preserve"><value>Option (AR)</value></data>
+  <data name="QuestionBank.OptionEnPlaceholder" xml:space="preserve"><value>Option (EN)</value></data>
+  <data name="QuestionBank.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="QuestionBank.True" xml:space="preserve"><value>True</value></data>
+  <data name="QuestionBank.False" xml:space="preserve"><value>False</value></data>
+  <data name="Equipment.Title" xml:space="preserve"><value>Equipment</value></data>
+  <data name="Equipment.CategoryProjector" xml:space="preserve"><value>Projector</value></data>
+  <data name="Equipment.CategoryLaptop" xml:space="preserve"><value>Laptop</value></data>
+  <data name="Equipment.CategoryWhiteboard" xml:space="preserve"><value>Whiteboard</value></data>
+  <data name="Equipment.CategoryOther" xml:space="preserve"><value>Other</value></data>
+  <data name="Equipment.ConditionGood" xml:space="preserve"><value>Good</value></data>
+  <data name="Equipment.ConditionFair" xml:space="preserve"><value>Fair</value></data>
+  <data name="Equipment.ConditionPoor" xml:space="preserve"><value>Poor</value></data>
+  <data name="Equipment.ConditionUnderMaintenance" xml:space="preserve"><value>Under Maintenance</value></data>
+  <data name="Equipment.AddNew" xml:space="preserve"><value>Add Equipment</value></data>
+  <data name="Equipment.AddNewTitle" xml:space="preserve"><value>Add New Equipment</value></data>
+  <data name="Equipment.Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Equipment.NameAr" xml:space="preserve"><value>Arabic Name</value></data>
+  <data name="Equipment.NameEn" xml:space="preserve"><value>Name (EN)</value></data>
+  <data name="Equipment.Code" xml:space="preserve"><value>Code</value></data>
+  <data name="Equipment.Category" xml:space="preserve"><value>Category</value></data>
+  <data name="Equipment.Condition" xml:space="preserve"><value>Condition</value></data>
+  <data name="Equipment.Availability" xml:space="preserve"><value>Availability</value></data>
+  <data name="Equipment.Available" xml:space="preserve"><value>Available</value></data>
+  <data name="Equipment.Unavailable" xml:space="preserve"><value>Unavailable</value></data>
+  <data name="Equipment.DeleteConfirm" xml:space="preserve"><value>Are you sure you want to delete this equipment?</value></data>
+  <data name="Equipment.Empty" xml:space="preserve"><value>No equipment registered</value></data>
+  <data name="Equipment.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Rooms.Title" xml:space="preserve"><value>Rooms</value></data>
+  <data name="Rooms.AddNew" xml:space="preserve"><value>Add Room</value></data>
+  <data name="Rooms.AddNewTitle" xml:space="preserve"><value>Add New Room</value></data>
+  <data name="Rooms.EditTitle" xml:space="preserve"><value>Edit Room</value></data>
+  <data name="Rooms.Capacity" xml:space="preserve"><value>Capacity</value></data>
+  <data name="Rooms.Trainee" xml:space="preserve"><value>Trainee</value></data>
+  <data name="Rooms.NameAr" xml:space="preserve"><value>Arabic Name</value></data>
+  <data name="Rooms.NameEn" xml:space="preserve"><value>Name (EN)</value></data>
+  <data name="Rooms.Code" xml:space="preserve"><value>Code</value></data>
+  <data name="Rooms.Location" xml:space="preserve"><value>Location</value></data>
+  <data name="Rooms.Facilities" xml:space="preserve"><value>Facilities</value></data>
+  <data name="Rooms.DeleteConfirm" xml:space="preserve"><value>Are you sure?</value></data>
+  <data name="Rooms.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Finance.Title" xml:space="preserve"><value>Finance</value></data>
+  <data name="Finance.PayrollSheetMonth" xml:space="preserve"><value>Instructors' Payroll - Month</value></data>
+  <data name="Finance.Show" xml:space="preserve"><value>Show</value></data>
+  <data name="Finance.PayrollSheet" xml:space="preserve"><value>Instructors' Payroll</value></data>
+  <data name="Finance.Instructor" xml:space="preserve"><value>Instructor</value></data>
+  <data name="Finance.CourseCount" xml:space="preserve"><value>Number of Courses</value></data>
+  <data name="Finance.TotalHours" xml:space="preserve"><value>Total Hours</value></data>
+  <data name="Finance.HourlyRate" xml:space="preserve"><value>Hourly Rate</value></data>
+  <data name="Finance.Total" xml:space="preserve"><value>Total</value></data>
+  <data name="Finance.PayrollTotal" xml:space="preserve"><value>Payroll Total</value></data>
+  <data name="Finance.NoCompletedCourses" xml:space="preserve"><value>No completed courses for this month in this payroll</value></data>
+  <data name="Finance.CourseAccountsCardTitle" xml:space="preserve"><value>Course Accounts &amp; Trainees' Fees</value></data>
+  <data name="Finance.Course" xml:space="preserve"><value>Course</value></data>
+  <data name="Finance.Trainees" xml:space="preserve"><value>Trainees</value></data>
+  <data name="Finance.TotalFees" xml:space="preserve"><value>Total Fees</value></data>
+  <data name="Finance.MinistryDeduction" xml:space="preserve"><value>15% Deduction (Ministry of Finance)</value></data>
+  <data name="Finance.NetAfterDeduction" xml:space="preserve"><value>Net After Deduction</value></data>
+  <data name="Finance.CalculateCourse" xml:space="preserve"><value>Calculate Course</value></data>
+  <data name="Finance.NoCourses" xml:space="preserve"><value>No courses</value></data>
+  <data name="Finance.CourseAccountsTitle" xml:space="preserve"><value>Course Accounts</value></data>
+  <data name="Finance.Accounts" xml:space="preserve"><value>Accounts</value></data>
+  <data name="Finance.RegisteredTrainees" xml:space="preserve"><value>Registered Trainees</value></data>
+  <data name="Finance.InstructorCost" xml:space="preserve"><value>Instructor Costs</value></data>
+  <data name="Finance.NetProfit" xml:space="preserve"><value>Net Profit</value></data>
+  <data name="Finance.NetProfitFormula" xml:space="preserve"><value>Fees - 15% Deduction (Ministry of Finance) - Instructor Costs</value></data>
+  <data name="Finance.TraineeFeesPayments" xml:space="preserve"><value>Trainees' Fees &amp; Payments</value></data>
+  <data name="Finance.Trainee" xml:space="preserve"><value>Trainee</value></data>
+  <data name="Finance.EmployeeNumber" xml:space="preserve"><value>Employee Number</value></data>
+  <data name="Finance.Fees" xml:space="preserve"><value>Fees</value></data>
+  <data name="Finance.Paid" xml:space="preserve"><value>Paid</value></data>
+  <data name="Finance.Remaining" xml:space="preserve"><value>Remaining</value></data>
+  <data name="Finance.PaymentStatus" xml:space="preserve"><value>Payment Status</value></data>
+  <data name="Finance.PrivateTrainee" xml:space="preserve"><value>Private Trainee</value></data>
+  <data name="Finance.StatusFullyPaid" xml:space="preserve"><value>Fully Paid</value></data>
+  <data name="Finance.StatusPartiallyPaid" xml:space="preserve"><value>Partially Paid</value></data>
+  <data name="Finance.StatusUnpaid" xml:space="preserve"><value>Unpaid</value></data>
+  <data name="Finance.TransactionsTitle" xml:space="preserve"><value>Financial Transactions</value></data>
+  <data name="Finance.Date" xml:space="preserve"><value>Date</value></data>
+  <data name="Finance.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Finance.Amount" xml:space="preserve"><value>Amount</value></data>
+  <data name="Finance.Reference" xml:space="preserve"><value>Reference</value></data>
+  <data name="Finance.TransactionTraineeFee" xml:space="preserve"><value>Trainee Fee</value></data>
+  <data name="Finance.TransactionMinistryDeduction" xml:space="preserve"><value>Ministry of Finance Deduction</value></data>
+  <data name="Finance.TransactionInstructorCost" xml:space="preserve"><value>Instructor Fee</value></data>
+  <data name="Finance.TransactionExpense" xml:space="preserve"><value>Expense</value></data>
+  <data name="Finance.TransactionOtherIncome" xml:space="preserve"><value>Other Income</value></data>
+  <data name="Finance.TransactionRefund" xml:space="preserve"><value>Refund</value></data>
+  <data name="Finance.ConfirmDeleteTransaction" xml:space="preserve"><value>Delete this transaction?</value></data>
+  <data name="Finance.NoTransactions" xml:space="preserve"><value>No financial transactions recorded yet</value></data>
+  <data name="Finance.AddTransactionTitle" xml:space="preserve"><value>Record a Financial Transaction</value></data>
+  <data name="Finance.ReferenceOptional" xml:space="preserve"><value>Reference (Optional)</value></data>
+  <data name="Finance.Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="Finance.SaveTransaction" xml:space="preserve"><value>Save Transaction</value></data>
+  <data name="Archives.Title" xml:space="preserve"><value>Search Archive</value></data>
+  <data name="Archives.TypeIncoming" xml:space="preserve"><value>Incoming</value></data>
+  <data name="Archives.TypeOutgoing" xml:space="preserve"><value>Outgoing</value></data>
+  <data name="Archives.TypeInternalMemo" xml:space="preserve"><value>Internal Memo</value></data>
+  <data name="Archives.TypeOther" xml:space="preserve"><value>Other</value></data>
+  <data name="Archives.Dashboard" xml:space="preserve"><value>Archive Dashboard</value></data>
+  <data name="Archives.NewDocument" xml:space="preserve"><value>Archive New Document</value></data>
+  <data name="Archives.SearchScreen" xml:space="preserve"><value>Search Screen</value></data>
+  <data name="Archives.ResultCount" xml:space="preserve"><value>result(s)</value></data>
+  <data name="Archives.ArchiveNumber" xml:space="preserve"><value>Archive Number</value></data>
+  <data name="Archives.SearchKeyword" xml:space="preserve"><value>Search Keyword</value></data>
+  <data name="Archives.SearchPlaceholder" xml:space="preserve"><value>Title / Subject / Sender</value></data>
+  <data name="Archives.Year" xml:space="preserve"><value>Year</value></data>
+  <data name="Archives.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Archives.FromDate" xml:space="preserve"><value>From Date</value></data>
+  <data name="Archives.ToDate" xml:space="preserve"><value>To Date</value></data>
+  <data name="Archives.ClearSearch" xml:space="preserve"><value>Clear Search</value></data>
+  <data name="Archives.DocumentTitle" xml:space="preserve"><value>Title</value></data>
+  <data name="Archives.FromTo" xml:space="preserve"><value>From / To</value></data>
+  <data name="Archives.DocumentDate" xml:space="preserve"><value>Document Date</value></data>
+  <data name="Archives.File" xml:space="preserve"><value>File</value></data>
+  <data name="Archives.NoResults" xml:space="preserve"><value>No matching documents for this search</value></data>
+  <data name="Archives.TotalDocuments" xml:space="preserve"><value>Total Archived Documents</value></data>
+  <data name="Archives.More" xml:space="preserve"><value>More</value></data>
+  <data name="Archives.ThisMonth" xml:space="preserve"><value>This Month's Documents</value></data>
+  <data name="Archives.Last6Months" xml:space="preserve"><value>Documents of the Last 6 Months</value></data>
+  <data name="Archives.DistributionByType" xml:space="preserve"><value>Distribution by Type</value></data>
+  <data name="Archives.LatestDocuments" xml:space="preserve"><value>Latest Archived Documents</value></data>
+  <data name="Archives.AdvancedSearch" xml:space="preserve"><value>Advanced Search</value></data>
+  <data name="Archives.NoDocuments" xml:space="preserve"><value>No documents yet - start by archiving your first document</value></data>
+  <data name="Archives.UploadNew" xml:space="preserve"><value>Upload New Document</value></data>
+  <data name="Archives.Documents" xml:space="preserve"><value>Documents</value></data>
+  <data name="Archives.DocumentData" xml:space="preserve"><value>Document Information</value></data>
+  <data name="Archives.TitlePlaceholder" xml:space="preserve"><value>Document title</value></data>
+  <data name="Archives.SubjectPlaceholder" xml:space="preserve"><value>Main subject of the document</value></data>
+  <data name="Archives.SenderPlaceholder" xml:space="preserve"><value>Sending entity (for incoming)</value></data>
+  <data name="Archives.RecipientPlaceholder" xml:space="preserve"><value>Recipient entity (for outgoing)</value></data>
+  <data name="Archives.NotesPlaceholder" xml:space="preserve"><value>Additional notes</value></data>
+  <data name="Archives.AllowedFilesHint" xml:space="preserve"><value>Allowed files: PDF, images, and Office documents - up to 20 MB</value></data>
+  <data name="Archives.ArchiveDocument" xml:space="preserve"><value>Archive Document</value></data>
+  <data name="Archives.DetailsTitle" xml:space="preserve"><value>Document Details</value></data>
+  <data name="Archives.DownloadFile" xml:space="preserve"><value>Download File</value></data>
+  <data name="Archives.BackToSearch" xml:space="preserve"><value>Back to Search</value></data>
+  <data name="Archives.IncomingFrom" xml:space="preserve"><value>Incoming From</value></data>
+  <data name="Archives.OutgoingTo" xml:space="preserve"><value>Outgoing To</value></data>
+  <data name="Archives.Subject" xml:space="preserve"><value>Subject</value></data>
+  <data name="Archives.Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="Archives.DocumentFile" xml:space="preserve"><value>Document File</value></data>
+  <data name="Archives.AddedOn" xml:space="preserve"><value>Added on</value></data>
+  <data name="Archives.AddedBy" xml:space="preserve"><value>by</value></data>
+  <data name="Archives.ConfirmDeleteDocument" xml:space="preserve"><value>Do you want to permanently delete this document?</value></data>
+  <data name="Archives.DeleteDocument" xml:space="preserve"><value>Delete Document</value></data>
+  <data name="Archives.ArchiveInfo" xml:space="preserve"><value>Archiving Information</value></data>
+  <data name="Archives.SequenceNumber" xml:space="preserve"><value>Sequence Number</value></data>
+  <data name="Archives.OriginalFileName" xml:space="preserve"><value>Original File Name</value></data>
+  <data name="Archives.FileSize" xml:space="preserve"><value>File Size</value></data>
+  <data name="Reports.Title" xml:space="preserve"><value>Reports</value></data>
+  <data name="Reports.TitleMain" xml:space="preserve"><value>Reports &amp; Analytics</value></data>
+  <data name="Reports.TotalCourses" xml:space="preserve"><value>Total Courses</value></data>
+  <data name="Reports.TotalSchedules" xml:space="preserve"><value>Total Schedules</value></data>
+  <data name="Reports.CompletedCourses" xml:space="preserve"><value>Completed Courses</value></data>
+  <data name="Reports.InProgressCourses" xml:space="preserve"><value>Courses In Progress</value></data>
+  <data name="Reports.TotalRegistrations" xml:space="preserve"><value>Total Registrations</value></data>
+  <data name="Reports.PendingRegistrations" xml:space="preserve"><value>Pending Registrations</value></data>
+  <data name="Reports.IssuedCertificates" xml:space="preserve"><value>Issued Certificates</value></data>
+  <data name="Reports.AttendanceRecords" xml:space="preserve"><value>Attendance Records</value></data>
+  <data name="Reports.CourseStatus" xml:space="preserve"><value>Course Status</value></data>
+  <data name="Reports.CoursesByCategory" xml:space="preserve"><value>Courses by Category</value></data>
+  <data name="Reports.TopCourses" xml:space="preserve"><value>Most Registered (Top Courses)</value></data>
+  <data name="Reports.Course" xml:space="preserve"><value>Course</value></data>
+  <data name="Reports.RegisteredCount" xml:space="preserve"><value>Number of Registrants</value></data>
+  <data name="Reports.NoData" xml:space="preserve"><value>No data</value></data>
+  <data name="Reports.GeneralIndicators" xml:space="preserve"><value>General Indicators</value></data>
+  <data name="Reports.ScheduleCompletionRate" xml:space="preserve"><value>Schedule Completion Rate</value></data>
+  <data name="Reports.AverageTraineesPerSchedule" xml:space="preserve"><value>Average Trainees per Schedule</value></data>
+  <data name="Reports.TotalInstructors" xml:space="preserve"><value>Total Instructors</value></data>
+  <data name="Reports.TotalTrainees" xml:space="preserve"><value>Total Trainees</value></data>
+  <data name="Reports.ScheduleStatus" xml:space="preserve"><value>Training Schedules Status</value></data>
+  <data name="Reports.Schedules" xml:space="preserve"><value>Schedules</value></data>
+  <data name="Nav.TrainingPlansReport" xml:space="preserve"><value>Training Plans Report</value></data>
+  <data name="TrainingPlans.Report" xml:space="preserve"><value>Report</value></data>
+  <data name="TrainingPlans.ReportTitle" xml:space="preserve"><value>Training Plans Detailed Report</value></data>
+  <data name="TrainingPlans.Filter" xml:space="preserve"><value>Filter</value></data>
+  <data name="TrainingPlans.AllCategories" xml:space="preserve"><value>All Types</value></data>
+  <data name="TrainingPlans.AllYears" xml:space="preserve"><value>All Years</value></data>
+  <data name="TrainingPlans.AllQuarters" xml:space="preserve"><value>All Quarters</value></data>
+  <data name="TrainingPlans.AllStatuses" xml:space="preserve"><value>All Statuses</value></data>
+  <data name="TrainingPlans.SearchPlaceholder" xml:space="preserve"><value>Search by plan name...</value></data>
+  <data name="TrainingPlans.Reset" xml:space="preserve"><value>Reset</value></data>
+  <data name="TrainingPlans.Print" xml:space="preserve"><value>Print</value></data>
+  <data name="TrainingPlans.TotalPlans" xml:space="preserve"><value>Total Plans</value></data>
+  <data name="TrainingPlans.TotalCourses" xml:space="preserve"><value>Total Courses</value></data>
+  <data name="TrainingPlans.TotalHours" xml:space="preserve"><value>Total Hours</value></data>
+  <data name="TrainingPlans.TotalSchedules" xml:space="preserve"><value>Total Schedules</value></data>
+  <data name="TrainingPlans.TotalRegistrations" xml:space="preserve"><value>Total Registrations</value></data>
+  <data name="TrainingPlans.CourseCode" xml:space="preserve"><value>Course Code</value></data>
+  <data name="TrainingPlans.CourseName" xml:space="preserve"><value>Course Name</value></data>
+  <data name="TrainingPlans.Period" xml:space="preserve"><value>Period</value></data>
+  <data name="TrainingPlans.Registrations" xml:space="preserve"><value>Registrations</value></data>
+  <data name="TrainingPlans.Schedules" xml:space="preserve"><value>Schedules</value></data>
+  <data name="TrainingPlans.Instructor" xml:space="preserve"><value>Instructors</value></data>
+  <data name="TrainingPlans.CreatedBy" xml:space="preserve"><value>Created By</value></data>
+  <data name="TrainingPlans.NoResults" xml:space="preserve"><value>No training plans match the selected filters</value></data>
+  <data name="TrainingPlans.PrintedOn" xml:space="preserve"><value>Printed on</value></data>
+  <data name="Nav.Certificates" xml:space="preserve"><value>Certificates</value></data>
+  <data name="Certificates.Issue" xml:space="preserve"><value>Issue Certificate</value></data>
+  <data name="Certificates.IssueNew" xml:space="preserve"><value>Issue New Certificate</value></data>
+  <data name="Certificates.Download" xml:space="preserve"><value>Download</value></data>
+  <data name="Certificates.Revoke" xml:space="preserve"><value>Revoke</value></data>
+  <data name="Certificates.RevokeConfirm" xml:space="preserve"><value>Are you sure you want to revoke this certificate?</value></data>
+  <data name="Certificates.RevocationReason" xml:space="preserve"><value>Revocation Reason (optional)</value></data>
+  <data name="Certificates.ExpiryDate" xml:space="preserve"><value>Expiry Date</value></data>
+  <data name="Certificates.NoCertificates" xml:space="preserve"><value>No certificates issued yet</value></data>
+  <data name="Certificates.DuplicateError" xml:space="preserve"><value>A certificate already exists for this trainee and course schedule</value></data>
+  <data name="Certificates.IssuedSuccess" xml:space="preserve"><value>Certificate issued successfully</value></data>
+  <data name="Certificates.RevokedSuccess" xml:space="preserve"><value>Certificate revoked successfully</value></data>
+  <data name="Certificates.TraineeRequired" xml:space="preserve"><value>Please select a trainee</value></data>
+  <data name="Certificates.ScheduleRequired" xml:space="preserve"><value>Please select a course schedule</value></data>
+  <data name="Certificates.SelectTrainee" xml:space="preserve"><value>-- Select Trainee --</value></data>
+  <data name="Certificates.SelectSchedule" xml:space="preserve"><value>-- Select Course Schedule --</value></data>
+  <data name="Certificates.TraineeNotFound" xml:space="preserve"><value>Trainee not found</value></data>
+  <data name="Certificates.ScheduleNotFound" xml:space="preserve"><value>Course schedule not found</value></data>
+  <data name="Certificates.Schedule" xml:space="preserve"><value>Course Schedule</value></data>
+  <data name="Certificates.Print" xml:space="preserve"><value>Print</value></data>
+  <data name="Certificates.Issuer" xml:space="preserve"><value>Issued By</value></data>
+  <data name="Reports.CoursesReport" xml:space="preserve"><value>Courses Report</value></data>
+  <data name="Reports.RegistrationsReport" xml:space="preserve"><value>Registrations Report</value></data>
+  <data name="Reports.FinanceReport" xml:space="preserve"><value>Financial Report</value></data>
+  <data name="Reports.AttendanceReport" xml:space="preserve"><value>Attendance Report</value></data>
+  <data name="Reports.ExamsReport" xml:space="preserve"><value>Exams Report</value></data>
+  <data name="Reports.CertificatesReport" xml:space="preserve"><value>Certificates Report</value></data>
+  <data name="Reports.InstructorsReport" xml:space="preserve"><value>Instructors Report</value></data>
+  <data name="Reports.ExploreReport" xml:space="preserve"><value>Open</value></data>
+  <data name="Reports.ReportCatalog" xml:space="preserve"><value>Detailed Reports</value></data>
+  <data name="Reports.AllYears" xml:space="preserve"><value>All Years</value></data>
+  <data name="Reports.AllCourses" xml:space="preserve"><value>All Courses</value></data>
+  <data name="Reports.AllStatuses" xml:space="preserve"><value>All Statuses</value></data>
+  <data name="Reports.From" xml:space="preserve"><value>From</value></data>
+  <data name="Reports.To" xml:space="preserve"><value>To</value></data>
+  <data name="Reports.Category" xml:space="preserve"><value>Category</value></data>
+  <data name="Reports.EnrolledDate" xml:space="preserve"><value>Enrolled Date</value></data>
+  <data name="Reports.Period" xml:space="preserve"><value>Period</value></data>
+  <data name="Reports.Total" xml:space="preserve"><value>Total</value></data>
+  <data name="Reports.Records" xml:space="preserve"><value>Records</value></data>
+  <data name="Reports.Sessions" xml:space="preserve"><value>Sessions</value></data>
+  <data name="Reports.AttendanceRate" xml:space="preserve"><value>Attendance Rate</value></data>
+  <data name="Reports.AvgScore" xml:space="preserve"><value>Average Score</value></data>
+  <data name="Reports.Passed" xml:space="preserve"><value>Passed</value></data>
+  <data name="Reports.Failed" xml:space="preserve"><value>Failed</value></data>
+  <data name="Reports.PassRate" xml:space="preserve"><value>Pass Rate</value></data>
+  <data name="Reports.CoursesCount" xml:space="preserve"><value>Courses</value></data>
+  <data name="Reports.ScheduleCount" xml:space="preserve"><value>Schedules</value></data>
+  <data name="Reports.Days" xml:space="preserve"><value>Days</value></data>
+  <data name="Reports.TraineesCount" xml:space="preserve"><value>Trainees</value></data>
+  <data name="Reports.TotalPaid" xml:space="preserve"><value>Total Paid</value></data>
+  <data name="Reports.TotalOutstanding" xml:space="preserve"><value>Total Outstanding</value></data>
+  <data name="Reports.PayPending" xml:space="preserve"><value>Pending</value></data>
+  <data name="Reports.PayApproved" xml:space="preserve"><value>Approved</value></data>
+  <data name="Reports.StatusValid" xml:space="preserve"><value>Valid</value></data>
+  <data name="Reports.StatusRevoked" xml:space="preserve"><value>Revoked</value></data>
+  <data name="Reports.NoResults" xml:space="preserve"><value>No results found</value></data>
+  <data name="Reports.TraineesReport" xml:space="preserve"><value>Trainees Report</value></data>
+  <data name="Reports.CourseCategory" xml:space="preserve"><value>Course Category</value></data>
+  <data name="Reports.TraineeType" xml:space="preserve"><value>Trainee Category</value></data>
+  <data name="Reports.Grade" xml:space="preserve"><value>Grade</value></data>
+  <data name="Reports.Score" xml:space="preserve"><value>Score</value></data>
+  <data name="Reports.GradeExcellent" xml:space="preserve"><value>Excellent</value></data>
+  <data name="Reports.GradeVeryGood" xml:space="preserve"><value>Very Good</value></data>
+  <data name="Reports.GradeGood" xml:space="preserve"><value>Good</value></data>
+  <data name="Reports.GradeAcceptable" xml:space="preserve"><value>Acceptable</value></data>
+  <data name="Reports.GradeFail" xml:space="preserve"><value>Fail</value></data>
+  <data name="Reports.NotGraded" xml:space="preserve"><value>No Exam Score</value></data>
+  <data name="Reports.ByCourseCategory" xml:space="preserve"><value>By Course Category</value></data>
+  <data name="Reports.ByTraineeType" xml:space="preserve"><value>By Trainee Category</value></data>
+  <data name="Reports.GradeDistribution" xml:space="preserve"><value>Grade Distribution</value></data>
+  <data name="Reports.WithoutGrade" xml:space="preserve"><value>Without Grade</value></data>
+  <data name="Dash.TotalSchedules" xml:space="preserve"><value>Total Schedules</value></data>
+  <data name="Dash.CompletedSchedules" xml:space="preserve"><value>Completed Schedules</value></data>
+  <data name="Dash.Registrations" xml:space="preserve"><value>Registrations</value></data>
+  <data name="Dash.PendingRegistrations" xml:space="preserve"><value>Pending Registrations</value></data>
+  <data name="Dash.AttendanceRecords" xml:space="preserve"><value>Attendance Records</value></data>
+  <data name="Dash.FeesTotal" xml:space="preserve"><value>Total Fees</value></data>
+  <data name="Dash.FeesCollected" xml:space="preserve"><value>Collected</value></data>
+  <data name="Dash.FeesOutstanding" xml:space="preserve"><value>Outstanding</value></data>
+  <data name="Dash.CoursesByCategory" xml:space="preserve"><value>Courses by Category</value></data>
+  <data name="Dash.CoursesByStatus" xml:space="preserve"><value>Courses by Status</value></data>
+  <data name="Dash.SchedulesByStatus" xml:space="preserve"><value>Schedules by Status</value></data>
+  <data name="Dash.TopCourses" xml:space="preserve"><value>Most Registered Courses</value></data>
+  <data name="Dash.RecentCertificates" xml:space="preserve"><value>Recent Certificates</value></data>
+  <data name="Dash.PeriodFilter" xml:space="preserve"><value>Period</value></data>
+  <data name="Surveys.Title" xml:space="preserve"><value>Surveys</value></data>
+  <data name="Surveys.NoTrainees" xml:space="preserve"><value>No trainees are registered in this schedule</value></data>
+  <data name="Surveys.SavedSuccess" xml:space="preserve"><value>Evaluation saved for {0} trainee(s)</value></data>
+  <data name="Surveys.Course" xml:space="preserve"><value>Course</value></data>
+  <data name="Surveys.Instructor" xml:space="preserve"><value>Instructor</value></data>
+  <data name="Surveys.Period" xml:space="preserve"><value>Period</value></data>
+  <data name="Surveys.Responses" xml:space="preserve"><value>Responses</value></data>
+  <data name="Surveys.AverageRating" xml:space="preserve"><value>Avg Rating</value></data>
+  <data name="Surveys.Actions" xml:space="preserve"><value>Actions</value></data>
+  <data name="Surveys.Fill" xml:space="preserve"><value>Fill</value></data>
+  <data name="Surveys.Results" xml:space="preserve"><value>Results</value></data>
+  <data name="Surveys.RatingScale" xml:space="preserve"><value>Rating scale: 1 = very poor, 5 = excellent</value></data>
+  <data name="Surveys.Anonymous" xml:space="preserve"><value>Anonymous response</value></data>
+  <data name="Surveys.Trainee" xml:space="preserve"><value>Trainee</value></data>
+  <data name="Surveys.InstructorRating" xml:space="preserve"><value>Instructor Rating</value></data>
+  <data name="Surveys.ContentRating" xml:space="preserve"><value>Course Content</value></data>
+  <data name="Surveys.FacilitiesRating" xml:space="preserve"><value>Facilities &amp; Equipment</value></data>
+  <data name="Surveys.Notes" xml:space="preserve"><value>Notes / Comments</value></data>
+  <data name="Surveys.AlreadySaved" xml:space="preserve"><value>Evaluation already recorded</value></data>
+  <data name="Surveys.SaveRatings" xml:space="preserve"><value>Submit Evaluation</value></data>
+  <data name="Surveys.Overall" xml:space="preserve"><value>Overall</value></data>
+  <data name="Surveys.EvaluationCount" xml:space="preserve"><value>Evaluations</value></data>
+  <data name="Surveys.Question" xml:space="preserve"><value>Question</value></data>
+  <data name="Surveys.Comments" xml:space="preserve"><value>Comments</value></data>
+  <data name="Surveys.NoComments" xml:space="preserve"><value>No comments yet</value></data>
+  <data name="Exports.Excel" xml:space="preserve"><value>Excel</value></data>
+  <data name="Exports.Pdf" xml:space="preserve"><value>PDF</value></data>
+  <data name="Exports.ExcelTitle" xml:space="preserve"><value>Export to Excel</value></data>
+  <data name="Exports.PdfTitle" xml:space="preserve"><value>Export to PDF</value></data>
+  <data name="Conflicts.Title" xml:space="preserve"><value>Resource Conflicts</value></data>
+  <data name="Conflicts.InstructorSection" xml:space="preserve"><value>Instructor Conflicts</value></data>
+  <data name="Conflicts.RoomSection" xml:space="preserve"><value>Room Conflicts</value></data>
+  <data name="Conflicts.EquipmentSection" xml:space="preserve"><value>Equipment Conflicts</value></data>
+  <data name="Conflicts.Resource" xml:space="preserve"><value>Resource</value></data>
+  <data name="Conflicts.CourseA" xml:space="preserve"><value>Course A</value></data>
+  <data name="Conflicts.TimesA" xml:space="preserve"><value>Period A</value></data>
+  <data name="Conflicts.CourseB" xml:space="preserve"><value>Course B</value></data>
+  <data name="Conflicts.TimesB" xml:space="preserve"><value>Period B</value></data>
+  <data name="Conflicts.Total" xml:space="preserve"><value>Total</value></data>
+  <data name="Conflicts.NoConflicts" xml:space="preserve"><value>No resource conflicts found</value></data>
+  <data name="Conflicts.SaveBlocked" xml:space="preserve"><value>The selected instructor or room is already occupied in an overlapping schedule</value></data>
+  <data name="Nav.Conflicts" xml:space="preserve"><value>Conflicts</value></data>
+  <data name="Attendance.QrTitle" xml:space="preserve"><value>Daily QR Check-in</value></data>
+  <data name="Attendance.QrHint" xml:space="preserve"><value>Share this code with trainees</value></data>
+  <data name="Attendance.QrText" xml:space="preserve"><value>Trainees scan it with their phones to check in automatically for this session.</value></data>
+  <data name="Attendance.CheckInTitle" xml:space="preserve"><value>Daily Attendance Check-in</value></data>
+  <data name="Attendance.Course" xml:space="preserve"><value>Course</value></data>
+  <data name="Attendance.EmployeeNumber" xml:space="preserve"><value>Employee Number</value></data>
+  <data name="Attendance.CheckInHint" xml:space="preserve"><value>Enter your employee number to confirm your attendance.</value></data>
+  <data name="Attendance.CheckInRegister" xml:space="preserve"><value>Check In</value></data>
+  <data name="Attendance.CheckInSuccess" xml:space="preserve"><value>Attendance recorded successfully</value></data>
+  <data name="Attendance.CheckInAlready" xml:space="preserve"><value>Your attendance was already recorded</value></data>
+  <data name="Attendance.CheckInTime" xml:space="preserve"><value>Check-in time</value></data>
+  <data name="Attendance.CheckInAgain" xml:space="preserve"><value>Check in again</value></data>
+  <data name="Attendance.CheckInNotFound" xml:space="preserve"><value>No registered trainee matches this employee number for this session.</value></data>
+  <data name="Attendance.CheckInRequired" xml:space="preserve"><value>Please enter your employee number.</value></data>
+  <data name="Attendance.CheckInInvalid" xml:space="preserve"><value>This check-in link is invalid or expired.</value></data>
+  <data name="Attendance.PresentCount" xml:space="preserve"><value>Present count</value></data>
+  <data name="Attendance.CheckInQrNote" xml:space="preserve"><value>QR check-in</value></data>
+  <data name="Archives.RecordsArchive" xml:space="preserve"><value>Archived Records</value></data>
+  <data name="Archives.RecordsArchiveCallout" xml:space="preserve"><value>Archived Training Records</value></data>
+  <data name="Archives.RecordsArchiveHint" xml:space="preserve"><value>Completed training sessions are moved to the archive automatically. The records shown here are read-only and kept for reference and reporting.</value></data>
+  <data name="Archives.ArchivedSchedules" xml:space="preserve"><value>Archived Schedules</value></data>
+  <data name="Archives.ArchivedRegistrations" xml:space="preserve"><value>Archived Registrations</value></data>
+  <data name="Archives.ArchivedCompleted" xml:space="preserve"><value>Completed Trainees</value></data>
+  <data name="Archives.ArchivedCollected" xml:space="preserve"><value>Collected Amount</value></data>
+  <data name="Archives.CompletedRecords" xml:space="preserve"><value>Completed Records</value></data>
+  <data name="Archives.ArchivedSchedule" xml:space="preserve"><value>Schedule</value></data>
+  <data name="Archives.ArchivedCourse" xml:space="preserve"><value>Course</value></data>
+  <data name="Archives.ArchivedInstructor" xml:space="preserve"><value>Instructor</value></data>
+  <data name="Archives.ArchivedPeriod" xml:space="preserve"><value>Period</value></data>
+  <data name="Archives.ArchivedTrainees" xml:space="preserve"><value>Trainees</value></data>
+  <data name="Archives.ArchivedCompletedCount" xml:space="preserve"><value>Completed</value></data>
+  <data name="Archives.ArchivedCollectedAmount" xml:space="preserve"><value>Collected</value></data>
+  <data name="Archives.ArchivedLabel" xml:space="preserve"><value>Archived</value></data>
+  <data name="Archives.NoArchivedRecords" xml:space="preserve"><value>No archived records found</value></data>
+  <data name="Archives.RecordsArchiveReadOnly" xml:space="preserve"><value>This page is display-only. Use Backup/Restore for data preservation.</value></data>
+  <data name="Archives.Reset" xml:space="preserve"><value>Reset</value></data>
+  <data name="Nav.ArchivedRecords" xml:space="preserve"><value>Archived Records</value></data>
+  <data name="Nav.ArchiveBackup" xml:space="preserve"><value>Backup</value></data>
+  <data name="Nav.ArchiveRestore" xml:space="preserve"><value>Restore</value></data>
+  <data name="ArchiveBackup.Title" xml:space="preserve"><value>Database Backup</value></data>
+  <data name="ArchiveBackup.Create" xml:space="preserve"><value>Create Backup</value></data>
+  <data name="ArchiveBackup.CreateHint" xml:space="preserve"><value>Create a full snapshot of the database that you can keep safe or use to restore the system later.</value></data>
+  <data name="ArchiveBackup.CreateButton" xml:space="preserve"><value>Create Backup Now</value></data>
+  <data name="ArchiveBackup.About" xml:space="preserve"><value>About</value></data>
+  <data name="ArchiveBackup.Hint" xml:space="preserve"><value>A new backup file (.bak) is created every time you click the button, without deleting previous backups.</value></data>
+  <data name="ArchiveBackup.Location" xml:space="preserve"><value>Storage folder</value></data>
+  <data name="ArchiveBackup.Existing" xml:space="preserve"><value>Existing Backups</value></data>
+  <data name="ArchiveBackup.FileName" xml:space="preserve"><value>File Name</value></data>
+  <data name="ArchiveBackup.Size" xml:space="preserve"><value>Size</value></data>
+  <data name="ArchiveBackup.CreatedAt" xml:space="preserve"><value>Created At</value></data>
+  <data name="ArchiveBackup.ConfirmDelete" xml:space="preserve"><value>Delete this backup file?</value></data>
+  <data name="ArchiveBackup.NoBackups" xml:space="preserve"><value>No backups found</value></data>
+  <data name="ArchiveBackup.Created" xml:space="preserve"><value>Backup created: {0}</value></data>
+  <data name="ArchiveBackup.CreatedFailed" xml:space="preserve"><value>Backup failed: {0}</value></data>
+  <data name="ArchiveBackup.Deleted" xml:space="preserve"><value>Backup file deleted</value></data>
+  <data name="ArchiveRestore.Title" xml:space="preserve"><value>Restore Database</value></data>
+  <data name="ArchiveRestore.Warning" xml:space="preserve"><value>Danger Zone</value></data>
+  <data name="ArchiveRestore.WarningHint" xml:space="preserve"><value>Restoring replaces the current database content with the uploaded backup. Open sessions may be interrupted briefly.</value></data>
+  <data name="ArchiveRestore.Restore" xml:space="preserve"><value>Restore From File</value></data>
+  <data name="ArchiveRestore.FileLabel" xml:space="preserve"><value>Backup file (.bak)</value></data>
+  <data name="ArchiveRestore.FileHint" xml:space="preserve"><value>Only .bak files produced by the backup feature are accepted.</value></data>
+  <data name="ArchiveRestore.RestoreButton" xml:space="preserve"><value>Restore Database</value></data>
+  <data name="ArchiveRestore.Success" xml:space="preserve"><value>Database restored successfully. Please refresh the page to continue.</value></data>
+  <data name="ArchiveRestore.Failed" xml:space="preserve"><value>Restore failed: {0}</value></data>
+  <data name="ArchiveRestore.InvalidFile" xml:space="preserve"><value>Please select a valid .bak backup file.</value></data>
+</root>

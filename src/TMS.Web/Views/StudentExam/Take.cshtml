@@ -1,0 +1,47 @@
+@model TMS.Web.ViewModels.Execution.StudentExamTakeViewModel
+@{
+    ViewData["Title"] = Model.ExamTitle;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <h1>@Model.ExamTitle</h1>
+        <small class="text-muted">@T["StudentExam.Duration"]: @Model.DurationMinutes @T["StudentExam.MinutesUnit"]</small>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <form asp-action="Take" method="post" id="examForm">
+            <input type="hidden" asp-for="ExamId" />
+            <input type="hidden" asp-for="TraineeId" />
+            @for (int i = 0; i < Model.Questions.Count; i++)
+            {
+                <input type="hidden" name="Questions[@i].QuestionId" value="@Model.Questions[i].QuestionId" />
+                <input type="hidden" name="Questions[@i].QuestionTextAr" value="@Model.Questions[i].QuestionTextAr" />
+            }
+            @foreach (var q in Model.Questions)
+            {
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <strong>@q.QuestionTextAr</strong> <span class="badge bg-info ms-2">@q.Marks @T["StudentExam.Marks"]</span>
+                        @if (q.Scope == TMS.Core.Enums.QuestionScope.Practical)
+                        {
+                            <span class="badge bg-warning">@T["StudentExam.Practical"]</span>
+                        }
+                    </div>
+                    <div class="card-body">
+                        @foreach (var opt in q.Options)
+                        {
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="answers[@q.QuestionId]" value="@opt.Id" id="opt_@opt.Id" required />
+                                <label class="form-check-label" for="opt_@opt.Id">@opt.OptionTextAr</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            <button type="submit" class="btn btn-success btn-lg w-100"><i class="fas fa-paper-plane"></i> @T["StudentExam.SubmitAnswers"]</button>
+        </form>
+    </div>
+</section>

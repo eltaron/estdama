@@ -1,0 +1,138 @@
+@model List<TMS.Core.Entities.Archive.ArchiveDocument>
+@{
+    ViewData["Title"] = @T["Archives.Title"];
+    var typeName = new Dictionary<TMS.Core.Enums.ArchiveDocumentType, string>
+    {
+        [TMS.Core.Enums.ArchiveDocumentType.Incoming] = T["Archives.TypeIncoming"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.Outgoing] = T["Archives.TypeOutgoing"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.InternalMemo] = T["Archives.TypeInternalMemo"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.Other] = T["Archives.TypeOther"].Value
+    };
+    var currentType = ViewBag.DocType as TMS.Core.Enums.ArchiveDocumentType?;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Archives.Title"]</h1></div>
+            <div class="col-sm-6">
+                <div class="float-end">
+                    <a asp-action="Dashboard" class="btn btn-outline-primary"><i class="fas fa-tachometer-alt"></i> @T["Archives.Dashboard"]</a>
+                    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> @T["Archives.NewDocument"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-search me-1"></i> @T["Archives.SearchScreen"]</h3>
+                <div class="card-tools">
+                    <span class="badge bg-info">@Model.Count @T["Archives.ResultCount"]</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <form method="get" asp-action="Index" class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label">@T["Archives.ArchiveNumber"]</label>
+                        <input type="text" name="code" value="@ViewBag.Code" class="form-control" placeholder="2026/00001" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">@T["Archives.SearchKeyword"]</label>
+                        <input type="text" name="keyword" value="@ViewBag.Keyword" class="form-control" placeholder="@T["Archives.SearchPlaceholder"]" />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">@T["Archives.Year"]</label>
+                        <select name="year" class="form-select">
+                            <option value="">@T["Common.All"]</option>
+                            @foreach (var y in ViewBag.AvailableYears)
+                            {
+                                <option value="@y" selected="@(ViewBag.Year == y)">@y</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">@T["Archives.Type"]</label>
+                        <select name="docType" class="form-select">
+                            <option value="">@T["Common.All"]</option>
+                            @foreach (var kv in typeName)
+                            {
+                                <option value="@((int)kv.Key)" selected="@(currentType == kv.Key)">@kv.Value</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">@T["Archives.FromDate"]</label>
+                        <input type="date" name="fromDate" value="@(ViewBag.FromDate?.ToString("yyyy-MM-dd"))" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">@T["Archives.ToDate"]</label>
+                        <input type="date" name="toDate" value="@(ViewBag.ToDate?.ToString("yyyy-MM-dd"))" class="form-control" />
+                    </div>
+                    <div class="col-md-12 d-flex gap-2">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search me-1"></i> @T["Common.Search"]</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-undo me-1"></i> @T["Archives.ClearSearch"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@T["Archives.ArchiveNumber"]</th>
+                            <th>@T["Archives.Type"]</th>
+                            <th>@T["Archives.DocumentTitle"]</th>
+                            <th>@T["Archives.FromTo"]</th>
+                            <th>@T["Archives.DocumentDate"]</th>
+                            <th>@T["Common.Department"]</th>
+                            <th>@T["Archives.File"]</th>
+                            <th>@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var d in Model)
+                        {
+                            <tr>
+                                <td><strong>@d.Code</strong></td>
+                                <td><span class="badge bg-secondary">@typeName[d.DocType]</span></td>
+                                <td>@d.TitleAr</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(d.SenderName))
+                                    {
+                                        <span class="d-block"><i class="fas fa-arrow-down text-info me-1"></i>@d.SenderName</span>
+                                    }
+                                    @if (!string.IsNullOrEmpty(d.RecipientName))
+                                    {
+                                        <span><i class="fas fa-arrow-up text-warning me-1"></i>@d.RecipientName</span>
+                                    }
+                                    @if (string.IsNullOrEmpty(d.SenderName) && string.IsNullOrEmpty(d.RecipientName))
+                                    {
+                                        <span class="text-muted">-</span>
+                                    }
+                                </td>
+                                <td>@d.DocumentDate.ToString("yyyy-MM-dd")</td>
+                                <td>@(d.Department?.NameAr ?? "-")</td>
+                                <td>
+                                    <a asp-action="Download" asp-route-id="@d.Id" class="btn btn-outline-primary btn-sm" title="@d.OriginalFileName"><i class="fas fa-download"></i></a>
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@d.Id" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        @if (!Model.Any())
+                        {
+                            <tr><td colspan="8" class="text-center text-muted py-4">@T["Archives.NoResults"]</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

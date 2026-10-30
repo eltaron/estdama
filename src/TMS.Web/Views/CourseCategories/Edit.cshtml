@@ -1,0 +1,38 @@
+@model TMS.Core.Entities.Courses.CourseCategory
+@{
+    ViewData["Title"] = @T["CourseCategories.Edit"];
+}
+
+<div class="content-header">
+    <div class="container-fluid"><h1>@T["CourseCategories.Edit"]: @Model.NameAr</h1></div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="NameAr" class="form-label">@T["CourseCategories.NameAr"]</label>
+                                <input asp-for="NameAr" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="NameEn" class="form-label">@T["CourseCategories.NameEn"]</label>
+                                <input asp-for="NameEn" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.Save"]</button>
+                    <a asp-action="Index" class="btn btn-secondary">@T["CourseCategories.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

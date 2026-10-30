@@ -1,0 +1,62 @@
+@model TMS.Core.Entities.Instructors.Instructor
+@{
+    ViewData["Title"] = $"{Model.FirstNameAr} {Model.LastNameAr}";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@Model.FirstNameAr @Model.LastNameAr</h1>
+                <small class="text-muted">@Model.FirstNameEn @Model.LastNameEn</small>
+            </div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="fas fa-edit"></i> @T["Common.Edit"]</a>
+                <a asp-action="Index" class="btn btn-secondary">@T["Common.Back"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Instructors.PersonalInfo"]</h3></div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>@T["Instructors.NationalId"]</dt>
+                            <dd>@(Model.NationalId ?? "-")</dd>
+                            <dt>@T["Common.Email"]</dt>
+                            <dd>@(Model.Email ?? "-")</dd>
+                            <dt>@T["Instructors.Phone"]</dt>
+                            <dd>@(Model.Phone ?? "-")</dd>
+                            <dt>@T["Instructors.Specialization"]</dt>
+                            <dd>@(Model.SpecializationAr ?? "-")</dd>
+                            <dt>@T["Instructors.Type"]</dt>
+                            <dd>@(Model.Type == TMS.Core.Enums.InstructorType.Internal ? T["Instructors.Internal"] : T["Instructors.External"])</dd>
+                            <dt>@T["Instructors.HourlyRate"]</dt>
+                            <dd>@Model.HourlyRate.ToString("N2") @T["Instructors.SAR"]</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Instructors.BankData"]</h3></div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>@T["Instructors.BankName"]</dt>
+                            <dd>@(Model.BankName ?? "-")</dd>
+                            <dt>@T["Instructors.Iban"]</dt>
+                            <dd>@(Model.IBAN ?? "-")</dd>
+                            <dt>@T["Instructors.AccountNumber"]</dt>
+                            <dd>@(Model.AccountNumber ?? "-")</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

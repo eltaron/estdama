@@ -1,0 +1,117 @@
+@model TMS.Web.ViewModels.Instructors.InstructorFormViewModel
+@{
+    ViewData["Title"] = @T["Instructors.Edit"];
+}
+
+<div class="content-header">
+    <div class="container-fluid"><h1>@T["Instructors.Edit"]</h1></div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="FirstNameAr" class="form-label"></label>
+                                <input asp-for="FirstNameAr" class="form-control" />
+                                <span asp-validation-for="FirstNameAr" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="LastNameAr" class="form-label"></label>
+                                <input asp-for="LastNameAr" class="form-control" />
+                                <span asp-validation-for="LastNameAr" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="FirstNameEn" class="form-label"></label>
+                                <input asp-for="FirstNameEn" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="LastNameEn" class="form-label"></label>
+                                <input asp-for="LastNameEn" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="NationalId" class="form-label"></label>
+                                <input asp-for="NationalId" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Email" class="form-label"></label>
+                                <input asp-for="Email" class="form-control" type="email" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Phone" class="form-label"></label>
+                                <input asp-for="Phone" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="SpecializationAr" class="form-label"></label>
+                                <input asp-for="SpecializationAr" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Type" class="form-label"></label>
+                                <select asp-for="Type" asp-items="ViewBag.TypeList" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="HourlyRate" class="form-label"></label>
+                                <input asp-for="HourlyRate" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <h5>@T["Instructors.BankData"]</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="BankName" class="form-label"></label>
+                                <input asp-for="BankName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="IBAN" class="form-label"></label>
+                                <input asp-for="IBAN" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="AccountNumber" class="form-label"></label>
+                                <input asp-for="AccountNumber" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Instructors.SaveChanges"]</button>
+                    <a asp-action="Index" class="btn btn-secondary">@T["Instructors.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,170 @@
+@model List<TMS.Web.ViewModels.Reports.RegistrationReportRow>
+@using TMS.Core.Enums
+@{
+    ViewData["Title"] = @T["Reports.RegistrationsReport"];
+
+    var isAr = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
+    var statusName = new Dictionary<RegistrationStatus, string>
+    {
+        [RegistrationStatus.Registered] = T["Registrations.StatusRegistered"].Value,
+        [RegistrationStatus.Confirmed] = T["Registrations.StatusConfirmed"].Value,
+        [RegistrationStatus.Completed] = T["Registrations.StatusCompleted"].Value,
+        [RegistrationStatus.Dropped] = T["Registrations.StatusDropped"].Value,
+        [RegistrationStatus.Waitlisted] = T["Registrations.StatusWaitlisted"].Value
+    };
+    var statusBadge = new Dictionary<RegistrationStatus, string>
+    {
+        [RegistrationStatus.Registered] = "bg-secondary",
+        [RegistrationStatus.Confirmed] = "bg-primary",
+        [RegistrationStatus.Completed] = "bg-success",
+        [RegistrationStatus.Dropped] = "bg-danger",
+        [RegistrationStatus.Waitlisted] = "bg-warning"
+    };
+
+    var payName = new Dictionary<PaymentStatus, string>
+    {
+        [PaymentStatus.Pending] = T["Reports.PayPending"].Value,
+        [PaymentStatus.Approved] = T["Reports.PayApproved"].Value,
+        [PaymentStatus.Paid] = T["Registrations.PaymentPaid"].Value,
+        [PaymentStatus.Partial] = T["Registrations.PaymentPartial"].Value,
+        [PaymentStatus.Unpaid] = T["Registrations.PaymentUnpaid"].Value
+    };
+    var payBadge = new Dictionary<PaymentStatus, string>
+    {
+        [PaymentStatus.Pending] = "bg-secondary",
+        [PaymentStatus.Approved] = "bg-primary",
+        [PaymentStatus.Paid] = "bg-success",
+        [PaymentStatus.Partial] = "bg-warning",
+        [PaymentStatus.Unpaid] = "bg-danger"
+    };
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Reports.RegistrationsReport"]</h1></div>
+            <div class="col-sm-6 text-end no-print">
+                <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-right"></i> @T["Common.Back"]</a>
+                <button class="btn btn-brand" onclick="window.print()"><i class="fas fa-print"></i> @T["TrainingPlans.Print"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="card mb-3">
+            <div class="card-header no-print">
+                <h5 class="mb-0"><i class="fas fa-filter"></i> @T["TrainingPlans.Filter"]</h5>
+            </div>
+            <div class="card-body no-print">
+                <form method="get" class="row g-2">
+                    <div class="col-md-2">
+                        <select name="categoryId" class="form-select">
+                            <option value="">@T["Courses.AllCategories"]</option>
+                            @foreach (var c in ViewBag.Categories)
+                            {
+                                <option value="@c.Value" selected="@(ViewBag.CategoryFilter?.ToString() == c.Value)">@c.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="courseId" class="form-select">
+                            <option value="">@T["Reports.AllCourses"]</option>
+                            @foreach (var c in ViewBag.Courses)
+                            {
+                                <option value="@c.Value" selected="@(ViewBag.CourseFilter?.ToString() == c.Value)">@c.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="status" class="form-select">
+                            <option value="">@T["Courses.AllStatuses"]</option>
+                            @foreach (var kv in statusName)
+                            {
+                                <option value="@((int)kv.Key)" selected="@(ViewBag.StatusFilter != null && (int)ViewBag.StatusFilter == (int)kv.Key)">@kv.Value</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="year" class="form-select">
+                            <option value="">@T["Reports.AllYears"]</option>
+                            @foreach (int y in ViewBag.Years)
+                            {
+                                <option value="@y" selected="@(ViewBag.YearFilter?.ToString() == y.ToString())">@y</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="date" name="from" value="@ViewBag.FromFilter" class="form-control" title="@T["Reports.From"]" />
+                    </div>
+                    <div class="col-md-1">
+                        <input type="date" name="to" value="@ViewBag.ToFilter" class="form-control" title="@T["Reports.To"]" />
+                    </div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        <a asp-action="RegistrationReport" class="btn btn-secondary" title="@T["TrainingPlans.Reset"]"><i class="fas fa-undo"></i></a>
+                        <button type="submit" name="export" value="excel" class="btn btn-success" title="@T["Exports.ExcelTitle"]"><i class="fas fa-file-excel"></i> @T["Exports.Excel"]</button>
+                        <button type="submit" name="export" value="pdf" class="btn btn-danger" title="@T["Exports.PdfTitle"]"><i class="fas fa-file-pdf"></i> @T["Exports.Pdf"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>@T["Registrations.Trainee"]</th>
+                                <th>@T["Reports.Course"]</th>
+                                <th>@T["Instructors.Instructor"]</th>
+                                <th>@T["Reports.Period"]</th>
+                                <th>@T["Reports.EnrolledDate"]</th>
+                                <th>@T["Common.Status"]</th>
+                                <th class="text-center">@T["Registrations.Fee"]</th>
+                                <th class="text-center">@T["Registrations.Paid"]</th>
+                                <th>@T["Registrations.PaymentStatus"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var r in Model)
+                            {
+                                <tr>
+                                    <td>@r.TraineeName</td>
+                                    <td>@r.CourseName</td>
+                                    <td>@r.InstructorName</td>
+                                    <td>@(r.StartDate?.ToString("yyyy-MM-dd")) – @(r.EndDate?.ToString("yyyy-MM-dd"))</td>
+                                    <td>@(r.RegisteredAt?.ToString("yyyy-MM-dd"))</td>
+                                    <td><span class="badge @statusBadge[r.Status]">@statusName[r.Status]</span></td>
+                                    <td class="text-center">@(r.FeeAmount?.ToString("N2") ?? "-")</td>
+                                    <td class="text-center">@(r.AmountPaid?.ToString("N2") ?? "-")</td>
+                                    <td><span class="badge @payBadge[r.PaymentStatus]">@payName[r.PaymentStatus]</span></td>
+                                </tr>
+                            }
+                            @if (!Model.Any())
+                            {
+                                <tr><td colspan="9" class="text-center text-muted py-4">@T["Reports.NoResults"]</td></tr>
+                            }
+                        </tbody>
+                        @if (Model.Any())
+                        {
+                            <tfoot class="table-light">
+                                <tr>
+                                    <th colspan="5">@T["Reports.Total"]</th>
+                                    <th class="text-center">@Model.Count</th>
+                                    <th class="text-center">@Model.Sum(r => r.FeeAmount)?.ToString("N2")</th>
+                                    <th class="text-center">@Model.Sum(r => r.AmountPaid)?.ToString("N2")</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

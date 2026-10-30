@@ -1,0 +1,59 @@
+@model TMS.Core.Entities.Resources.Equipment
+@{
+    ViewData["Title"] = @T["Equipment.AddNew"];
+}
+
+<div class="content-header"><div class="container-fluid"><h1>@T["Equipment.AddNewTitle"]</h1></div></div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <form asp-action="Create" method="post">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="NameAr" class="form-label">@T["Equipment.NameAr"]</label>
+                                <input asp-for="NameAr" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="NameEn" class="form-label">@T["Equipment.NameEn"]</label>
+                                <input asp-for="NameEn" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Code" class="form-label">@T["Equipment.Code"]</label>
+                                <input asp-for="Code" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Category" class="form-label">@T["Equipment.Category"]</label>
+                                <select asp-for="Category" asp-items="ViewBag.CategoryList" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Condition" class="form-label">@T["Equipment.Condition"]</label>
+                                <select asp-for="Condition" class="form-control">
+                                    <option value="Good">@T["Equipment.ConditionGood"]</option>
+                                    <option value="Fair">@T["Equipment.ConditionFair"]</option>
+                                    <option value="Poor">@T["Equipment.ConditionPoor"]</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.Save"]</button>
+                    <a asp-action="Index" class="btn btn-secondary">@T["Equipment.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

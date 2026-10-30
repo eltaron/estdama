@@ -1,0 +1,235 @@
+@model TMS.Web.ViewModels.Account.LoginViewModel
+@{
+    ViewData["Title"] = @T["Title.Login"];
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="@(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName)" dir="@(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar" ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@T["Title.Login"] - Estidama</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/adminlte/css/adminlte.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/adminlte/css/adminlte.rtl.min.css" />
+    <style>
+        :root {
+            --tms-blue: #00317E;
+            --tms-blue-light: #195495;
+            --tms-orange: #EC8133;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00317E 0%, #053a8f 45%, #195495 100%);
+            color: #fff;
+        }
+        .login-page {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Decorative floating shapes */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .blob-1 { width: 340px; height: 340px; background: var(--tms-orange); top: -80px; left: -60px; }
+        .blob-2 { width: 260px; height: 260px; background: #8fd3ff; bottom: -60px; right: -40px; opacity: 0.2; }
+        .blob-3 { width: 200px; height: 200px; background: var(--tms-orange); bottom: 20px; left: 12%; opacity: 0.15; }
+
+        .login-wrap {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 960px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        }
+        /* Right brand panel */
+        .brand-panel {
+            background: linear-gradient(160deg, rgba(0,49,126,0.95) 0%, rgba(7,64,150,0.9) 100%);
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-inline-end: 4px solid var(--tms-orange);
+        }
+        .brand-panel .brand-head { display: flex; align-items: center; gap: 0.75rem; }
+        .brand-panel .brand-logo { height: 48px; width: auto; }
+        .brand-panel h1 { font-size: 1.5rem; font-weight: 800; margin: 0; letter-spacing: 0.5px; }
+        .brand-panel .brand-sub { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-top: 0.2rem; }
+        .brand-panel .hero { margin-top: 2.5rem; }
+        .brand-panel .hero h2 { font-size: 1.6rem; line-height: 1.5; font-weight: 700; }
+        .brand-panel .hero p { color: rgba(255,255,255,0.85); margin-top: 1rem; font-size: 0.95rem; line-height: 1.7; }
+        .brand-panel .features { margin-top: 2rem; list-style: none; }
+        .brand-panel .features li {
+            display: flex; align-items: center; gap: 0.6rem;
+            padding: 0.5rem 0; color: rgba(255,255,255,0.92); font-size: 0.9rem;
+        }
+        .brand-panel .features .ic {
+            width: 26px; height: 26px; flex-shrink: 0;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--tms-orange); border-radius: 50%; font-size: 0.8rem;
+        }
+
+        /* Left form panel */
+        .form-panel {
+            background: #ffffff;
+            color: #333;
+            padding: 2.5rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .form-panel .mobile-brand { display: none; text-align: center; margin-bottom: 1.5rem; }
+        .form-panel .mobile-brand img { height: 44px; }
+        .form-panel .mobile-brand h3 { color: var(--tms-blue); font-weight: 800; margin-top: 0.5rem; }
+        .form-panel h4 { font-weight: 800; color: var(--tms-blue); font-size: 1.35rem; }
+        .form-panel .msg { color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0 1.5rem; }
+        .form-control {
+            border-radius: 10px;
+            padding: 0.7rem 0.9rem;
+            border: 1.5px solid #e2e8f0;
+            box-shadow: none;
+        }
+        .form-control:focus {
+            border-color: var(--tms-orange);
+            box-shadow: 0 0 0 0.18rem rgba(236,129,51,0.15);
+        }
+        .input-group .input-group-text {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            color: var(--tms-blue);
+        }
+        .input-group:has(.form-control:focus) .input-group-text { border-color: var(--tms-orange); }
+        .btn-brand {
+            background: linear-gradient(90deg, var(--tms-orange), #e8782b);
+            border: none;
+            border-radius: 10px;
+            padding: 0.7rem;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(236,129,51,0.35);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .btn-brand:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(236,129,51,0.45); color: #fff; }
+        .form-check-input:checked { background-color: var(--tms-blue); border-color: var(--tms-blue); }
+        .validation-summary-errors { color: #dc3545; font-size: 0.85rem; margin-bottom: 0.75rem; }
+        .text-brand { color: var(--tms-blue); }
+        .field-validation-error { color: #dc3545; font-size: 0.78rem; margin-top: 0.25rem; display: block; }
+
+        @@media (max-width: 768px) {
+            .login-wrap { grid-template-columns: 1fr; max-width: 440px; }
+            .brand-panel { display: none; }
+            .form-panel .mobile-brand { display: block; }
+            body {
+                background: linear-gradient(160deg, #00317E 0%, #195495 100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
+        <div class="login-wrap">
+            <!-- Brand panel -->
+            <div class="brand-panel">
+                <div class="brand-head">
+                    <img class="brand-logo" src="~/images/logi.png" alt="Estidama" />
+                    <div>
+                        <h1>Estidama</h1>
+                        <div class="brand-sub">@T["Login.Subtitle"]</div>
+                    </div>
+                </div>
+                <div class="hero">
+                    <h2>@T["Login.Hero"]</h2>
+                    <p>
+                        @T["Login.HeroText"]
+                    </p>
+                    <ul class="features">
+                        <li><span class="ic">&#10003;</span> @T["Login.FeaturePlans"]</li>
+                        <li><span class="ic">&#10003;</span> @T["Login.FeatureAttendance"]</li>
+                        <li><span class="ic">&#10003;</span> @T["Login.FeatureExams"]</li>
+                        <li><span class="ic">&#10003;</span> @T["Login.FeatureReports"]</li>
+                    </ul>
+                </div>
+                <div class="brand-foot" style="font-size:0.8rem;color:rgba(255,255,255,0.7);">
+                    &copy; @DateTime.Now.Year Estidama — @T["Login.Copyright"]
+                </div>
+            </div>
+
+            <!-- Form panel -->
+            <div class="form-panel">
+                <div class="mobile-brand">
+                    <img src="~/images/logi.png" alt="Estidama" />
+                    <h3>Estidama</h3>
+                </div>
+                <h4>@T["Login.SignIn"]</h4>
+                <p class="msg">@T["Login.Prompt"]</p>
+
+                <form asp-action="Login" method="post">
+                    <input type="hidden" name="ReturnUrl" value="@ViewData["ReturnUrl"]" />
+                    <div asp-validation-summary="All" class="validation-summary-errors"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label text-brand fw-semibold">@T["Login.Email"]</label>
+                        <div class="input-group">
+                            <input asp-for="Email" class="form-control" placeholder="@T["Login.PlaceholderEmail"]" autocomplete="email" />
+                            <div class="input-group-text"><span class="fas fa-envelope"></span></div>
+                        </div>
+                        <span asp-validation-for="Email" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label text-brand fw-semibold">@T["Login.Password"]</label>
+                        <div class="input-group">
+                            <input asp-for="Password" class="form-control" placeholder="••••••••" autocomplete="current-password" />
+                            <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                        </div>
+                        <span asp-validation-for="Password" class="field-validation-error"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="form-check">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label" style="font-size:0.9rem;">@T["Login.RememberMe"]</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-brand w-100 mb-3">@T["Login.Submit"]</button>
+                    <p class="text-center" style="font-size:0.8rem;color:#9ca3af;">
+                        @T["Login.Help"]
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/fontawesome/js/all.min.js"></script>
+</body>
+</html>

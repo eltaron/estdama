@@ -1,0 +1,171 @@
+@model TMS.Web.ViewModels.Courses.CourseDetailsViewModel
+@{
+    ViewData["Title"] = Model.NameAr;
+
+    var statusBadge = Model.Status switch
+    {
+        TMS.Core.Enums.CourseStatus.Planned => "bg-secondary",
+        TMS.Core.Enums.CourseStatus.OpenForRegistration => "bg-primary",
+        TMS.Core.Enums.CourseStatus.InProgress => "bg-warning",
+        TMS.Core.Enums.CourseStatus.Completed => "bg-success",
+        TMS.Core.Enums.CourseStatus.Cancelled => "bg-danger",
+        _ => "bg-secondary"
+    };
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@Model.NameAr</h1>
+                <small class="text-muted">@Model.NameEn | @Model.Code</small>
+            </div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning"><i class="fas fa-edit"></i> @T["Courses.Edit"]</a>
+                <a asp-action="Index" class="btn btn-secondary">@T["Common.Back"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Courses.Data"]</h3>
+                        <span class="badge @statusBadge">@Model.Status</span>
+                    </div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>@T["Courses.Code"]</dt>
+                            <dd><code>@Model.Code</code></dd>
+                            <dt>@T["Courses.Hours"]</dt>
+                            <dd>@Model.Hours @T["Courses.HoursUnit"]</dd>
+                            <dt>@T["Courses.TargetAudience"]</dt>
+                            <dd>@Model.TargetAudience</dd>
+                            <dt>@T["Courses.Category"]</dt>
+                            <dd>@(Model.CategoryName ?? "-")</dd>
+                            <dt>@T["Courses.MinMax"]</dt>
+                            <dd>@Model.MinTrainees / @Model.MaxTrainees</dd>
+                            <dt>@T["Courses.Fee"]</dt>
+                            <dd>@(Model.FeePerTrainee?.ToString("N2") ?? "-")</dd>
+                        </dl>
+
+                        <hr />
+                        <h6>@T["Courses.Operations"]</h6>
+                        <div class="d-grid gap-2">
+                            @if (Model.Status == TMS.Core.Enums.CourseStatus.Planned || Model.Status == TMS.Core.Enums.CourseStatus.OpenForRegistration)
+                            {
+                                <form asp-action="Start" asp-route-id="@Model.Id" method="post">
+                                    <button type="submit" class="btn btn-success btn-block" onclick="return confirm('@T["Courses.ConfirmStart"]');">
+                                        <i class="fas fa-play"></i> @T["Courses.Start"]
+                                    </button>
+                                </form>
+                            }
+                            <a asp-action="Postpone" asp-route-id="@Model.Id" class="btn btn-warning btn-block">
+                                <i class="fas fa-clock"></i> @T["Courses.Postpone"]
+                            </a>
+                            @if (Model.Status == TMS.Core.Enums.CourseStatus.InProgress)
+                            {
+                                <form asp-action="Complete" asp-route-id="@Model.Id" method="post">
+                                    <button type="submit" class="btn btn-success btn-block" onclick="return confirm('@T["Courses.ConfirmComplete"]');">
+                                        <i class="fas fa-check-double"></i> @T["Courses.Complete"]
+                                    </button>
+                                </form>
+                            }
+                            @if (Model.Status != TMS.Core.Enums.CourseStatus.Cancelled && Model.Status != TMS.Core.Enums.CourseStatus.Completed)
+                            {
+                                <form asp-action="Cancel" asp-route-id="@Model.Id" method="post">
+                                    <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('@T["Courses.ConfirmCancel"]');">
+                                        <i class="fas fa-ban"></i> @T["Courses.CancelCourse"]
+                                    </button>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Courses.ScheduleTitle"]</h3>
+                        <div>
+                            <a asp-action="CreateSchedule" asp-route-courseId="@Model.Id" class="btn btn-sm btn-primary">
+                                <i class="fas fa-plus"></i> @T["Courses.NewSchedule"]
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        @if (Model.Schedules.Any())
+                        {
+                            <table class="table table-bordered table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>@T["Courses.Date"]</th>
+                                        <th>@T["Courses.Time"]</th>
+                                        <th>@T["Courses.Room"]</th>
+                                        <th>@T["Courses.Instructor"]</th>
+                                        <th>@T["Courses.Registered"]</th>
+                                        <th>@T["Common.Status"]</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var s in Model.Schedules)
+                                    {
+                                        <tr>
+                                            <td>@s.StartDate.ToString("yyyy-MM-dd") @T["Courses.To"] @s.EndDate.ToString("yyyy-MM-dd")</td>
+                                            <td>@s.StartTime.ToString(@"hh\:mm") - @s.EndTime.ToString(@"hh\:mm")</td>
+                                            <td>@(s.RoomName ?? "-")</td>
+                                            <td>@s.InstructorName</td>
+                                            <td><span class="badge bg-info">@s.RegisteredCount</span></td>
+                                            <td>
+                                                @switch (s.Status)
+                                                {
+                                                    case TMS.Core.Enums.ScheduleStatus.Scheduled:
+                                                        <span class="badge bg-secondary">@T["Courses.ScheduleScheduled"]</span>
+                                                        break;
+                                                    case TMS.Core.Enums.ScheduleStatus.Active:
+                                                        <span class="badge bg-warning">@T["Courses.StatusInProgress"]</span>
+                                                        break;
+                                                    case TMS.Core.Enums.ScheduleStatus.Completed:
+                                                        <span class="badge bg-success">@T["Courses.StatusCompleted"]</span>
+                                                        break;
+                                                    case TMS.Core.Enums.ScheduleStatus.Cancelled:
+                                                        <span class="badge bg-danger">@T["Courses.StatusCancelled"]</span>
+                                                        break;
+                                                }
+                                            </td>
+                                            <td class="text-nowrap">
+                                                <a asp-controller="Registrations" asp-action="Index" asp-route-courseScheduleId="@s.Id" class="btn btn-primary btn-sm" title="@T["Courses.RegisteredTrainees"]">
+                                                    <i class="fas fa-users"></i>
+                                                </a>
+                                                <a asp-controller="Attendance" asp-action="Take" asp-route-courseScheduleId="@s.Id" class="btn btn-info btn-sm" title="@T["Courses.TakeAttendance"]">
+                                                    <i class="fas fa-clipboard-check"></i>
+                                                </a>
+                                                @if (s.RegisteredCount == 0 && s.Status == TMS.Core.Enums.ScheduleStatus.Scheduled)
+                                                {
+                                                    <form asp-action="DeleteSchedule" asp-route-id="@s.Id" method="post" class="d-inline">
+                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('@T["Courses.ConfirmDeleteSchedule"]');">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <div class="text-center text-muted py-4">@T["Courses.NoSchedules"]</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

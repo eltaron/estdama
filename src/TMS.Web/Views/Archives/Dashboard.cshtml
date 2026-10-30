@@ -1,0 +1,180 @@
+@{
+    ViewData["Title"] = @T["Archives.Dashboard"];
+    var typeName = new Dictionary<TMS.Core.Enums.ArchiveDocumentType, string>
+    {
+        [TMS.Core.Enums.ArchiveDocumentType.Incoming] = T["Archives.TypeIncoming"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.Outgoing] = T["Archives.TypeOutgoing"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.InternalMemo] = T["Archives.TypeInternalMemo"].Value,
+        [TMS.Core.Enums.ArchiveDocumentType.Other] = T["Archives.TypeOther"].Value
+    };
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Archives.Dashboard"]</h1></div>
+            <div class="col-sm-6">
+                <div class="float-end">
+                    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> @T["Archives.NewDocument"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>@ViewBag.TotalDocuments</h3>
+                        <p>@T["Archives.TotalDocuments"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-archive"></i></div>
+                    <a asp-action="Index" class="small-box-footer">@T["Archives.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@ViewBag.ThisMonthDocuments</h3>
+                        <p>@T["Archives.ThisMonth"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-calendar-check"></i></div>
+                    <a asp-action="Index" class="small-box-footer">@T["Archives.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@ViewBag.IncomingCount</h3>
+                        <p>@T["Archives.TypeIncoming"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-arrow-down"></i></div>
+                    <a asp-action="Index" asp-route-docType="0" class="small-box-footer">@T["Archives.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>@ViewBag.OutgoingCount</h3>
+                        <p>@T["Archives.TypeOutgoing"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-arrow-up"></i></div>
+                    <a asp-action="Index" asp-route-docType="1" class="small-box-footer">@T["Archives.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Archives.Last6Months"]</h3>
+                    </div>
+                    <div class="card-body" style="max-height:320px;">
+                        <canvas id="monthlyChart" style="max-height:260px;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Archives.DistributionByType"]</h3>
+                    </div>
+                    <div class="card-body" style="max-height:320px;">
+                        <canvas id="typeChart" style="max-height:260px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@T["Archives.LatestDocuments"]</h3>
+                <div class="card-tools">
+                    <a asp-action="Index" class="btn btn-tool"><i class="fas fa-search"></i> @T["Archives.AdvancedSearch"]</a>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@T["Archives.ArchiveNumber"]</th>
+                            <th>@T["Archives.Type"]</th>
+                            <th>@T["Archives.DocumentTitle"]</th>
+                            <th>@T["Archives.DocumentDate"]</th>
+                            <th>@T["Common.Department"]</th>
+                            <th>@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ var recentDocuments = ViewBag.RecentDocuments as List<TMS.Core.Entities.Archive.ArchiveDocument> ?? new List<TMS.Core.Entities.Archive.ArchiveDocument>(); }
+                        @foreach (var d in recentDocuments)
+                        {
+                            <tr>
+                                <td><strong>@d.Code</strong></td>
+                                <td><span class="badge bg-secondary">@typeName[d.DocType]</span></td>
+                                <td>@d.TitleAr</td>
+                                <td>@d.DocumentDate.ToString("yyyy-MM-dd")</td>
+                                <td>@(d.Department?.NameAr ?? "-")</td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@d.Id" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                                    <a asp-action="Download" asp-route-id="@d.Id" class="btn btn-primary btn-sm"><i class="fas fa-download"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        @if (!recentDocuments.Any())
+                        {
+                            <tr><td colspan="6" class="text-center text-muted py-4">@T["Archives.NoDocuments"]</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a asp-action="Create" class="btn btn-primary btn-block"><i class="fas fa-upload"></i> @T["Archives.UploadNew"]</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        var monthlyCtx = document.getElementById('monthlyChart');
+        if (monthlyCtx) {
+            new Chart(monthlyCtx, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.MonthlyLabels)),
+                    datasets: [{
+                        label: '@T["Archives.Documents"]',
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.MonthlyCounts)),
+                        backgroundColor: 'rgba(0,49,126,0.5)',
+                        borderColor: 'rgba(0,49,126,1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+                }
+            });
+        }
+
+        var typeCtx = document.getElementById('typeChart');
+        if (typeCtx) {
+            new Chart(typeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['@T["Archives.TypeIncoming"]', '@T["Archives.TypeOutgoing"]', '@T["Archives.TypeInternalMemo"]', '@T["Archives.TypeOther"]'],
+                    datasets: [{
+                        data: [@ViewBag.IncomingCount, @ViewBag.OutgoingCount, @ViewBag.MemoCount, @(ViewBag.TotalDocuments - ViewBag.IncomingCount - ViewBag.OutgoingCount - ViewBag.MemoCount)],
+                        backgroundColor: ['#007bff', '#ffc107', '#28a745', '#6c757d']
+                    }]
+                },
+                options: { responsive: true }
+            });
+        }
+    </script>
+}

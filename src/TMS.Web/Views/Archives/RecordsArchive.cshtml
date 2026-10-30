@@ -1,0 +1,120 @@
+﻿@model TMS.Web.ViewModels.Archive.ArchiveRecordsViewModel
+@{
+    ViewData["Title"] = @T["Archives.RecordsArchive"];
+    var isAr = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Archives.RecordsArchive"]</h1></div>
+            <div class="col-sm-6">
+                <div class="float-end">
+                    <form method="get" class="form-inline">
+                        <select name="year" class="form-select me-2" onchange="this.form.submit()">
+                            <option value="">@T["Common.All"]</option>
+                            @foreach (var y in Model.AvailableYears)
+                            {
+                                <option value="@y" selected="@(y == Model.Year)">@y</option>
+                            }
+                        </select>
+                        @if (Model.Year.HasValue)
+                        {
+                            <a asp-action="RecordsArchive" class="btn btn-secondary">@T["Archives.Reset"]</a>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="callout callout-info">
+            <h5><i class="fas fa-archive"></i> @T["Archives.RecordsArchiveCallout"]</h5>
+            <p class="mb-0">@T["Archives.RecordsArchiveHint"]</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-soft-primary">
+                    <div class="inner">
+                        <h3>@Model.TotalSchedules</h3>
+                        <p>@T["Archives.ArchivedSchedules"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-calendar-times"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-soft-info">
+                    <div class="inner">
+                        <h3>@Model.TotalRegistrations</h3>
+                        <p>@T["Archives.ArchivedRegistrations"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-soft-success">
+                    <div class="inner">
+                        <h3>@Model.TotalCompleted</h3>
+                        <p>@T["Archives.ArchivedCompleted"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-user-check"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-soft-warning">
+                    <div class="inner">
+                        <h3>@Model.TotalCollected.ToString("N2")</h3>
+                        <p>@T["Archives.ArchivedCollected"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@T["Archives.CompletedRecords"]</h3>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@T["Archives.ArchivedSchedule"]</th>
+                            <th>@T["Archives.ArchivedCourse"]</th>
+                            <th>@T["Archives.ArchivedInstructor"]</th>
+                            <th>@T["Archives.ArchivedPeriod"]</th>
+                            <th class="text-center">@T["Archives.ArchivedTrainees"]</th>
+                            <th class="text-center">@T["Archives.ArchivedCompletedCount"]</th>
+                            <th class="text-end">@T["Archives.ArchivedCollectedAmount"]</th>
+                            <th class="text-center">@T["Common.Status"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var s in Model.Schedules)
+                        {
+                            <tr>
+                                <td><strong>@s.CourseCode</strong></td>
+                                <td>@(isAr ? s.CourseNameAr : s.CourseNameEn)</td>
+                                <td>@s.InstructorName</td>
+                                <td>@s.StartDate.ToString("yyyy-MM-dd") &rarr; @s.EndDate.ToString("yyyy-MM-dd")</td>
+                                <td class="text-center">@s.RegistrationCount</td>
+                                <td class="text-center"><span class="badge bg-success">@s.CompletedCount</span></td>
+                                <td class="text-end">@s.Collected.ToString("N2")</td>
+                                <td class="text-center"><span class="badge bg-secondary"><i class="fas fa-archive me-1"></i>@T["Archives.ArchivedLabel"]</span></td>
+                            </tr>
+                        }
+                        @if (!Model.Schedules.Any())
+                        {
+                            <tr><td colspan="8" class="text-center text-muted py-4">@T["Archives.NoArchivedRecords"]</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer text-muted small">@T["Archives.RecordsArchiveReadOnly"]</div>
+        </div>
+    </div>
+</section>

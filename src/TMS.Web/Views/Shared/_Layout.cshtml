@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html lang="@(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName)" dir="@(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar" ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Estidama</title>
+    <link rel="icon" href="~/images/logi.png" type="image/png" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/adminlte/css/adminlte.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
+
+    @if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar")
+    {
+        <link rel="stylesheet" href="~/lib/adminlte/css/adminlte.rtl.min.css" />
+    }
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+
+        <!-- Navbar -->
+        <nav class="app-header navbar navbar-expand bg-body">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                            <i class="bi bi-list"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a asp-controller="Account" asp-action="ToggleCulture" asp-route-culture="@(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar" ? "en" : "ar")" class="nav-link">
+                            <i class="fas fa-language me-1"></i>
+                            @T["Nav.ToggleLanguage"]
+                        </a>
+                    </li>
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                                <i class="fas fa-user-circle me-1"></i> @User.Identity.Name
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <form asp-controller="Account" asp-action="Logout" method="post" class="dropdown-item p-0 m-0">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt me-1"></i>
+                                        @T["Nav.Logout"]
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <aside class="app-sidebar tms-sidebar" data-bs-theme="dark">
+                <div class="sidebar-brand">
+                    <a asp-controller="Dashboard" asp-action="Index" class="brand-link brand-estidama">
+                        <img src="~/images/logi.png" alt="Estidama" class="brand-image" />
+                        <span class="brand-text"><b>Estidama</b></span>
+                    </a>
+                </div>
+
+                <div class="sidebar-wrapper">
+                    <nav class="sidebar-menu">
+                        <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
+
+                        <li class="nav-item">
+                            <a asp-controller="Dashboard" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>@T["Nav.Dashboard"]</p>
+                            </a>
+                        </li>
+
+                        @if (User.IsInRole("Admin") || User.IsInRole("Supervisor"))
+                        {
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-lte-toggle="treeview" role="button">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>@T["Nav.Courses"] <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a asp-controller="Courses" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Courses"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="CourseCategories" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.CourseCategories"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="TrainingPlans" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.TrainingPlans"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="TrainingPlans" asp-action="Report" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.TrainingPlansReport"]</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-lte-toggle="treeview" role="button">
+                                    <i class="nav-icon fas fa-user-graduate"></i>
+                                    <p>@T["Nav.Trainees"] <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a asp-controller="Trainees" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.TraineeList"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Trainees" asp-action="Create" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.AddTrainee"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Import" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Import"]</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-lte-toggle="treeview" role="button">
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <p>@T["Nav.Instructors"] <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a asp-controller="Instructors" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.InstructorList"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Instructors" asp-action="Create" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.AddInstructor"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Instructors" asp-action="CoursesTaught" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.CoursesTaught"]</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-lte-toggle="treeview" role="button">
+                                    <i class="nav-icon fas fa-clipboard-check"></i>
+                                    <p>@T["Nav.Operations"] <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a asp-controller="Attendance" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Attendance"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Exams" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Exams"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="QuestionBank" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.QuestionBank"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Rooms" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Resources"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Finance" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Finance"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Certificates" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Certificates"]</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-lte-toggle="treeview" role="button">
+                                    <i class="nav-icon fas fa-archive"></i>
+                                    <p>@T["Nav.Archive"] <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a asp-controller="Archives" asp-action="Dashboard" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.ArchiveDashboard"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Archives" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.SearchArchive"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Archives" asp-action="Create" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.ArchiveNewDocument"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Archives" asp-action="RecordsArchive" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.ArchivedRecords"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Archives" asp-action="Backup" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.ArchiveBackup"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Archives" asp-action="Restore" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.ArchiveRestore"]</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Reports" asp-action="Index" class="nav-link">
+                                    <i class="nav-icon fas fa-chart-bar"></i>
+                                    <p>@T["Nav.Reports"]</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Conflicts" asp-action="Index" class="nav-link">
+                                    <i class="nav-icon fas fa-exclamation-triangle"></i>
+                                    <p>@T["Nav.Conflicts"]</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-lte-toggle="treeview" role="button">
+                                    <i class="nav-icon fas fa-users-cog"></i>
+                                    <p>@T["Nav.UsersPermissions"] <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a asp-controller="Users" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Users"]</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Roles" asp-action="Index" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@T["Nav.Roles"]</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Instructor"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Attendance" asp-action="Index" class="nav-link">
+                                    <i class="nav-icon fas fa-clipboard-check"></i>
+                                    <p>@T["Common.RecordAttendance"]</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Exams" asp-action="Index" class="nav-link">
+                                    <i class="nav-icon fas fa-file-alt"></i>
+                                    <p>@T["Nav.Exams"]</p>
+                                </a>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Trainee"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Trainees" asp-action="MyTrainingReport" class="nav-link">
+                                    <i class="nav-icon fas fa-file-alt"></i>
+                                    <p>@T["Nav.MyTrainingReport"]</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Trainees" asp-action="MySchedule" class="nav-link">
+                                    <i class="nav-icon fas fa-calendar"></i>
+                                    <p>@T["Nav.MySchedule"]</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Trainees" asp-action="MyCertificates" class="nav-link">
+                                    <i class="nav-icon fas fa-certificate"></i>
+                                    <p>@T["Nav.MyCertificates"]</p>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        }
+
+        <!-- Content -->
+        <main class="app-main">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show m-3">
+                    @TempData["Success"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show m-3">
+                    @TempData["Error"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+            @if (TempData["Warnings"] != null)
+            {
+                <div class="alert alert-warning alert-dismissible fade show m-3">
+                    @TempData["Warnings"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+            @RenderBody()
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="float-end d-none d-sm-block">
+                <b>@T["Nav.Version"]</b> 1.0.0
+            </div>
+            <strong>&copy; @DateTime.Now.Year - Estidama</strong>
+        </footer>
+    </div>
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/adminlte/js/adminlte.min.js"></script>
+    <script src="~/lib/chart.js/chart.umd.min.js"></script>
+    <script>
+        $(function () {
+            var segments = window.location.pathname.split('/').filter(function (s) { return s; });
+            function activate($link) {
+                $link.addClass('active');
+                var tree = $link.closest('.nav-treeview');
+                if (tree.length) {
+                    tree.closest('.nav-item').addClass('menu-open');
+                    tree.parent().children('.nav-link').addClass('active');
+                }
+            }
+            if (segments.length === 0) {
+                activate($('.app-sidebar .nav-link[href$="/Dashboard"]'));
+                return;
+            }
+            var controller = '/' + segments[0].toLowerCase();
+            $('.app-sidebar .nav-link').each(function () {
+                var href = ($(this).attr('href') || '').toLowerCase();
+                if (href === controller || href.startsWith(controller + '/')) {
+                    activate($(this));
+                }
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

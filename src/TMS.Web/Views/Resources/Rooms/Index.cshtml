@@ -1,0 +1,54 @@
+@model List<TMS.Core.Entities.Resources.Room>
+@{
+    ViewData["Title"] = @T["Rooms.Title"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Rooms.Title"]</h1></div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> @T["Rooms.AddNew"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var room in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">@room.NameAr</h3>
+                            <code>@room.Code</code>
+                        </div>
+                        <div class="card-body">
+                            <p><i class="fas fa-users"></i> @T["Rooms.Capacity"]: @room.Capacity @T["Rooms.Trainee"]</p>
+                            <p><i class="fas fa-map-marker-alt"></i> @(room.Location ?? "-")</p>
+                            <p><i class="fas fa-tools"></i> @(room.Facilities ?? "-")</p>
+                            <p>
+                                @if (room.IsActive)
+                                {
+                                    <span class="badge bg-success">@T["Common.Active"]</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@T["Common.Inactive"]</span>
+                                }
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a asp-action="Edit" asp-route-id="@room.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                            <form asp-action="Delete" asp-route-id="@room.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('@T["Rooms.DeleteConfirm"]')"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

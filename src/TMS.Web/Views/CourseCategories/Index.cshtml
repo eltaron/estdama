@@ -1,0 +1,94 @@
+@model List<TMS.Core.Entities.Courses.CourseCategory>
+@{
+    ViewData["Title"] = @T["CourseCategories.Title"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["CourseCategories.Title"]</h1></div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card card-primary">
+                    <div class="card-header"><h3 class="card-title">@T["CourseCategories.AddNew"]</h3></div>
+                    <form asp-action="Create" method="post">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label">@T["CourseCategories.NameAr"]</label>
+                                <input name="NameAr" class="form-control" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">@T["CourseCategories.NameEn"]</label>
+                                <input name="NameEn" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> @T["CourseCategories.Add"]</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <table class="table table-bordered table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>@T["CourseCategories.Name"]</th>
+                                    <th>@T["CourseCategories.SubCategory"]</th>
+                                    <th>@T["CourseCategories.CourseCount"]</th>
+                                    <th>@T["Common.Actions"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var c in Model.Where(x => x.ParentCategoryId == null))
+                                {
+                                    <tr>
+                                        <td><strong>@c.NameAr</strong> <small class="text-muted">@c.NameEn</small></td>
+                                        <td>
+                                            @if (c.SubCategories.Any())
+                                            {
+                                                <ul class="mb-0">
+                                                    @foreach (var sub in c.SubCategories)
+                                                    {
+                                                        <li>
+                                                            @sub.NameAr
+                                                            <form asp-action="Delete" asp-route-id="@sub.Id" method="post" class="d-inline">
+                                                                <button type="submit" class="btn btn-link btn-sm text-danger p-0" title="@T["Common.Delete"]">
+                                                                    <i class="fas fa-times"></i>
+                                                                </button>
+                                                            </form>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </td>
+                                        <td><span class="badge bg-info">@c.Courses.Count</span></td>
+                                        <td class="text-nowrap">
+                                            <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                            <form asp-action="Delete" asp-route-id="@c.Id" method="post" class="d-inline">
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('@T["CourseCategories.ConfirmDelete"]');">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                                @if (!Model.Any(x => x.ParentCategoryId == null))
+                                {
+                                    <tr><td colspan="4" class="text-center text-muted py-4">@T["CourseCategories.NoCategories"]</td></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

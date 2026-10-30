@@ -1,0 +1,67 @@
+@model List<TMS.Core.Entities.Execution.Certificate>
+@{
+    ViewData["Title"] = @T["Certificates.Title"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Certificates.Title"]</h1></div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Create" class="btn btn-primary"><i class="fas fa-award"></i> @T["Certificates.IssueNew"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>@T["Certificates.SerialNumber"]</th>
+                                <th>@T["Certificates.Trainee"]</th>
+                                <th>@T["Certificates.Course"]</th>
+                                <th>@T["Certificates.IssueDate"]</th>
+                                <th>@T["Common.Status"]</th>
+                                <th>@T["Common.Actions"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in Model)
+                            {
+                                <tr class="@(c.IsRevoked ? "table-danger" : "")">
+                                    <td><code>@c.SerialNumber</code></td>
+                                    <td>@c.Trainee?.User?.FullNameAr</td>
+                                    <td>@(c.CourseSchedule?.Course?.NameAr ?? "-")</td>
+                                    <td>@c.IssueDate.ToString("yyyy-MM-dd")</td>
+                                    <td>
+                                        @if (c.IsRevoked)
+                                        {
+                                            <span class="badge bg-danger">@T["Certificates.Revoked"]</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-success">@T["Certificates.Valid"]</span>
+                                        }
+                                    </td>
+                                    <td class="text-nowrap">
+                                        <a asp-action="Details" asp-route-id="@c.Id" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                                        <a asp-action="DownloadPdf" asp-route-id="@c.Id" class="btn btn-brand btn-sm" title="@T["Certificates.Download"]"><i class="fas fa-download"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                            @if (!Model.Any())
+                            {
+                                <tr><td colspan="6" class="text-center text-muted py-4">@T["Certificates.NoCertificates"]</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

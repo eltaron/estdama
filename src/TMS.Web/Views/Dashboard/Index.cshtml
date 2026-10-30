@@ -1,0 +1,432 @@
+@{
+    ViewData["Title"] = @T["Title.Dashboard"];
+
+    var courseStatusLabels = new Dictionary<string, string>
+    {
+        ["Planned"] = T["Courses.StatusPlanned"].Value,
+        ["OpenForRegistration"] = T["Courses.StatusOpen"].Value,
+        ["InProgress"] = T["Courses.StatusInProgress"].Value,
+        ["Completed"] = T["Courses.StatusCompleted"].Value,
+        ["Cancelled"] = T["Courses.StatusCancelled"].Value
+    };
+    var courseStatusColors = new Dictionary<string, string>
+    {
+        ["Planned"] = "#6c757d",
+        ["OpenForRegistration"] = "#007bff",
+        ["InProgress"] = "#ffc107",
+        ["Completed"] = "#28a745",
+        ["Cancelled"] = "#dc3545"
+    };
+
+    var scheduleStatusLabels = new Dictionary<string, string>
+    {
+        ["Scheduled"] = T["Courses.ScheduleScheduled"].Value,
+        ["Active"] = T["Courses.StatusInProgress"].Value,
+        ["Completed"] = T["Courses.StatusCompleted"].Value,
+        ["Cancelled"] = T["Courses.StatusCancelled"].Value
+    };
+    var scheduleStatusColors = new Dictionary<string, string>
+    {
+        ["Scheduled"] = "#17a2b8",
+        ["Active"] = "#ffc107",
+        ["Completed"] = "#28a745",
+        ["Cancelled"] = "#dc3545"
+    };
+
+    string MapLabel(System.Collections.Generic.IEnumerable<string> keys, Dictionary<string, string> map)
+    {
+        var items = keys.Select(k => map.TryGetValue(k, out var l) ? l : k).ToList();
+        return System.Text.Json.JsonSerializer.Serialize(items);
+    }
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Title.Dashboard"]</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-12">
+                <form method="get" class="card card-outline card-primary">
+                    <div class="card-body py-2">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <span class="fw-bold"><i class="fas fa-filter"></i> @T["Dash.PeriodFilter"]</span>
+                            </div>
+                            <div class="col-auto">
+                                <input type="date" name="from" value="@ViewBag.FromFilter" class="form-control" title="@T["Reports.From"]" />
+                            </div>
+                            <div class="col-auto">
+                                <input type="date" name="to" value="@ViewBag.ToFilter" class="form-control" title="@T["Reports.To"]" />
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> @T["Common.Search"]</button>
+                                <a asp-controller="Dashboard" asp-action="Index" class="btn btn-secondary" title="@T["TrainingPlans.Reset"]"><i class="fas fa-undo"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-navy">
+                    <div class="inner">
+                        <h3>@ViewBag.ActiveCourses</h3>
+                        <p>@T["Dash.ActiveCourses"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-book"></i></div>
+                    <a asp-controller="Courses" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-blue">
+                    <div class="inner">
+                        <h3>@ViewBag.Trainees</h3>
+                        <p>@T["Dash.RegisteredTrainees"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <a asp-controller="Trainees" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-orange">
+                    <div class="inner">
+                        <h3>@ViewBag.Instructors</h3>
+                        <p>@T["Dash.Instructors"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <a asp-controller="Instructors" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-navy">
+                    <div class="inner">
+                        <h3>@ViewBag.Certificates</h3>
+                        <p>@T["Dash.IssuedCertificates"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-certificate"></i></div>
+                    <a asp-controller="Certificates" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-blue">
+                    <div class="inner">
+                        <h3>@ViewBag.TotalSchedules</h3>
+                        <p>@T["Dash.TotalSchedules"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                    <a asp-controller="Courses" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-orange">
+                    <div class="inner">
+                        <h3>@ViewBag.CompletedSchedules</h3>
+                        <p>@T["Dash.CompletedSchedules"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-check-circle"></i></div>
+                    <a asp-controller="Courses" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-navy">
+                    <div class="inner">
+                        <h3>@ViewBag.Registrations</h3>
+                        <p>@T["Dash.Registrations"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-user-plus"></i></div>
+                    <a asp-controller="Registrations" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-blue">
+                    <div class="inner">
+                        <h3>@ViewBag.PendingRegistrations</h3>
+                        <p>@T["Dash.PendingRegistrations"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-hourglass-half"></i></div>
+                    <a asp-controller="Registrations" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-orange">
+                    <div class="inner">
+                        <h3>@ViewBag.FeesTotal.ToString("N2")</h3>
+                        <p>@T["Dash.FeesTotal"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-coins"></i></div>
+                    <a asp-controller="Finance" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-navy">
+                    <div class="inner">
+                        <h3>@ViewBag.PaidTotal.ToString("N2")</h3>
+                        <p>@T["Dash.FeesCollected"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <a asp-controller="Finance" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-blue">
+                    <div class="inner">
+                        <h3>@ViewBag.OutstandingTotal.ToString("N2")</h3>
+                        <p>@T["Dash.FeesOutstanding"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <a asp-controller="Finance" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box sb-brand-orange">
+                    <div class="inner">
+                        <h3>@ViewBag.AttendanceRecords</h3>
+                        <p>@T["Dash.AttendanceRecords"]</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                    <a asp-controller="Attendance" asp-action="Index" class="small-box-footer">@T["Dash.More"] <i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Dash.StatsLast6Months"]</h3>
+                    </div>
+                    <div class="card-body" style="max-height:320px;">
+                        <canvas id="statsChart" style="max-height:260px;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Dash.UpcomingSchedules"]</h3>
+                        <div class="card-tools">
+                            <span class="badge bg-info">@ViewBag.ActiveSchedules @T["Dash.InProgress"]</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            @if (ViewBag.UpcomingSchedules.Count == 0)
+                            {
+                                <li class="list-group-item text-muted text-center">@T["Dash.NoUpcoming"]</li>
+                            }
+                            @foreach (var s in ViewBag.UpcomingSchedules)
+                            {
+                                <li class="list-group-item">
+                                    <i class="fas fa-calendar-day text-info me-1"></i>
+                                    @s.Course.NameAr
+                                    <span class="badge bg-light text-dark float-end">@s.StartDate.ToString("yyyy-MM-dd")</span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-controller="Attendance" asp-action="Index" class="btn btn-primary btn-block"><i class="fas fa-clipboard-check"></i> @T["Dash.RecordAttendance"]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Dash.CoursesByCategory"]</h3></div>
+                    <div class="card-body">
+                        <canvas id="categoryChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Dash.CoursesByStatus"]</h3></div>
+                    <div class="card-body">
+                        <canvas id="courseStatusChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Dash.SchedulesByStatus"]</h3></div>
+                    <div class="card-body">
+                        <canvas id="scheduleStatusChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Dash.TopCourses"]</h3></div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>@T["Reports.Course"]</th>
+                                    <th class="text-end">@T["Reports.RegisteredCount"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int i = 1; }
+                                @foreach (var c in ViewBag.TopCourses)
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@c.NameAr</td>
+                                        <td class="text-end"><span class="badge bg-primary">@c.Count</span></td>
+                                    </tr>
+                                    i++;
+                                }
+                                @if (ViewBag.TopCourses.Count == 0)
+                                {
+                                    <tr><td colspan="3" class="text-center text-muted py-3">@T["Reports.NoData"]</td></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Dash.RecentCertificates"]</h3></div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>@T["Certificates.SerialNumber"]</th>
+                                    <th>@T["Certificates.Trainee"]</th>
+                                    <th>@T["Certificates.IssueDate"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var c in ViewBag.RecentCertificates)
+                                {
+                                    <tr>
+                                        <td><code>@c.SerialNumber</code></td>
+                                        <td>@c.Trainee.User.FullNameAr</td>
+                                        <td>@c.IssueDate.ToShortDateString()</td>
+                                    </tr>
+                                }
+                                @if (ViewBag.RecentCertificates.Count == 0)
+                                {
+                                    <tr><td colspan="3" class="text-center text-muted py-3">@T["Reports.NoData"]</td></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        var statusCtx = document.getElementById('statsChart');
+        if (statusCtx) {
+            new Chart(statusCtx, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.MonthlyLabels)),
+                    datasets: [
+                        {
+                            label: '@T["Dash.CoursesAdded"]',
+                            data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.MonthlyCourses)),
+                            backgroundColor: 'rgba(0,123,255,0.5)',
+                            borderColor: 'rgba(0,123,255,1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '@T["Dash.Registrations"]',
+                            data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.MonthlyRegistrations)),
+                            backgroundColor: 'rgba(255,193,7,0.5)',
+                            borderColor: 'rgba(255,193,7,1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '@T["Dash.CertificatesIssued"]',
+                            data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.MonthlyCertificates)),
+                            backgroundColor: 'rgba(40,167,69,0.5)',
+                            borderColor: 'rgba(40,167,69,1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+                }
+            });
+        }
+
+        var catCtx = document.getElementById('categoryChart');
+        if (catCtx) {
+            new Chart(catCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.CategoryLabels)),
+                    datasets: [{
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.CategoryCounts)),
+                        backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#17a2b8', '#6f42c1', '#fd7e14', '#20c997']
+                    }]
+                },
+                options: { responsive: true }
+            });
+        }
+
+        var csCtx = document.getElementById('courseStatusChart');
+        if (csCtx) {
+            new Chart(csCtx, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(MapLabel((System.Collections.Generic.IEnumerable<string>)ViewBag.CourseStatusKeys, courseStatusLabels)),
+                    datasets: [{
+                        label: '@T["Dash.ActiveCourses"]',
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.CourseStatusCounts)),
+                        backgroundColor: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(((System.Collections.Generic.List<string>)ViewBag.CourseStatusKeys).Select(k => courseStatusColors.TryGetValue(k, out var c) ? c : "#6c757d").ToArray())),
+                        borderWidth: 0
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+            });
+        }
+
+        var ssCtx = document.getElementById('scheduleStatusChart');
+        if (ssCtx) {
+            new Chart(ssCtx, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(MapLabel((System.Collections.Generic.IEnumerable<string>)ViewBag.ScheduleStatusKeys, scheduleStatusLabels)),
+                    datasets: [{
+                        label: '@T["Dash.TotalSchedules"]',
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.ScheduleStatusCounts)),
+                        backgroundColor: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(((System.Collections.Generic.List<string>)ViewBag.ScheduleStatusKeys).Select(k => scheduleStatusColors.TryGetValue(k, out var c) ? c : "#17a2b8").ToArray())),
+                        borderWidth: 0
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+            });
+        }
+    </script>
+}

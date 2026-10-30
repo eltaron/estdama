@@ -1,0 +1,85 @@
+@model TMS.Web.ViewModels.Archive.ArchiveDocumentFormViewModel
+@{
+    ViewData["Title"] = @T["Archives.NewDocument"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Archives.NewDocument"]</h1></div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="card">
+                        <div class="card-header"><h3 class="card-title">@T["Archives.DocumentData"]</h3></div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="DocType" class="form-label"></label>
+                                    <select asp-for="DocType" class="form-select" asp-items="Html.GetEnumSelectList<TMS.Core.Enums.ArchiveDocumentType>()">
+                                    </select>
+                                    <span asp-validation-for="DocType" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="DocumentDate" class="form-label"></label>
+                                    <input asp-for="DocumentDate" type="date" class="form-control" />
+                                    <span asp-validation-for="DocumentDate" class="text-danger"></span>
+                                </div>
+                                <div class="col-12">
+                                    <label asp-for="TitleAr" class="form-label"></label>
+                                    <input asp-for="TitleAr" class="form-control" placeholder="@T["Archives.TitlePlaceholder"]" />
+                                    <span asp-validation-for="TitleAr" class="text-danger"></span>
+                                </div>
+                                <div class="col-12">
+                                    <label asp-for="Subject" class="form-label"></label>
+                                    <textarea asp-for="Subject" class="form-control" rows="2" placeholder="@T["Archives.SubjectPlaceholder"]"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="SenderName" class="form-label"></label>
+                                    <input asp-for="SenderName" class="form-control" placeholder="@T["Archives.SenderPlaceholder"]" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="RecipientName" class="form-label"></label>
+                                    <input asp-for="RecipientName" class="form-control" placeholder="@T["Archives.RecipientPlaceholder"]" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="DepartmentId" class="form-label"></label>
+                                    <select asp-for="DepartmentId" asp-items="(SelectList)ViewBag.Departments" class="form-select">
+                                        <option value="">@T["Common.WithoutDept"]</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="Notes" class="form-label"></label>
+                                    <input asp-for="Notes" class="form-control" placeholder="@T["Archives.NotesPlaceholder"]" />
+                                </div>
+                                <div class="col-12">
+                                    <label asp-for="File" class="form-label"></label>
+                                    <input asp-for="File" type="file" class="form-control" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt" />
+                                    <div class="form-text">@T["Archives.AllowedFilesHint"]</div>
+                                    <span asp-validation-for="File" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-right"></i> @T["Common.Back"]</a>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-archive"></i> @T["Archives.ArchiveDocument"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

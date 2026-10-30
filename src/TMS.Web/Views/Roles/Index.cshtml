@@ -1,0 +1,79 @@
+@model List<TMS.Web.ViewModels.Roles.RoleListViewModel>
+@{
+    ViewData["Title"] = @T["Title.Roles"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Title.Roles"]</h1></div>
+            <div class="col-sm-6">
+                <div class="float-end">
+                    @if (User.Can("roles", Perm.Create))
+                    {
+                        <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> @T["Roles.AddNew"]</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-user-shield me-1"></i> @T["Roles.Manage"]</h3>
+                <div class="card-tools">
+                    <span class="badge bg-info">@Model.Count @T["Roles.Count"]</span>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@T["Roles.Role"]</th>
+                            <th>@T["Common.Description"]</th>
+                            <th>@T["Roles.UserCount"]</th>
+                            <th>@T["Roles.PermissionCount"]</th>
+                            <th>@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var role in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <i class="fas fa-user-shield text-primary me-1"></i>
+                                    <strong>@(role.NameAr ?? role.Name)</strong>
+                                    <span class="text-muted small">@role.Name</span>
+                                    @if (role.IsSystemRole)
+                                    {
+                                        <span class="badge bg-dark ms-1">@T["Roles.SystemRole"]</span>
+                                    }
+                                </td>
+                                <td>@(role.Description ?? "-")</td>
+                                <td><span class="badge bg-info">@role.UserCount</span></td>
+                                <td><span class="badge bg-secondary">@role.PermissionCount</span></td>
+                                <td class="d-flex gap-1">
+                                    @if (User.Can("roles", Perm.Edit))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@role.Id" class="btn btn-info btn-sm" title="@T["Roles.ManagePermissions"]"><i class="fas fa-edit"></i></a>
+                                    }
+                                    @if (!role.IsSystemRole && User.Can("roles", Perm.Delete))
+                                    {
+                                        <form asp-action="Delete" asp-route-id="@role.Id" method="post" class="d-inline"
+                                              onsubmit="return confirm('@T["Roles.ConfirmDelete"]');">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-danger btn-sm" title="@T["Common.Delete"]"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

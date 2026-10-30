@@ -1,0 +1,150 @@
+@model TMS.Core.Entities.Courses.TrainingPlan
+@{
+    ViewData["Title"] = Model.NameAr;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@Model.NameAr</h1>
+                <small class="text-muted">@Model.Year @(Model.Quarter.HasValue ? "- " + T["TrainingPlans.Quarter"].Value + " " + Model.Quarter : "")</small>
+            </div>
+            <div class="col-sm-6 text-end">
+                <a asp-action="Index" class="btn btn-secondary">@T["Common.Back"]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["TrainingPlans.Data"]</h3></div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>@T["Common.Status"]</dt>
+                            <dd>
+                                @switch (Model.Status)
+                                {
+                                    case TMS.Core.Enums.PlanStatus.Draft:
+                                        <span class="badge bg-secondary">@T["TrainingPlans.StatusDraft"]</span>
+                                        break;
+                                    case TMS.Core.Enums.PlanStatus.Approved:
+                                        <span class="badge bg-primary">@T["TrainingPlans.StatusApproved"]</span>
+                                        break;
+                                    case TMS.Core.Enums.PlanStatus.Active:
+                                        <span class="badge bg-success">@T["TrainingPlans.StatusActive"]</span>
+                                        break;
+                                    case TMS.Core.Enums.PlanStatus.Closed:
+                                        <span class="badge bg-dark">@T["TrainingPlans.StatusClosed"]</span>
+                                        break;
+                                }
+                            </dd>
+                            <dt>@T["Common.Description"]</dt>
+                            <dd>@(Model.Description ?? "-")</dd>
+                            <dt>@T["TrainingPlans.CreatedAt"]</dt>
+                            <dd>@Model.CreatedAt.ToString("yyyy-MM-dd")</dd>
+                        </dl>
+
+                        <hr />
+                        <h6>@T["TrainingPlans.ChangeStatus"]</h6>
+                        <div class="d-grid gap-2">
+                            @if (Model.Status == TMS.Core.Enums.PlanStatus.Draft)
+                            {
+                                <form asp-action="ChangeStatus" asp-route-id="@Model.Id" asp-route-status="Approved" method="post">
+                                    <button type="submit" class="btn btn-primary btn-block">@T["TrainingPlans.Approve"]</button>
+                                </form>
+                            }
+                            @if (Model.Status == TMS.Core.Enums.PlanStatus.Approved)
+                            {
+                                <form asp-action="ChangeStatus" asp-route-id="@Model.Id" asp-route-status="Active" method="post">
+                                    <button type="submit" class="btn btn-success btn-block">@T["TrainingPlans.Activate"]</button>
+                                </form>
+                            }
+                            @if (Model.Status != TMS.Core.Enums.PlanStatus.Closed)
+                            {
+                                <form asp-action="ChangeStatus" asp-route-id="@Model.Id" asp-route-status="Closed" method="post">
+                                    <button type="submit" class="btn btn-dark btn-block">@T["TrainingPlans.Close"]</button>
+                                </form>
+                            }
+                            <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                                <button type="submit" class="btn btn-outline-danger btn-block" onclick="return confirm('@T["TrainingPlans.ConfirmDelete"]');">@T["TrainingPlans.Delete"]</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["TrainingPlans.CoursesTitle"]</h3>
+                        <span class="badge bg-info">@Model.Items.Count @T["TrainingPlans.CourseUnit"]</span>
+                    </div>
+                    <div class="card-body p-0">
+                        @if (Model.Items.Any())
+                        {
+                            <table class="table table-bordered table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>@T["TrainingPlans.Course"]</th>
+                                        <th>@T["TrainingPlans.TargetDepartment"]</th>
+                                        <th>@T["TrainingPlans.PlannedQuarter"]</th>
+                                        <th>@T["TrainingPlans.Notes"]</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <tr>
+                                            <td><strong>@item.Course.NameAr</strong> <small class="text-muted">@item.Course.Code</small></td>
+                                            <td>@(item.TargetDepartment?.NameAr ?? "-")</td>
+                                            <td>@(item.PlannedQuarter.HasValue ? T["TrainingPlans.Quarter"].Value + " " + item.PlannedQuarter : "-")</td>
+                                            <td>@(item.Notes ?? "-")</td>
+                                            <td>
+                                                <form asp-action="RemoveItem" asp-route-id="@item.Id" asp-route-planId="@Model.Id" method="post">
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('@T["TrainingPlans.ConfirmRemoveItem"]');">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <div class="text-center text-muted py-4">@T["TrainingPlans.NoCourses"]</div>
+                        }
+                    </div>
+                    <div class="card-footer">
+                        <h6>@T["TrainingPlans.AddCourse"]</h6>
+                        <form asp-action="AddItem" method="post" class="row g-2 align-items-end">
+                            <input type="hidden" name="planId" value="@Model.Id" />
+                            <div class="col-md-4">
+                                <select name="courseId" asp-items="ViewBag.Courses" class="form-control">
+                                    <option value="">-- @T["TrainingPlans.SelectCourse"] --</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select name="targetDepartmentId" asp-items="ViewBag.Departments" class="form-control">
+                                    <option value="">-- @T["TrainingPlans.OptionalDepartment"] --</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" name="plannedQuarter" class="form-control" placeholder="@T["TrainingPlans.Quarter"]" min="1" max="4" />
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> @T["TrainingPlans.Add"]</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

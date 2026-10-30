@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Title.Dashboard" xml:space="preserve"><value>لوحة التحكم</value></data>
+  <data name="Title.Users" xml:space="preserve"><value>المستخدمون</value></data>
+  <data name="Title.AddUser" xml:space="preserve"><value>إضافة مستخدم</value></data>
+  <data name="Title.EditUser" xml:space="preserve"><value>تعديل مستخدم</value></data>
+  <data name="Title.ResetPassword" xml:space="preserve"><value>إعادة تعيين كلمة المرور</value></data>
+  <data name="Title.Roles" xml:space="preserve"><value>الأدوار والصلاحيات</value></data>
+  <data name="Title.AddRole" xml:space="preserve"><value>إضافة دور</value></data>
+  <data name="Title.EditRole" xml:space="preserve"><value>تعديل الدور والصلاحيات</value></data>
+  <data name="Title.Login" xml:space="preserve"><value>تسجيل الدخول</value></data>
+  <data name="Title.AccessDenied" xml:space="preserve"><value>غير مصرح</value></data>
+  <data name="Title.Error" xml:space="preserve"><value>خطأ</value></data>
+
+  <data name="Common.Back" xml:space="preserve"><value>رجوع</value></data>
+  <data name="Common.Save" xml:space="preserve"><value>حفظ</value></data>
+  <data name="Common.SaveChanges" xml:space="preserve"><value>حفظ التعديلات</value></data>
+  <data name="Common.SavePermissions" xml:space="preserve"><value>حفظ الصلاحيات</value></data>
+  <data name="Common.Add" xml:space="preserve"><value>إضافة</value></data>
+  <data name="Common.Edit" xml:space="preserve"><value>تعديل</value></data>
+  <data name="Common.Delete" xml:space="preserve"><value>حذف</value></data>
+  <data name="Common.Search" xml:space="preserve"><value>بحث</value></data>
+  <data name="Common.Actions" xml:space="preserve"><value>إجراءات</value></data>
+  <data name="Common.Status" xml:space="preserve"><value>الحالة</value></data>
+  <data name="Common.Active" xml:space="preserve"><value>نشط</value></data>
+  <data name="Common.Inactive" xml:space="preserve"><value>معطل</value></data>
+  <data name="Common.Disable" xml:space="preserve"><value>تعطيل</value></data>
+  <data name="Common.Enable" xml:space="preserve"><value>تفعيل</value></data>
+  <data name="Common.Name" xml:space="preserve"><value>الاسم</value></data>
+  <data name="Common.Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
+  <data name="Common.Password" xml:space="preserve"><value>كلمة المرور</value></data>
+  <data name="Common.Role" xml:space="preserve"><value>الدور</value></data>
+  <data name="Common.Department" xml:space="preserve"><value>الإدارة</value></data>
+  <data name="Common.Description" xml:space="preserve"><value>الوصف</value></data>
+  <data name="Common.All" xml:space="preserve"><value>الكل</value></data>
+  <data name="Common.System" xml:space="preserve"><value>نظام</value></data>
+  <data name="Common.ConfirmDelete" xml:space="preserve"><value>هل أنت متأكد من حذف هذا العنصر؟</value></data>
+  <data name="Common.NoResults" xml:space="preserve"><value>لا توجد سجلات مطابقة</value></data>
+  <data name="Common.ResetPassword" xml:space="preserve"><value>إعادة تعيين كلمة المرور</value></data>
+  <data name="Common.Permissions" xml:space="preserve"><value>الصلاحيات</value></data>
+  <data name="Common.SelectAll" xml:space="preserve"><value>تحديد الكل</value></data>
+  <data name="Common.UnselectAll" xml:space="preserve"><value>إلغاء الكل</value></data>
+  <data name="Common.RecordAttendance" xml:space="preserve"><value>تسجيل الحضور</value></data>
+  <data name="Common.User" xml:space="preserve"><value>المستخدم</value></data>
+  <data name="Common.BasicData" xml:space="preserve"><value>البيانات الأساسية</value></data>
+  <data name="Common.LoginData" xml:space="preserve"><value>بيانات الدخول</value></data>
+  <data name="Common.PasswordHint" xml:space="preserve"><value>كلمة المرور على الأقل 6 أحرف وتحتوي أرقام وأحرف إنجليزية كبيرة وصغيرة</value></data>
+  <data name="Common.NewPassword" xml:space="preserve"><value>كلمة مرور جديدة</value></data>
+  <data name="Common.WithoutDept" xml:space="preserve"><value>بدون إدارة</value></data>
+  <data name="Common.ChooseRole" xml:space="preserve"><value>اختر الدور</value></data>
+
+  <data name="Nav.Dashboard" xml:space="preserve"><value>لوحة التحكم</value></data>
+  <data name="Nav.Courses" xml:space="preserve"><value>الدورات</value></data>
+  <data name="Nav.CourseCategories" xml:space="preserve"><value>تصنيفات الدورات</value></data>
+  <data name="Nav.TrainingPlans" xml:space="preserve"><value>الخطط التدريبية</value></data>
+  <data name="Nav.Trainees" xml:space="preserve"><value>المتدربين</value></data>
+  <data name="Nav.TraineeList" xml:space="preserve"><value>قائمة المتدربين</value></data>
+  <data name="Nav.AddTrainee" xml:space="preserve"><value>إضافة متدرب</value></data>
+  <data name="Nav.Import" xml:space="preserve"><value>استيراد</value></data>
+  <data name="Nav.Instructors" xml:space="preserve"><value>المدربين</value></data>
+  <data name="Nav.InstructorList" xml:space="preserve"><value>قائمة المدربين</value></data>
+  <data name="Nav.AddInstructor" xml:space="preserve"><value>إضافة مدرب</value></data>
+  <data name="Nav.CoursesTaught" xml:space="preserve"><value>الدورات التي قام بها المدرب</value></data>
+  <data name="Nav.Operations" xml:space="preserve"><value>العمليات</value></data>
+  <data name="Nav.Attendance" xml:space="preserve"><value>الحضور والانصراف</value></data>
+  <data name="Nav.Exams" xml:space="preserve"><value>الاختبارات</value></data>
+  <data name="Nav.QuestionBank" xml:space="preserve"><value>بنك الأسئلة</value></data>
+  <data name="Nav.Resources" xml:space="preserve"><value>القاعات والموارد</value></data>
+  <data name="Nav.Finance" xml:space="preserve"><value>الحسابات والمدفوعات</value></data>
+  <data name="Nav.Archive" xml:space="preserve"><value>الأرشفة</value></data>
+  <data name="Nav.ArchiveDashboard" xml:space="preserve"><value>لوحة الأرشفة</value></data>
+  <data name="Nav.SearchArchive" xml:space="preserve"><value>البحث في الأرشيف</value></data>
+  <data name="Nav.ArchiveNewDocument" xml:space="preserve"><value>أرشفة مستند جديد</value></data>
+  <data name="Nav.Reports" xml:space="preserve"><value>التقارير</value></data>
+  <data name="Nav.UsersPermissions" xml:space="preserve"><value>المستخدمون والصلاحيات</value></data>
+  <data name="Nav.Users" xml:space="preserve"><value>المستخدمون</value></data>
+  <data name="Nav.Roles" xml:space="preserve"><value>الأدوار والصلاحيات</value></data>
+  <data name="Nav.Logout" xml:space="preserve"><value>تسجيل الخروج</value></data>
+  <data name="Nav.ToggleLanguage" xml:space="preserve"><value>عربية</value></data>
+  <data name="Nav.MyTrainingReport" xml:space="preserve"><value>تقريري التدريبي</value></data>
+  <data name="Nav.MySchedule" xml:space="preserve"><value>جدولي التدريبي</value></data>
+  <data name="Nav.MyCertificates" xml:space="preserve"><value>شهاداتي</value></data>
+  <data name="Nav.Version" xml:space="preserve"><value>الإصدار</value></data>
+
+  <data name="Users.Manage" xml:space="preserve"><value>إدارة المستخدمين</value></data>
+  <data name="Users.AddNew" xml:space="preserve"><value>إضافة مستخدم</value></data>
+  <data name="Users.Count" xml:space="preserve"><value>مستخدم</value></data>
+  <data name="Users.SearchPlaceholder" xml:space="preserve"><value>بحث بالاسم أو البريد أو الرقم الوظيفي</value></data>
+  <data name="Users.AllRoles" xml:space="preserve"><value>كل الأدوار</value></data>
+  <data name="Users.Name" xml:space="preserve"><value>الاسم</value></data>
+  <data name="Users.EmployeeNumber" xml:space="preserve"><value>الرقم الوظيفي</value></data>
+  <data name="Users.LoginData" xml:space="preserve"><value>بيانات الدخول</value></data>
+
+  <data name="Roles.Role" xml:space="preserve"><value>الدور</value></data>
+  <data name="Roles.ManagePermissions" xml:space="preserve"><value>إدارة الصلاحيات</value></data>
+  <data name="Roles.AddNew" xml:space="preserve"><value>إضافة دور</value></data>
+  <data name="Roles.Manage" xml:space="preserve"><value>إدارة الأدوار</value></data>
+  <data name="Roles.Count" xml:space="preserve"><value>دور</value></data>
+  <data name="Roles.UserCount" xml:space="preserve"><value>عدد المستخدمين</value></data>
+  <data name="Roles.PermissionCount" xml:space="preserve"><value>عدد الصلاحيات</value></data>
+  <data name="Roles.SystemRole" xml:space="preserve"><value>نظام</value></data>
+  <data name="Roles.ConfirmDelete" xml:space="preserve"><value>هل أنت متأكد من حذف هذا الدور؟</value></data>
+  <data name="Roles.RoleData" xml:space="preserve"><value>بيانات الدور</value></data>
+  <data name="Roles.AfterCreateHint" xml:space="preserve"><value>بعد إنشاء الدور سيتم توجيهك لشاشة تحديد الصلاحيات.</value></data>
+  <data name="Roles.SystemRoleAllPerms" xml:space="preserve"><value>دور النظام — يتمتع بكل الصلاحيات</value></data>
+  <data name="Roles.CannotEditAdminPerms" xml:space="preserve"><value>لا يمكن تعديل صلاحيات دور مدير النظام، فهو يمتلك جميع الصلاحيات تلقائيًا.</value></data>
+  <data name="Roles.CreateRole" xml:space="preserve"><value>إنشاء الدور</value></data>
+
+  <data name="Denied.NoAccess" xml:space="preserve"><value>لا تملك الصلاحية</value></data>
+  <data name="Denied.Message" xml:space="preserve"><value>غير مصرح لك بالدخول لهذه الصفحة</value></data>
+  <data name="Denied.Hint" xml:space="preserve"><value>هذه الصفحة متاحة فقط لبعض الصلاحيات في النظام.</value></data>
+  <data name="Denied.BackHome" xml:space="preserve"><value>العودة للرئيسية</value></data>
+
+  <data name="Dash.ActiveCourses" xml:space="preserve"><value>الدورات النشطة</value></data>
+  <data name="Dash.RegisteredTrainees" xml:space="preserve"><value>المتدربين المسجلين</value></data>
+  <data name="Dash.Instructors" xml:space="preserve"><value>المدربين</value></data>
+  <data name="Dash.IssuedCertificates" xml:space="preserve"><value>الشهادات المصدرة</value></data>
+  <data name="Dash.More" xml:space="preserve"><value>المزيد</value></data>
+  <data name="Dash.StatsLast6Months" xml:space="preserve"><value>إحصائيات آخر 6 أشهر</value></data>
+  <data name="Dash.UpcomingSchedules" xml:space="preserve"><value>الدورات  القادمة</value></data>
+  <data name="Dash.InProgress" xml:space="preserve"><value>قيد التنفيذ</value></data>
+  <data name="Dash.NoUpcoming" xml:space="preserve"><value>لا توجد جداول قادمة</value></data>
+  <data name="Dash.RecordAttendance" xml:space="preserve"><value>تسجيل الحضور</value></data>
+  <data name="Dash.CoursesAdded" xml:space="preserve"><value>الدورات المضافة</value></data>
+  <data name="Dash.CertificatesIssued" xml:space="preserve"><value>الشهادات المصدرة</value></data>
+
+  <data name="Login.Subtitle" xml:space="preserve"><value>استدامة | نظام إدارة التدريب</value></data>
+  <data name="Login.Hero" xml:space="preserve"><value>منصتك الموحّدة لإدارة<br/>التدريب والتنمية المهنية</value></data>
+  <data name="Login.HeroText" xml:space="preserve"><value>تتبّع مسارات التدريب، إدارة المتدربين والمدربين، إعداد الخطط والفصول، وتقدير النتائج — كل ذلك في نظام واحد متكامل وآمن.</value></data>
+  <data name="Login.FeaturePlans" xml:space="preserve"><value>خطط تدريب وتصنيفات موجّهة</value></data>
+  <data name="Login.FeatureAttendance" xml:space="preserve"><value>حضور ومتابعة تفاعلية</value></data>
+  <data name="Login.FeatureExams" xml:space="preserve"><value>امتحانات بنك أسئلة وشهادات</value></data>
+  <data name="Login.FeatureReports" xml:space="preserve"><value>تقارير ومالية مفصّلة</value></data>
+  <data name="Login.Copyright" xml:space="preserve"><value>جميع الحقوق محفوظة</value></data>
+  <data name="Login.SignIn" xml:space="preserve"><value>تسجيل الدخول</value></data>
+  <data name="Login.Prompt" xml:space="preserve"><value>أدخل بياناتك للوصول إلى لوحة التحكم</value></data>
+  <data name="Login.Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
+  <data name="Login.Password" xml:space="preserve"><value>كلمة المرور</value></data>
+  <data name="Login.RememberMe" xml:space="preserve"><value>تذكرني</value></data>
+  <data name="Login.Submit" xml:space="preserve"><value>دخول</value></data>
+  <data name="Login.Help" xml:space="preserve"><value>مشكلة في الدخول؟ تواصل مع مسؤول النظام</value></data>
+  <data name="Login.PlaceholderEmail" xml:space="preserve"><value>name@example.com</value></data>
+  <data name="Login.BrandTagline" xml:space="preserve"><value>استدامة | نظام إدارة التدريب</value></data>
+
+  <data name="Common.JobTitle" xml:space="preserve"><value>المسمى الوظيفي</value></data>
+  <data name="Common.NationalId" xml:space="preserve"><value>الرقم القومي</value></data>
+  <data name="Common.PhoneNumber" xml:space="preserve"><value>رقم الجوال</value></data>
+  <data name="Common.ConfirmPassword" xml:space="preserve"><value>تأكيد كلمة المرور</value></data>
+  <data name="Common.IsActive" xml:space="preserve"><value>نشط</value></data>
+
+  <data name="Perm.users" xml:space="preserve"><value>المستخدمون</value></data>
+  <data name="Perm.roles" xml:space="preserve"><value>الأدوار والصلاحيات</value></data>
+  <data name="Perm.courses" xml:space="preserve"><value>الدورات</value></data>
+  <data name="Perm.training" xml:space="preserve"><value>المتدربون والتدريب</value></data>
+  <data name="Perm.instructors" xml:space="preserve"><value>المدربون</value></data>
+  <data name="Perm.accounts" xml:space="preserve"><value>الحسابات والمدفوعات</value></data>
+  <data name="Perm.archive" xml:space="preserve"><value>الأرشفة</value></data>
+  <data name="Perm.reports" xml:space="preserve"><value>التقارير</value></data>
+  <data name="PermAction.view" xml:space="preserve"><value>الاطلاع</value></data>
+  <data name="PermAction.create" xml:space="preserve"><value>الإضافة</value></data>
+  <data name="PermAction.edit" xml:space="preserve"><value>التعديل</value></data>
+  <data name="PermAction.delete" xml:space="preserve"><value>الحذف</value></data>
+
+  <data name="UserForm.FullNameAr" xml:space="preserve"><value>الاسم بالعربي</value></data>
+  <data name="UserForm.FullNameEn" xml:space="preserve"><value>الاسم بالإنجليزي</value></data>
+  <data name="UserForm.Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
+  <data name="UserForm.PhoneNumber" xml:space="preserve"><value>رقم الجوال</value></data>
+  <data name="UserForm.EmployeeNumber" xml:space="preserve"><value>الرقم الوظيفي</value></data>
+  <data name="UserForm.NationalId" xml:space="preserve"><value>الرقم القومي</value></data>
+  <data name="UserForm.DepartmentId" xml:space="preserve"><value>الإدارة</value></data>
+  <data name="UserForm.JobTitle" xml:space="preserve"><value>المسمى الوظيفي</value></data>
+  <data name="UserForm.RoleId" xml:space="preserve"><value>الدور</value></data>
+  <data name="UserForm.Password" xml:space="preserve"><value>كلمة المرور</value></data>
+  <data name="UserForm.ConfirmPassword" xml:space="preserve"><value>تأكيد كلمة المرور</value></data>
+  <data name="UserForm.IsActive" xml:space="preserve"><value>المستخدم نشط</value></data>
+
+  <data name="RoleForm.Name" xml:space="preserve"><value>الاسم الفني (EN)</value></data>
+  <data name="RoleForm.NameAr" xml:space="preserve"><value>الاسم بالعربي</value></data>
+  <data name="RoleForm.Description" xml:space="preserve"><value>وصف الدور</value></data>
+  <data name="RoleForm.NameArPlaceholder" xml:space="preserve"><value>مسؤول الموارد البشرية</value></data>
+
+  <data name="ResetPwd.Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
+  <data name="ResetPwd.NewPassword" xml:space="preserve"><value>كلمة المرور الجديدة</value></data>
+  <data name="ResetPwd.ConfirmPassword" xml:space="preserve"><value>تأكيد كلمة المرور</value></data>
+
+  <data name="LoginV.RememberMe" xml:space="preserve"><value>تذكرني؟</value></data>
+<data name="CourseForm.NameAr" xml:space="preserve"><value>الاسم بالعربي</value></data>
+  <data name="CourseForm.NameArRequired" xml:space="preserve"><value>اسم الدورة مطلوب</value></data>
+  <data name="CourseForm.NameEn" xml:space="preserve"><value>الاسم بالإنجليزي</value></data>
+  <data name="CourseForm.NameEnRequired" xml:space="preserve"><value>اسم الدورة بالإنجليزية مطلوب</value></data>
+  <data name="CourseForm.DescriptionAr" xml:space="preserve"><value>الوصف بالعربي</value></data>
+  <data name="CourseForm.DescriptionEn" xml:space="preserve"><value>الوصف بالإنجليزي</value></data>
+  <data name="CourseForm.ObjectivesAr" xml:space="preserve"><value>الأهداف بالعربي</value></data>
+  <data name="CourseForm.ObjectivesEn" xml:space="preserve"><value>الأهداف بالإنجليزي</value></data>
+  <data name="CourseForm.TargetAudience" xml:space="preserve"><value>الفئة المستهدفة</value></data>
+  <data name="CourseForm.Hours" xml:space="preserve"><value>عدد الساعات</value></data>
+  <data name="CourseForm.MaxTrainees" xml:space="preserve"><value>الحد الأقصى</value></data>
+  <data name="CourseForm.MinTrainees" xml:space="preserve"><value>الحد الأدنى</value></data>
+  <data name="CourseForm.CategoryId" xml:space="preserve"><value>التصنيف</value></data>
+  <data name="CourseForm.FeePerTrainee" xml:space="preserve"><value>رسوم المتدرب</value></data>
+
+  <data name="ScheduleForm.StartDate" xml:space="preserve"><value>تاريخ البداية</value></data>
+  <data name="ScheduleForm.EndDate" xml:space="preserve"><value>تاريخ النهاية</value></data>
+  <data name="ScheduleForm.StartTime" xml:space="preserve"><value>وقت البداية</value></data>
+  <data name="ScheduleForm.EndTime" xml:space="preserve"><value>وقت النهاية</value></data>
+  <data name="ScheduleForm.RoomId" xml:space="preserve"><value>القاعة</value></data>
+  <data name="ScheduleForm.InstructorId" xml:space="preserve"><value>المدرب</value></data>
+  <data name="ScheduleForm.Notes" xml:space="preserve"><value>ملاحظات</value></data>
+
+  <data name="TraineeForm.Type" xml:space="preserve"><value>نوع المتدرب</value></data>
+  <data name="TraineeForm.FullNameAr" xml:space="preserve"><value>الاسم بالعربي</value></data>
+  <data name="TraineeForm.FullNameArRequired" xml:space="preserve"><value>الاسم بالعربي مطلوب</value></data>
+  <data name="TraineeForm.FullNameEn" xml:space="preserve"><value>الاسم بالإنجليزي</value></data>
+  <data name="TraineeForm.Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
+  <data name="TraineeForm.NationalId" xml:space="preserve"><value>الرقم القومي</value></data>
+  <data name="TraineeForm.Phone" xml:space="preserve"><value>رقم الهاتف</value></data>
+  <data name="TraineeForm.Address" xml:space="preserve"><value>العنوان</value></data>
+  <data name="TraineeForm.JobTitle" xml:space="preserve"><value>المسمى الوظيفي</value></data>
+  <data name="TraineeForm.Organization" xml:space="preserve"><value>الجهة التابع لها</value></data>
+  <data name="TraineeForm.Directorate" xml:space="preserve"><value>الإدارة التابع لها</value></data>
+  <data name="TraineeForm.JobGrade" xml:space="preserve"><value>الدرجة الوظيفية</value></data>
+  <data name="TraineeForm.Notes" xml:space="preserve"><value>ملاحظات</value></data>
+
+  <data name="InstructorForm.FirstNameAr" xml:space="preserve"><value>الاسم الأول بالعربي</value></data>
+  <data name="InstructorForm.FirstNameArRequired" xml:space="preserve"><value>الاسم الأول بالعربي مطلوب</value></data>
+  <data name="InstructorForm.LastNameAr" xml:space="preserve"><value>اللقب بالعربي</value></data>
+  <data name="InstructorForm.FirstNameEn" xml:space="preserve"><value>الاسم الأول بالإنجليزي</value></data>
+  <data name="InstructorForm.FirstNameEnRequired" xml:space="preserve"><value>الاسم الأول بالإنجليزية مطلوب</value></data>
+  <data name="InstructorForm.LastNameEn" xml:space="preserve"><value>الاسم الأخير بالإنجليزي</value></data>
+  <data name="InstructorForm.NationalId" xml:space="preserve"><value>الرقم القومي</value></data>
+  <data name="InstructorForm.Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
+  <data name="InstructorForm.Phone" xml:space="preserve"><value>الهاتف</value></data>
+  <data name="InstructorForm.SpecializationAr" xml:space="preserve"><value>التخصص بالعربي</value></data>
+  <data name="InstructorForm.SpecializationEn" xml:space="preserve"><value>التخصص بالإنجليزي</value></data>
+  <data name="InstructorForm.Type" xml:space="preserve"><value>نوع المدرب</value></data>
+  <data name="InstructorForm.HourlyRate" xml:space="preserve"><value>أجر الساعة</value></data>
+  <data name="InstructorForm.BankName" xml:space="preserve"><value>اسم البنك</value></data>
+  <data name="InstructorForm.IBAN" xml:space="preserve"><value>IBAN</value></data>
+  <data name="InstructorForm.AccountNumber" xml:space="preserve"><value>رقم الحساب</value></data>
+
+  <data name="ArchiveForm.DocType" xml:space="preserve"><value>نوع المستند</value></data>
+  <data name="ArchiveForm.DocTypeRequired" xml:space="preserve"><value>اختر نوع المستند</value></data>
+  <data name="ArchiveForm.DocumentDate" xml:space="preserve"><value>تاريخ المستند</value></data>
+  <data name="ArchiveForm.DocumentDateRequired" xml:space="preserve"><value>أدخل تاريخ المستند</value></data>
+  <data name="ArchiveForm.TitleAr" xml:space="preserve"><value>عنوان المستند</value></data>
+  <data name="ArchiveForm.TitleArRequired" xml:space="preserve"><value>أدخل عنوان المستند</value></data>
+  <data name="ArchiveForm.Subject" xml:space="preserve"><value>الموضوع</value></data>
+  <data name="ArchiveForm.SenderName" xml:space="preserve"><value>وارد من</value></data>
+  <data name="ArchiveForm.RecipientName" xml:space="preserve"><value>صادر إلى</value></data>
+  <data name="ArchiveForm.DepartmentId" xml:space="preserve"><value>الإدارة التابع لها</value></data>
+  <data name="ArchiveForm.Notes" xml:space="preserve"><value>ملاحظات</value></data>
+  <data name="ArchiveForm.File" xml:space="preserve"><value>ملف المستند</value></data>
+  <data name="ArchiveForm.FileRequired" xml:space="preserve"><value>ارفع ملف المستند</value></data>
+  <data name="Courses.Title" xml:space="preserve"><value>البرامج والدورات</value></data>
+  <data name="Courses.AddNew" xml:space="preserve"><value>إضافة دورة جديدة</value></data>
+  <data name="Courses.CreateTitle" xml:space="preserve"><value>إضافة دورة تدريبية جديدة</value></data>
+  <data name="Courses.SearchPlaceholder" xml:space="preserve"><value>بحث...</value></data>
+  <data name="Courses.AllStatuses" xml:space="preserve"><value>جميع الحالات</value></data>
+  <data name="Courses.AllCategories" xml:space="preserve"><value>جميع التصنيفات</value></data>
+  <data name="Courses.Reset" xml:space="preserve"><value>إعادة ضبط</value></data>
+  <data name="Courses.Code" xml:space="preserve"><value>الكود</value></data>
+  <data name="Courses.CourseName" xml:space="preserve"><value>اسم الدورة</value></data>
+  <data name="Courses.Category" xml:space="preserve"><value>التصنيف</value></data>
+  <data name="Courses.Hours" xml:space="preserve"><value>الساعات</value></data>
+  <data name="Courses.MaxCapacity" xml:space="preserve"><value>الحد الأقصى</value></data>
+  <data name="Courses.Schedules" xml:space="preserve"><value>الجدولات</value></data>
+  <data name="Courses.StatusPlanned" xml:space="preserve"><value>مخطط لها</value></data>
+  <data name="Courses.StatusOpen" xml:space="preserve"><value>مفتوحة للتسجيل</value></data>
+  <data name="Courses.StatusInProgress" xml:space="preserve"><value>قيد التنفيذ</value></data>
+  <data name="Courses.StatusCompleted" xml:space="preserve"><value>منتهية</value></data>
+  <data name="Courses.StatusCancelled" xml:space="preserve"><value>ملغاة</value></data>
+  <data name="Courses.ConfirmDelete" xml:space="preserve"><value>هل أنت متأكد من الحذف؟</value></data>
+  <data name="Courses.NoCourses" xml:space="preserve"><value>لا توجد دورات مسجلة</value></data>
+  <data name="Courses.Data" xml:space="preserve"><value>بيانات الدورة</value></data>
+  <data name="Courses.Select" xml:space="preserve"><value>اختر</value></data>
+  <data name="Courses.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Courses.Edit" xml:space="preserve"><value>تعديل الدورة</value></data>
+  <data name="Courses.EditTitle" xml:space="preserve"><value>تعديل الدورة التدريبية</value></data>
+  <data name="Courses.Operations" xml:space="preserve"><value>عمليات الدورة</value></data>
+  <data name="Courses.HoursUnit" xml:space="preserve"><value>ساعة</value></data>
+  <data name="Courses.TargetAudience" xml:space="preserve"><value>الفئة المستهدفة</value></data>
+  <data name="Courses.MinMax" xml:space="preserve"><value>الحد الأدنى / الأقصى</value></data>
+  <data name="Courses.Fee" xml:space="preserve"><value>الرسوم</value></data>
+  <data name="Courses.ConfirmStart" xml:space="preserve"><value>بدء الدورة؟</value></data>
+  <data name="Courses.Start" xml:space="preserve"><value>بدء الدورة</value></data>
+  <data name="Courses.Postpone" xml:space="preserve"><value>تأجيل الدورة</value></data>
+  <data name="Courses.ConfirmComplete" xml:space="preserve"><value>إنهاء الدورة؟</value></data>
+  <data name="Courses.Complete" xml:space="preserve"><value>إنهاء الدورة</value></data>
+  <data name="Courses.ConfirmCancel" xml:space="preserve"><value>إلغاء الدورة؟</value></data>
+  <data name="Courses.CancelCourse" xml:space="preserve"><value>إلغاء الدورة</value></data>
+  <data name="Courses.ScheduleTitle" xml:space="preserve"><value>الجدولات التدريبية</value></data>
+  <data name="Courses.NewSchedule" xml:space="preserve"><value>جدول جديد</value></data>
+  <data name="Courses.Date" xml:space="preserve"><value>التاريخ</value></data>
+  <data name="Courses.Time" xml:space="preserve"><value>الوقت</value></data>
+  <data name="Courses.Room" xml:space="preserve"><value>القاعة</value></data>
+  <data name="Courses.Instructor" xml:space="preserve"><value>المدرب</value></data>
+  <data name="Courses.Registered" xml:space="preserve"><value>المسجلون</value></data>
+  <data name="Courses.To" xml:space="preserve"><value>إلى</value></data>
+  <data name="Courses.ScheduleScheduled" xml:space="preserve"><value>مجدول</value></data>
+  <data name="Courses.RegisteredTrainees" xml:space="preserve"><value>المتدربون المسجلون</value></data>
+  <data name="Courses.TakeAttendance" xml:space="preserve"><value>تسجيل الحضور</value></data>
+  <data name="Courses.ConfirmDeleteSchedule" xml:space="preserve"><value>حذف الجدول؟</value></data>
+  <data name="Courses.NoSchedules" xml:space="preserve"><value>لا توجد جداول بعد — أضف جدول جديد</value></data>
+  <data name="Courses.PostponeTitle" xml:space="preserve"><value>تأجيل دورة</value></data>
+  <data name="Courses.PostponeHint" xml:space="preserve"><value>تأجيل الدورة سيُزيح مواعيد كل جداولها بعدد الأيام الذي تدخله.</value></data>
+  <data name="Courses.PostponeDays" xml:space="preserve"><value>عدد أيام التأجيل</value></data>
+  <data name="Courses.CreateScheduleTitle" xml:space="preserve"><value>إنشاء جدول</value></data>
+  <data name="Courses.SelectRoom" xml:space="preserve"><value>اختر القاعة</value></data>
+  <data name="Courses.SelectInstructor" xml:space="preserve"><value>اختر المدرب</value></data>
+  <data name="CourseCategories.Title" xml:space="preserve"><value>تصنيفات الدورات</value></data>
+  <data name="CourseCategories.AddNew" xml:space="preserve"><value>إضافة تصنيف جديد</value></data>
+  <data name="CourseCategories.NameAr" xml:space="preserve"><value>الاسم بالعربي</value></data>
+  <data name="CourseCategories.NameEn" xml:space="preserve"><value>Name (EN)</value></data>
+  <data name="CourseCategories.Add" xml:space="preserve"><value>إضافة</value></data>
+  <data name="CourseCategories.Name" xml:space="preserve"><value>الاسم</value></data>
+  <data name="CourseCategories.SubCategory" xml:space="preserve"><value>التصنيف الفرعي</value></data>
+  <data name="CourseCategories.CourseCount" xml:space="preserve"><value>عدد الدورات</value></data>
+  <data name="CourseCategories.ConfirmDelete" xml:space="preserve"><value>حذف التصنيف؟</value></data>
+  <data name="CourseCategories.NoCategories" xml:space="preserve"><value>لا توجد تصنيفات</value></data>
+  <data name="CourseCategories.Edit" xml:space="preserve"><value>تعديل تصنيف</value></data>
+  <data name="CourseCategories.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="TrainingPlans.Title" xml:space="preserve"><value>الخطط التدريبية</value></data>
+  <data name="TrainingPlans.AdminPlan" xml:space="preserve"><value>خطة التدريب الإداري</value></data>
+  <data name="TrainingPlans.SapqarPlan" xml:space="preserve"><value>خطة سقار</value></data>
+  <data name="TrainingPlans.ComputerSciencePlan" xml:space="preserve"><value>خطة مركز تدريب علوم الحاسب</value></data>
+  <data name="TrainingPlans.AddNew" xml:space="preserve"><value>خطة جديدة</value></data>
+  <data name="TrainingPlans.All" xml:space="preserve"><value>الكل</value></data>
+  <data name="TrainingPlans.Name" xml:space="preserve"><value>الاسم</value></data>
+  <data name="TrainingPlans.Type" xml:space="preserve"><value>نوع الخطة</value></data>
+  <data name="TrainingPlans.Year" xml:space="preserve"><value>السنة</value></data>
+  <data name="TrainingPlans.Quarter" xml:space="preserve"><value>الربع</value></data>
+  <data name="TrainingPlans.CourseCount" xml:space="preserve"><value>عدد الدورات</value></data>
+  <data name="TrainingPlans.NoPlans" xml:space="preserve"><value>لا توجد خطط تدريبية في هذا التصنيف</value></data>
+  <data name="TrainingPlans.Create" xml:space="preserve"><value>إنشاء خطة تدريبية</value></data>
+  <data name="TrainingPlans.NameAr" xml:space="preserve"><value>اسم الخطة بالعربي</value></data>
+  <data name="TrainingPlans.NameEn" xml:space="preserve"><value>Name (EN)</value></data>
+  <data name="TrainingPlans.Data" xml:space="preserve"><value>بيانات الخطة</value></data>
+  <data name="TrainingPlans.StatusDraft" xml:space="preserve"><value>مسودة</value></data>
+  <data name="TrainingPlans.StatusApproved" xml:space="preserve"><value>معتمدة</value></data>
+  <data name="TrainingPlans.StatusActive" xml:space="preserve"><value>نشطة</value></data>
+  <data name="TrainingPlans.StatusClosed" xml:space="preserve"><value>مغلقة</value></data>
+  <data name="TrainingPlans.CreatedAt" xml:space="preserve"><value>تاريخ الإنشاء</value></data>
+  <data name="TrainingPlans.ChangeStatus" xml:space="preserve"><value>تغيير الحالة</value></data>
+  <data name="TrainingPlans.Approve" xml:space="preserve"><value>اعتماد الخطة</value></data>
+  <data name="TrainingPlans.Activate" xml:space="preserve"><value>تفعيل الخطة</value></data>
+  <data name="TrainingPlans.Close" xml:space="preserve"><value>إغلاق الخطة</value></data>
+  <data name="TrainingPlans.ConfirmDelete" xml:space="preserve"><value>حذف الخطة بالكامل؟</value></data>
+  <data name="TrainingPlans.Delete" xml:space="preserve"><value>حذف الخطة</value></data>
+  <data name="TrainingPlans.CoursesTitle" xml:space="preserve"><value>الدورات في الخطة</value></data>
+  <data name="TrainingPlans.CourseUnit" xml:space="preserve"><value>دورة</value></data>
+  <data name="TrainingPlans.Course" xml:space="preserve"><value>الدورة</value></data>
+  <data name="TrainingPlans.TargetDepartment" xml:space="preserve"><value>القسم المستهدف</value></data>
+  <data name="TrainingPlans.PlannedQuarter" xml:space="preserve"><value>الربع المخطط</value></data>
+  <data name="TrainingPlans.Notes" xml:space="preserve"><value>ملاحظات</value></data>
+  <data name="TrainingPlans.ConfirmRemoveItem" xml:space="preserve"><value>إزالة الدورة من الخطة؟</value></data>
+  <data name="TrainingPlans.NoCourses" xml:space="preserve"><value>لم تُضف دورات للخطة بعد</value></data>
+  <data name="TrainingPlans.AddCourse" xml:space="preserve"><value>إضافة دورة للخطة</value></data>
+  <data name="TrainingPlans.SelectCourse" xml:space="preserve"><value>اختر الدورة</value></data>
+  <data name="TrainingPlans.OptionalDepartment" xml:space="preserve"><value>القسم (اختياري)</value></data>
+  <data name="TrainingPlans.Add" xml:space="preserve"><value>إضافة</value></data>
+  <data name="TrainingPlans.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Registrations.Title" xml:space="preserve"><value>التسجيل في الدورات</value></data>
+  <data name="Registrations.RegisteredTrainees" xml:space="preserve"><value>المتدربون المسجلون</value></data>
+  <data name="Registrations.AddNew" xml:space="preserve"><value>تسجيل متدرب</value></data>
+  <data name="Registrations.Courses" xml:space="preserve"><value>الدورات</value></data>
+  <data name="Registrations.AllSchedules" xml:space="preserve"><value>كل الدورات </value></data>
+  <data name="Registrations.Filter" xml:space="preserve"><value>تصفية</value></data>
+  <data name="Registrations.Trainee" xml:space="preserve"><value>المتدرب</value></data>
+  <data name="Registrations.CourseSchedule" xml:space="preserve"><value>الدورة / الجدول</value></data>
+  <data name="Registrations.Fee" xml:space="preserve"><value>الرسوم</value></data>
+  <data name="Registrations.Paid" xml:space="preserve"><value>المدفوع</value></data>
+  <data name="Registrations.PaymentStatus" xml:space="preserve"><value>حالة الدفع</value></data>
+  <data name="Registrations.UpdateFee" xml:space="preserve"><value>تحديث الرسوم</value></data>
+  <data name="Registrations.PrivateTrainee" xml:space="preserve"><value>متدرب خاص</value></data>
+  <data name="Registrations.StatusRegistered" xml:space="preserve"><value>مسجل</value></data>
+  <data name="Registrations.StatusConfirmed" xml:space="preserve"><value>مؤكد</value></data>
+  <data name="Registrations.StatusCompleted" xml:space="preserve"><value>مكتمل</value></data>
+  <data name="Registrations.StatusDropped" xml:space="preserve"><value>منسحب</value></data>
+  <data name="Registrations.StatusWaitlisted" xml:space="preserve"><value>قائمة انتظار</value></data>
+  <data name="Registrations.PaymentUnpaid" xml:space="preserve"><value>غير مسدد</value></data>
+  <data name="Registrations.PaymentPartial" xml:space="preserve"><value>جزئي</value></data>
+  <data name="Registrations.PaymentPaid" xml:space="preserve"><value>مسدد</value></data>
+  <data name="Registrations.SaveFee" xml:space="preserve"><value>حفظ الرسوم</value></data>
+  <data name="Registrations.Confirm" xml:space="preserve"><value>تأكيد</value></data>
+  <data name="Registrations.ConfirmDrop" xml:space="preserve"><value>إسقاط التسجيل؟</value></data>
+  <data name="Registrations.Drop" xml:space="preserve"><value>إسقاط</value></data>
+  <data name="Registrations.NoResults" xml:space="preserve"><value>لا توجد تسجيلات — اختر جدولاً من التصفية ثم "تسجيل متدرب"</value></data>
+  <data name="Registrations.RegisterTrainee" xml:space="preserve"><value>تسجيل متدرب جديد</value></data>
+  <data name="Registrations.SelectTrainee" xml:space="preserve"><value>اختر متدرباً</value></data>
+  <data name="Registrations.RegistrationStatus" xml:space="preserve"><value>حالة التسجيل</value></data>
+  <data name="Registrations.FeeWithDefault" xml:space="preserve"><value>الرسوم (افتراضياً {0})</value></data>
+  <data name="Registrations.AmountPaid" xml:space="preserve"><value>المبلغ المدفوع</value></data>
+  <data name="Registrations.Notes" xml:space="preserve"><value>ملاحظات</value></data>
+  <data name="Registrations.Register" xml:space="preserve"><value>تسجيل</value></data>
+  <data name="Registrations.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Trainees.Title" xml:space="preserve"><value>المتدربون</value></data>
+  <data name="Trainees.AddNew" xml:space="preserve"><value>إضافة متدرب</value></data>
+  <data name="Trainees.SearchPlaceholder" xml:space="preserve"><value>بحث بالاسم أو الرقم...</value></data>
+  <data name="Trainees.Name" xml:space="preserve"><value>الاسم</value></data>
+  <data name="Trainees.Type" xml:space="preserve"><value>النوع</value></data>
+  <data name="Trainees.OrganizationOrPhone" xml:space="preserve"><value>الجهة / الهاتف</value></data>
+  <data name="Trainees.JobTitle" xml:space="preserve"><value>المسمى الوظيفي</value></data>
+  <data name="Trainees.PrivateSector" xml:space="preserve"><value>قطاع خاص</value></data>
+  <data name="Trainees.Government" xml:space="preserve"><value>حكومي</value></data>
+  <data name="Trainees.NoTrainees" xml:space="preserve"><value>لا يوجد متدربون مسجلون</value></data>
+  <data name="Trainees.TypeInfoHint" xml:space="preserve"><value>حكومي = موظف جهة حكومية (بيانات توظيف كاملة)، خاص = متدرب يسجّل ويدفع مقابل الدورة (بيانات أساسية فقط).</value></data>
+  <data name="Trainees.BasicData" xml:space="preserve"><value>البيانات الأساسية</value></data>
+  <data name="Trainees.EmailDefaultHint" xml:space="preserve"><value>إن لم يُدخل، يُنشأ بريد افتراضي</value></data>
+  <data name="Trainees.EmploymentData" xml:space="preserve"><value>بيانات التوظيف (حكومي)</value></data>
+  <data name="Trainees.PrivateTypeHint" xml:space="preserve"><value>المتدرب الخاص لا يحتاج بيانات توظيف — يُسجّل بالاسم والرقم القومي والهاتف والعنوان.</value></data>
+  <data name="Trainees.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Trainees.Edit" xml:space="preserve"><value>تعديل متدرب</value></data>
+  <data name="Trainees.FullFile" xml:space="preserve"><value>الملف الكامل</value></data>
+  <data name="Trainees.PersonalInfo" xml:space="preserve"><value>المعلومات الشخصية</value></data>
+  <data name="Trainees.Department" xml:space="preserve"><value>القسم</value></data>
+  <data name="Trainees.Organization" xml:space="preserve"><value>الجهة التابع لها</value></data>
+  <data name="Trainees.Directorate" xml:space="preserve"><value>الإدارة التابع لها</value></data>
+  <data name="Trainees.JobGrade" xml:space="preserve"><value>الدرجة الوظيفية</value></data>
+  <data name="Trainees.Phone" xml:space="preserve"><value>الهاتف</value></data>
+  <data name="Trainees.Address" xml:space="preserve"><value>العنوان</value></data>
+  <data name="Trainees.RegisteredCourses" xml:space="preserve"><value>الدورات المسجل بها</value></data>
+  <data name="Trainees.Course" xml:space="preserve"><value>الدورة</value></data>
+  <data name="Trainees.Date" xml:space="preserve"><value>التاريخ</value></data>
+  <data name="Trainees.NoRegisteredCourses" xml:space="preserve"><value>لم يسجل في أي دورة بعد</value></data>
+  <data name="Trainees.MyTrainingReport" xml:space="preserve"><value>تقريري التدريبي</value></data>
+  <data name="Trainees.Print" xml:space="preserve"><value>طباعة</value></data>
+  <data name="Trainees.NationalId" xml:space="preserve"><value>الرقم القومي</value></data>
+  <data name="Trainees.CompletedCourses" xml:space="preserve"><value>الدورات المكتملة</value></data>
+  <data name="Trainees.NoCompletedCourses" xml:space="preserve"><value>لم تكتمل أي دورة تدريبية بعد — سيتوفر هذا التقرير عند إتمام الدورات.</value></data>
+  <data name="Trainees.CourseCode" xml:space="preserve"><value>كود الدورة</value></data>
+  <data name="Trainees.CourseName" xml:space="preserve"><value>اسم الدورة</value></data>
+  <data name="Trainees.Instructor" xml:space="preserve"><value>المدرب</value></data>
+  <data name="Trainees.StartDate" xml:space="preserve"><value>تاريخ البدء</value></data>
+  <data name="Trainees.EndDate" xml:space="preserve"><value>تاريخ الانتهاء</value></data>
+  <data name="Trainees.Hours" xml:space="preserve"><value>الساعات</value></data>
+  <data name="Trainees.HoursUnit" xml:space="preserve"><value>ساعة</value></data>
+  <data name="Trainees.CoursesUnit" xml:space="preserve"><value>دورة</value></data>
+  <data name="Trainees.Total" xml:space="preserve"><value>الإجمالي</value></data>
+  <data name="Trainees.MyCertificates" xml:space="preserve"><value>شهاداتي</value></data>
+  <data name="Trainees.NoCertificates" xml:space="preserve"><value>لا توجد شهادات بعد.</value></data>
+  <data name="Trainees.SerialNumber" xml:space="preserve"><value>الرقم التسلسلي</value></data>
+  <data name="Trainees.IssueDate" xml:space="preserve"><value>تاريخ الإصدار</value></data>
+  <data name="Trainees.Revoked" xml:space="preserve"><value>ملغاة</value></data>
+  <data name="Trainees.Valid" xml:space="preserve"><value>سارية</value></data>
+  <data name="Trainees.DownloadPdf" xml:space="preserve"><value>تحميل PDF</value></data>
+  <data name="Trainees.MySchedule" xml:space="preserve"><value>جدولي الدراسي</value></data>
+  <data name="Trainees.NotLinkedHint" xml:space="preserve"><value>لم يتم ربط حسابك بملف متدرب، تواصل مع المشرف.</value></data>
+  <data name="Trainees.NoScheduledCourses" xml:space="preserve"><value>لا توجد دورات مسجلة لك بعد.</value></data>
+  <data name="Trainees.Registered" xml:space="preserve"><value>مسجل</value></data>
+  <data name="Trainees.Confirmed" xml:space="preserve"><value>مؤكد</value></data>
+  <data name="Trainees.Completed" xml:space="preserve"><value>مكتمل</value></data>
+  <data name="Trainees.Dropped" xml:space="preserve"><value>منسحب</value></data>
+  <data name="Trainees.Waitlisted" xml:space="preserve"><value>قائمة انتظار</value></data>
+  <data name="Instructors.Title" xml:space="preserve"><value>المدربون</value></data>
+  <data name="Instructors.AddNew" xml:space="preserve"><value>إضافة مدرب</value></data>
+  <data name="Instructors.SearchPlaceholder" xml:space="preserve"><value>بحث...</value></data>
+  <data name="Instructors.AllTypes" xml:space="preserve"><value>-- جميع الأنواع --</value></data>
+  <data name="Instructors.ArabicName" xml:space="preserve"><value>الاسم بالعربي</value></data>
+  <data name="Instructors.EnglishName" xml:space="preserve"><value>الاسم بالإنجليزي</value></data>
+  <data name="Instructors.Specialization" xml:space="preserve"><value>التخصص</value></data>
+  <data name="Instructors.Type" xml:space="preserve"><value>النوع</value></data>
+  <data name="Instructors.HourlyRate" xml:space="preserve"><value>أجر الساعة</value></data>
+  <data name="Instructors.Internal" xml:space="preserve"><value>داخلي</value></data>
+  <data name="Instructors.External" xml:space="preserve"><value>خارجي</value></data>
+  <data name="Instructors.ConfirmDelete" xml:space="preserve"><value>هل أنت متأكد؟</value></data>
+  <data name="Instructors.NoInstructors" xml:space="preserve"><value>لا يوجد مدربون مسجلون</value></data>
+  <data name="Instructors.BankData" xml:space="preserve"><value>البيانات المصرفية</value></data>
+  <data name="Instructors.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Instructors.Edit" xml:space="preserve"><value>تعديل المدرب</value></data>
+  <data name="Instructors.SaveChanges" xml:space="preserve"><value>حفظ التعديلات</value></data>
+  <data name="Instructors.PersonalInfo" xml:space="preserve"><value>المعلومات الشخصية</value></data>
+  <data name="Instructors.NationalId" xml:space="preserve"><value>الرقم القومي</value></data>
+  <data name="Instructors.Phone" xml:space="preserve"><value>الهاتف</value></data>
+  <data name="Instructors.SAR" xml:space="preserve"><value>ر.س</value></data>
+  <data name="Instructors.BankName" xml:space="preserve"><value>البنك</value></data>
+  <data name="Instructors.Iban" xml:space="preserve"><value>IBAN</value></data>
+  <data name="Instructors.AccountNumber" xml:space="preserve"><value>رقم الحساب</value></data>
+  <data name="Instructors.CoursesTaught" xml:space="preserve"><value>الدورات التي قام بها المدرب</value></data>
+  <data name="Instructors.ChooseInstructor" xml:space="preserve"><value>اختر المدرب:</value></data>
+  <data name="Instructors.AllInstructors" xml:space="preserve"><value>-- جميع المدربين --</value></data>
+  <data name="Instructors.Filter" xml:space="preserve"><value>تصفية</value></data>
+  <data name="Instructors.NoCoursesTaught" xml:space="preserve"><value>لا توجد دورات مسجلة بعد</value></data>
+  <data name="Instructors.Instructor" xml:space="preserve"><value>المدرب</value></data>
+  <data name="Instructors.CourseCode" xml:space="preserve"><value>كود الدورة</value></data>
+  <data name="Instructors.CourseName" xml:space="preserve"><value>اسم الدورة</value></data>
+  <data name="Instructors.StartDate" xml:space="preserve"><value>تاريخ البدء</value></data>
+  <data name="Instructors.EndDate" xml:space="preserve"><value>تاريخ الانتهاء</value></data>
+  <data name="Instructors.Hours" xml:space="preserve"><value>عدد الساعات</value></data>
+  <data name="Instructors.Trainees" xml:space="preserve"><value>عدد المتدربين</value></data>
+  <data name="Instructors.HoursUnit" xml:space="preserve"><value>ساعة</value></data>
+  <data name="Instructors.TraineesUnit" xml:space="preserve"><value>متدرب</value></data>
+  <data name="Instructors.Total" xml:space="preserve"><value>الإجمالي</value></data>
+  <data name="StudentExam.LoginTitle" xml:space="preserve"><value>دخول الطالب للاختبار</value></data>
+  <data name="StudentExam.LoginSubtitle" xml:space="preserve"><value>أدخل الرقم القومي ورقم الدورة التدريبية</value></data>
+  <data name="StudentExam.NationalId" xml:space="preserve"><value>الرقم القومي</value></data>
+  <data name="StudentExam.NationalIdPlaceholder" xml:space="preserve"><value>مثال: 2990101...</value></data>
+  <data name="StudentExam.CourseCode" xml:space="preserve"><value>رقم الدورة التدريبية</value></data>
+  <data name="StudentExam.CourseCodePlaceholder" xml:space="preserve"><value>مثال: TMS-2026-001</value></data>
+  <data name="StudentExam.CourseCodeHint" xml:space="preserve"><value>أدخل كود الدورة كما هو في تفاصيل الدورة</value></data>
+  <data name="StudentExam.Enter" xml:space="preserve"><value>دخول</value></data>
+  <data name="StudentExam.MyExams" xml:space="preserve"><value>اختباراتي</value></data>
+  <data name="StudentExam.Welcome" xml:space="preserve"><value>مرحباً</value></data>
+  <data name="StudentExam.ChooseExam" xml:space="preserve"><value>اختر الاختبار لأدائه</value></data>
+  <data name="StudentExam.NoExams" xml:space="preserve"><value>لا توجد اختبارات لهذه الدورة حالياً</value></data>
+  <data name="StudentExam.Duration" xml:space="preserve"><value>المدة</value></data>
+  <data name="StudentExam.MinutesUnit" xml:space="preserve"><value>دقيقة</value></data>
+  <data name="StudentExam.Marks" xml:space="preserve"><value>الدرجة</value></data>
+  <data name="StudentExam.Passing" xml:space="preserve"><value>النجاح</value></data>
+  <data name="StudentExam.TheoreticalAndPractical" xml:space="preserve"><value>نظري وعملي</value></data>
+  <data name="StudentExam.TheoreticalOnly" xml:space="preserve"><value>نظري فقط</value></data>
+  <data name="StudentExam.Submitted" xml:space="preserve"><value>تم الأداء</value></data>
+  <data name="StudentExam.ViewResult" xml:space="preserve"><value>عرض النتيجة</value></data>
+  <data name="StudentExam.TheoreticalExam" xml:space="preserve"><value>الاختبار النظري</value></data>
+  <data name="StudentExam.PracticalExam" xml:space="preserve"><value>الاختبار العملي</value></data>
+  <data name="StudentExam.StartExam" xml:space="preserve"><value>ابدأ الاختبار</value></data>
+  <data name="StudentExam.Logout" xml:space="preserve"><value>تسجيل خروج</value></data>
+  <data name="StudentExam.Practical" xml:space="preserve"><value>عملي</value></data>
+  <data name="StudentExam.SubmitAnswers" xml:space="preserve"><value>إرسال الإجابات</value></data>
+  <data name="StudentExam.ResultTitle" xml:space="preserve"><value>نتيجة الاختبار</value></data>
+  <data name="StudentExam.Passed" xml:space="preserve"><value>ناجح</value></data>
+  <data name="StudentExam.Failed" xml:space="preserve"><value>راسب</value></data>
+  <data name="StudentExam.SubmitDate" xml:space="preserve"><value>تاريخ التسليم</value></data>
+  <data name="StudentExam.BackToExams" xml:space="preserve"><value>العودة للاختبارات</value></data>
+  <data name="Attendance.Title" xml:space="preserve"><value>الحضور والانصراف</value></data>
+  <data name="Attendance.RecordTitle" xml:space="preserve"><value>سجل الحضور والانصراف</value></data>
+  <data name="Attendance.Record" xml:space="preserve"><value>تسجيل الحضور</value></data>
+  <data name="Attendance.Log" xml:space="preserve"><value>سجل الحضور</value></data>
+  <data name="Attendance.SelectCourse" xml:space="preserve"><value>-- اختر دورة --</value></data>
+  <data name="Attendance.EmptyState" xml:space="preserve"><value>اختر دورة لعرض سجل الحضور، أو اذهب لتسجيل الحضور مباشرة</value></data>
+  <data name="Attendance.Date" xml:space="preserve"><value>التاريخ</value></data>
+  <data name="Attendance.Trainee" xml:space="preserve"><value>المتدرب</value></data>
+  <data name="Attendance.CheckIn" xml:space="preserve"><value>وقت الدخول</value></data>
+  <data name="Attendance.CheckOut" xml:space="preserve"><value>وقت الخروج</value></data>
+  <data name="Attendance.Notes" xml:space="preserve"><value>ملاحظات</value></data>
+  <data name="Attendance.Present" xml:space="preserve"><value>حاضر</value></data>
+  <data name="Attendance.Absent" xml:space="preserve"><value>غائب</value></data>
+  <data name="Attendance.Excused" xml:space="preserve"><value>معذور</value></data>
+  <data name="Attendance.Late" xml:space="preserve"><value>متأخر</value></data>
+  <data name="Attendance.SessionDate" xml:space="preserve"><value>تاريخ الجلسة</value></data>
+  <data name="Attendance.AllPresent" xml:space="preserve"><value>الكل حاضر</value></data>
+  <data name="Attendance.AllAbsent" xml:space="preserve"><value>الكل غائب</value></data>
+  <data name="Attendance.RegisteredTrainees" xml:space="preserve"><value>المتدربون المسجلون</value></data>
+  <data name="Attendance.PreviousStatus" xml:space="preserve"><value>الحالة السابقة</value></data>
+  <data name="Attendance.NoTrainees" xml:space="preserve"><value>لا يوجد متدربون مسجلون في هذا الجدول</value></data>
+  <data name="Attendance.SaveAttendance" xml:space="preserve"><value>حفظ الحضور</value></data>
+  <data name="Attendance.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Exams.Title" xml:space="preserve"><value>الاختبارات</value></data>
+  <data name="Exams.Create" xml:space="preserve"><value>إنشاء اختبار</value></data>
+  <data name="Exams.CreateTitle" xml:space="preserve"><value>إنشاء اختبار</value></data>
+  <data name="Exams.CreateNewTitle" xml:space="preserve"><value>إنشاء اختبار جديد</value></data>
+  <data name="Exams.TitleLabel" xml:space="preserve"><value>العنوان</value></data>
+  <data name="Exams.TitleAr" xml:space="preserve"><value>العنوان بالعربي</value></data>
+  <data name="Exams.TitleEn" xml:space="preserve"><value>Title (EN)</value></data>
+  <data name="Exams.Course" xml:space="preserve"><value>الدورة</value></data>
+  <data name="Exams.Type" xml:space="preserve"><value>النوع</value></data>
+  <data name="Exams.Duration" xml:space="preserve"><value>المدة</value></data>
+  <data name="Exams.DurationMinutes" xml:space="preserve"><value>المدة (دقائق)</value></data>
+  <data name="Exams.Minutes" xml:space="preserve"><value>دقيقة</value></data>
+  <data name="Exams.TotalMarks" xml:space="preserve"><value>الدرجة الكلية</value></data>
+  <data name="Exams.PassingMarks" xml:space="preserve"><value>درجة النجاح</value></data>
+  <data name="Exams.SubmissionsCount" xml:space="preserve"><value>عدد الإجابات</value></data>
+  <data name="Exams.NoExams" xml:space="preserve"><value>لا توجد اختبارات</value></data>
+  <data name="Exams.ManageQuestions" xml:space="preserve"><value>إدارة الأسئلة</value></data>
+  <data name="Exams.Schedule" xml:space="preserve"><value>الجدول التدريبي</value></data>
+  <data name="Exams.SelectSchedule" xml:space="preserve"><value>-- اختر الجدول --</value></data>
+  <data name="Exams.NoSchedules" xml:space="preserve"><value>لا توجد جداول متاحة. أنشئ دورة وجدولاً أولاً من</value></data>
+  <data name="Exams.CoursesLink" xml:space="preserve"><value>البرامج والدورات</value></data>
+  <data name="Exams.Scope" xml:space="preserve"><value>طبيعة الاختبار</value></data>
+  <data name="Exams.TheoreticalOnly" xml:space="preserve"><value>نظري فقط</value></data>
+  <data name="Exams.TheoreticalAndPractical" xml:space="preserve"><value>نظري وعملي</value></data>
+  <data name="Exams.Theoretical" xml:space="preserve"><value>نظري</value></data>
+  <data name="Exams.Practical" xml:space="preserve"><value>عملي</value></data>
+  <data name="Exams.StartTime" xml:space="preserve"><value>بدء الاختبار</value></data>
+  <data name="Exams.EndTime" xml:space="preserve"><value>انتهاء الاختبار</value></data>
+  <data name="Exams.ShuffleQuestions" xml:space="preserve"><value>خلط الأسئلة</value></data>
+  <data name="Exams.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Exams.ExamData" xml:space="preserve"><value>بيانات الاختبار</value></data>
+  <data name="Exams.QuestionsCount" xml:space="preserve"><value>عدد الأسئلة</value></data>
+  <data name="Exams.Questions" xml:space="preserve"><value>الأسئلة</value></data>
+  <data name="Exams.QuestionsTitle" xml:space="preserve"><value>أسئلة الاختبار</value></data>
+  <data name="Exams.QuestionNumber" xml:space="preserve"><value>س</value></data>
+  <data name="Exams.Marks" xml:space="preserve"><value>درجات</value></data>
+  <data name="Exams.Question" xml:space="preserve"><value>السؤال</value></data>
+  <data name="Exams.Options" xml:space="preserve"><value>الخيارات</value></data>
+  <data name="Exams.Total" xml:space="preserve"><value>المجموع</value></data>
+  <data name="Exams.MultipleChoice" xml:space="preserve"><value>اختيار من متعدد</value></data>
+  <data name="Exams.TrueFalse" xml:space="preserve"><value>صح/خطأ</value></data>
+  <data name="Exams.DeleteQuestionConfirm" xml:space="preserve"><value>حذف السؤال؟</value></data>
+  <data name="Exams.NoQuestions" xml:space="preserve"><value>لا توجد أسئلة بعد — ابدأ بإضافة أول سؤال</value></data>
+  <data name="Exams.TheoreticalQuestion" xml:space="preserve"><value>سؤال نظري</value></data>
+  <data name="Exams.PracticalQuestion" xml:space="preserve"><value>سؤال عملي</value></data>
+  <data name="Exams.AddQuestion" xml:space="preserve"><value>إضافة سؤال</value></data>
+  <data name="Exams.AddQuestionTitle" xml:space="preserve"><value>إضافة سؤال</value></data>
+  <data name="Exams.AddNewQuestion" xml:space="preserve"><value>إضافة سؤال جديد</value></data>
+  <data name="Exams.EditQuestionTitle" xml:space="preserve"><value>تعديل سؤال</value></data>
+  <data name="Exams.FromQuestionBank" xml:space="preserve"><value>من بنك الأسئلة</value></data>
+  <data name="Exams.Details" xml:space="preserve"><value>التفاصيل</value></data>
+  <data name="Exams.BackToQuestions" xml:space="preserve"><value>العودة للأسئلة</value></data>
+  <data name="Exams.QuestionTextAr" xml:space="preserve"><value>نص السؤال (عربي)</value></data>
+  <data name="Exams.QuestionTextEn" xml:space="preserve"><value>Question Text (EN)</value></data>
+  <data name="Exams.QuestionType" xml:space="preserve"><value>نوع السؤال</value></data>
+  <data name="Exams.Category" xml:space="preserve"><value>التصنيف</value></data>
+  <data name="Exams.Order" xml:space="preserve"><value>الترتيب</value></data>
+  <data name="Exams.SelectCorrectAnswer" xml:space="preserve"><value>(حدد الإجابة الصحيحة)</value></data>
+  <data name="Exams.OptionArPlaceholder" xml:space="preserve"><value>الخيار بالعربي</value></data>
+  <data name="Exams.OptionEnPlaceholder" xml:space="preserve"><value>Option (EN)</value></data>
+  <data name="Exams.ChooseFromBank" xml:space="preserve"><value>اختر من بنك الأسئلة</value></data>
+  <data name="Exams.Loading" xml:space="preserve"><value>جاري التحميل...</value></data>
+  <data name="Exams.EmptyBank" xml:space="preserve"><value>بنك الأسئلة فارغ</value></data>
+  <data name="Exams.Import" xml:space="preserve"><value>استيراد</value></data>
+  <data name="Exams.True" xml:space="preserve"><value>صحيح</value></data>
+  <data name="Exams.False" xml:space="preserve"><value>خطأ</value></data>
+  <data name="Import.Title" xml:space="preserve"><value>استيراد الموظفين</value></data>
+  <data name="Import.ExcelTitle" xml:space="preserve"><value>استيراد الموظفين من Excel</value></data>
+  <data name="Import.Step1" xml:space="preserve"><value>1. قم بتحميل القالب ثم تعبئة بيانات الموظفين.</value></data>
+  <data name="Import.Step2" xml:space="preserve"><value>2. ارفع الملف لتعبئة الأنظمة، سيتم إنشاء حساب لكل موظف بكلمة مرور افتراضية</value></data>
+  <data name="Import.EmployeeNumber" xml:space="preserve"><value>رقم الموظف</value></data>
+  <data name="Import.DownloadTemplate" xml:space="preserve"><value>تحميل قالب Excel</value></data>
+  <data name="Import.Import" xml:space="preserve"><value>استيراد</value></data>
+  <data name="Certificates.Title" xml:space="preserve"><value>الشهادات</value></data>
+  <data name="Certificates.SerialNumber" xml:space="preserve"><value>الرقم التسلسلي</value></data>
+  <data name="Certificates.Trainee" xml:space="preserve"><value>المتدرب</value></data>
+  <data name="Certificates.Course" xml:space="preserve"><value>الدورة</value></data>
+  <data name="Certificates.IssueDate" xml:space="preserve"><value>تاريخ الإصدار</value></data>
+  <data name="Certificates.Revoked" xml:space="preserve"><value>ملغاة</value></data>
+  <data name="Certificates.Valid" xml:space="preserve"><value>صالحة</value></data>
+  <data name="Certificates.DetailsTitle" xml:space="preserve"><value>شهادة {0}</value></data>
+  <data name="Certificates.TrainingCertificate" xml:space="preserve"><value>شهادة تدريبية</value></data>
+  <data name="Certificates.CompletionTitle" xml:space="preserve"><value>شهادة إتمام دورة تدريبية</value></data>
+  <data name="Certificates.CertifyThat" xml:space="preserve"><value>نُشهد بأن</value></data>
+  <data name="Certificates.CompletedSuccessfully" xml:space="preserve"><value>قد أتم بنجاح دورة</value></data>
+  <data name="QuestionBank.Title" xml:space="preserve"><value>بنك الأسئلة</value></data>
+  <data name="QuestionBank.AddNew" xml:space="preserve"><value>سؤال جديد</value></data>
+  <data name="QuestionBank.AddQuestionTitle" xml:space="preserve"><value>إضافة سؤال</value></data>
+  <data name="QuestionBank.AddNewQuestion" xml:space="preserve"><value>إضافة سؤال جديد</value></data>
+  <data name="QuestionBank.EditQuestionTitle" xml:space="preserve"><value>تعديل سؤال</value></data>
+  <data name="QuestionBank.BackToBank" xml:space="preserve"><value>العودة لبنك الأسئلة</value></data>
+  <data name="QuestionBank.SearchPlaceholder" xml:space="preserve"><value>بحث في نص السؤال</value></data>
+  <data name="QuestionBank.AllCategories" xml:space="preserve"><value>-- كل التصنيفات --</value></data>
+  <data name="QuestionBank.Question" xml:space="preserve"><value>السؤال</value></data>
+  <data name="QuestionBank.Type" xml:space="preserve"><value>النوع</value></data>
+  <data name="QuestionBank.Marks" xml:space="preserve"><value>الدرجات</value></data>
+  <data name="QuestionBank.Category" xml:space="preserve"><value>التصنيف</value></data>
+  <data name="QuestionBank.Options" xml:space="preserve"><value>الخيارات</value></data>
+  <data name="QuestionBank.MultipleChoice" xml:space="preserve"><value>اختيار متعدد</value></data>
+  <data name="QuestionBank.TrueFalse" xml:space="preserve"><value>صح/خطأ</value></data>
+  <data name="QuestionBank.DeleteQuestionConfirm" xml:space="preserve"><value>حذف السؤال؟</value></data>
+  <data name="QuestionBank.Empty" xml:space="preserve"><value>لا توجد أسئلة في البنك</value></data>
+  <data name="QuestionBank.QuestionTextAr" xml:space="preserve"><value>نص السؤال (عربي)</value></data>
+  <data name="QuestionBank.QuestionTextEn" xml:space="preserve"><value>Question Text (EN)</value></data>
+  <data name="QuestionBank.QuestionType" xml:space="preserve"><value>نوع السؤال</value></data>
+  <data name="QuestionBank.CategoryPlaceholder" xml:space="preserve"><value>مثال: حاسب، إدارة</value></data>
+  <data name="QuestionBank.Order" xml:space="preserve"><value>الترتيب</value></data>
+  <data name="QuestionBank.SelectCorrectAnswer" xml:space="preserve"><value>(حدد الإجابة الصحيحة)</value></data>
+  <data name="QuestionBank.OptionArPlaceholder" xml:space="preserve"><value>الخيار بالعربي</value></data>
+  <data name="QuestionBank.OptionEnPlaceholder" xml:space="preserve"><value>Option (EN)</value></data>
+  <data name="QuestionBank.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="QuestionBank.True" xml:space="preserve"><value>صحيح</value></data>
+  <data name="QuestionBank.False" xml:space="preserve"><value>خطأ</value></data>
+  <data name="Equipment.Title" xml:space="preserve"><value>المعدات</value></data>
+  <data name="Equipment.CategoryProjector" xml:space="preserve"><value>بروجكتر</value></data>
+  <data name="Equipment.CategoryLaptop" xml:space="preserve"><value>لابتوب</value></data>
+  <data name="Equipment.CategoryWhiteboard" xml:space="preserve"><value>سبورة</value></data>
+  <data name="Equipment.CategoryOther" xml:space="preserve"><value>أخرى</value></data>
+  <data name="Equipment.ConditionGood" xml:space="preserve"><value>جيّدة</value></data>
+  <data name="Equipment.ConditionFair" xml:space="preserve"><value>مقبولة</value></data>
+  <data name="Equipment.ConditionPoor" xml:space="preserve"><value>سيّئة</value></data>
+  <data name="Equipment.ConditionUnderMaintenance" xml:space="preserve"><value>قيد الصيانة</value></data>
+  <data name="Equipment.AddNew" xml:space="preserve"><value>إضافة معدة</value></data>
+  <data name="Equipment.AddNewTitle" xml:space="preserve"><value>إضافة معدة جديدة</value></data>
+  <data name="Equipment.Name" xml:space="preserve"><value>الاسم</value></data>
+  <data name="Equipment.NameAr" xml:space="preserve"><value>الاسم بالعربي</value></data>
+  <data name="Equipment.NameEn" xml:space="preserve"><value>Name (EN)</value></data>
+  <data name="Equipment.Code" xml:space="preserve"><value>الكود</value></data>
+  <data name="Equipment.Category" xml:space="preserve"><value>الفئة</value></data>
+  <data name="Equipment.Condition" xml:space="preserve"><value>الحالة</value></data>
+  <data name="Equipment.Availability" xml:space="preserve"><value>التوفر</value></data>
+  <data name="Equipment.Available" xml:space="preserve"><value>متاح</value></data>
+  <data name="Equipment.Unavailable" xml:space="preserve"><value>غير متاح</value></data>
+  <data name="Equipment.DeleteConfirm" xml:space="preserve"><value>هل أنت متأكد من حذف هذه المعدة؟</value></data>
+  <data name="Equipment.Empty" xml:space="preserve"><value>لا توجد معدات مسجلة</value></data>
+  <data name="Equipment.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Rooms.Title" xml:space="preserve"><value>القاعات</value></data>
+  <data name="Rooms.AddNew" xml:space="preserve"><value>إضافة قاعة</value></data>
+  <data name="Rooms.AddNewTitle" xml:space="preserve"><value>إضافة قاعة جديدة</value></data>
+  <data name="Rooms.EditTitle" xml:space="preserve"><value>تعديل القاعة</value></data>
+  <data name="Rooms.Capacity" xml:space="preserve"><value>السعة</value></data>
+  <data name="Rooms.Trainee" xml:space="preserve"><value>متدرب</value></data>
+  <data name="Rooms.NameAr" xml:space="preserve"><value>الاسم بالعربي</value></data>
+  <data name="Rooms.NameEn" xml:space="preserve"><value>Name (EN)</value></data>
+  <data name="Rooms.Code" xml:space="preserve"><value>الكود</value></data>
+  <data name="Rooms.Location" xml:space="preserve"><value>الموقع</value></data>
+  <data name="Rooms.Facilities" xml:space="preserve"><value>التجهيزات</value></data>
+  <data name="Rooms.DeleteConfirm" xml:space="preserve"><value>هل أنت متأكد؟</value></data>
+  <data name="Rooms.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Finance.Title" xml:space="preserve"><value>الحسابات والمدفوعات</value></data>
+  <data name="Finance.PayrollSheetMonth" xml:space="preserve"><value>كشف أجور المدربين — الشهر</value></data>
+  <data name="Finance.Show" xml:space="preserve"><value>عرض</value></data>
+  <data name="Finance.PayrollSheet" xml:space="preserve"><value>كشف أجور المدربين</value></data>
+  <data name="Finance.Instructor" xml:space="preserve"><value>المدرب</value></data>
+  <data name="Finance.CourseCount" xml:space="preserve"><value>عدد الدورات</value></data>
+  <data name="Finance.TotalHours" xml:space="preserve"><value>إجمالي الساعات</value></data>
+  <data name="Finance.HourlyRate" xml:space="preserve"><value>أجر الساعة</value></data>
+  <data name="Finance.Total" xml:space="preserve"><value>الإجمالي</value></data>
+  <data name="Finance.PayrollTotal" xml:space="preserve"><value>إجمالي الكشف</value></data>
+  <data name="Finance.NoCompletedCourses" xml:space="preserve"><value>لا توجد دورات منتهية في هذا الشهر لهذا الكشف</value></data>
+  <data name="Finance.CourseAccountsCardTitle" xml:space="preserve"><value>حسابات الدورات وأجور المتدربين</value></data>
+  <data name="Finance.Course" xml:space="preserve"><value>الدورة</value></data>
+  <data name="Finance.Trainees" xml:space="preserve"><value>المتدربون</value></data>
+  <data name="Finance.TotalFees" xml:space="preserve"><value>إجمالي الرسوم</value></data>
+  <data name="Finance.MinistryDeduction" xml:space="preserve"><value>خصم 15% (وزارة المالية)</value></data>
+  <data name="Finance.NetAfterDeduction" xml:space="preserve"><value>الصافي بعد الخصم</value></data>
+  <data name="Finance.CalculateCourse" xml:space="preserve"><value>حساب الدورة</value></data>
+  <data name="Finance.NoCourses" xml:space="preserve"><value>لا توجد دورات</value></data>
+  <data name="Finance.CourseAccountsTitle" xml:space="preserve"><value>حسابات الدورة</value></data>
+  <data name="Finance.Accounts" xml:space="preserve"><value>حسابات</value></data>
+  <data name="Finance.RegisteredTrainees" xml:space="preserve"><value>المتدربون المسجلون</value></data>
+  <data name="Finance.InstructorCost" xml:space="preserve"><value>تكلفة المدربين</value></data>
+  <data name="Finance.NetProfit" xml:space="preserve"><value>صافي الربح</value></data>
+  <data name="Finance.NetProfitFormula" xml:space="preserve"><value>الرسوم − خصم 15% (وزارة المالية) − تكلفة المدربين</value></data>
+  <data name="Finance.TraineeFeesPayments" xml:space="preserve"><value>أجور المتدربين ومدفوعاتهم</value></data>
+  <data name="Finance.Trainee" xml:space="preserve"><value>المتدرب</value></data>
+  <data name="Finance.EmployeeNumber" xml:space="preserve"><value>الرقم الوظيفي</value></data>
+  <data name="Finance.Fees" xml:space="preserve"><value>الرسوم</value></data>
+  <data name="Finance.Paid" xml:space="preserve"><value>المدفوع</value></data>
+  <data name="Finance.Remaining" xml:space="preserve"><value>المتبقي</value></data>
+  <data name="Finance.PaymentStatus" xml:space="preserve"><value>حالة الدفع</value></data>
+  <data name="Finance.PrivateTrainee" xml:space="preserve"><value>متدرب خاص</value></data>
+  <data name="Finance.StatusFullyPaid" xml:space="preserve"><value>مسدد بالكامل</value></data>
+  <data name="Finance.StatusPartiallyPaid" xml:space="preserve"><value>مسدد جزئياً</value></data>
+  <data name="Finance.StatusUnpaid" xml:space="preserve"><value>غير مسدد</value></data>
+  <data name="Finance.TransactionsTitle" xml:space="preserve"><value>بيان العمليات المالية</value></data>
+  <data name="Finance.Date" xml:space="preserve"><value>التاريخ</value></data>
+  <data name="Finance.Type" xml:space="preserve"><value>النوع</value></data>
+  <data name="Finance.Amount" xml:space="preserve"><value>المبلغ</value></data>
+  <data name="Finance.Reference" xml:space="preserve"><value>المرجع</value></data>
+  <data name="Finance.TransactionTraineeFee" xml:space="preserve"><value>رسوم متدرب</value></data>
+  <data name="Finance.TransactionMinistryDeduction" xml:space="preserve"><value>خصم وزارة المالية</value></data>
+  <data name="Finance.TransactionInstructorCost" xml:space="preserve"><value>أجر مدرب</value></data>
+  <data name="Finance.TransactionExpense" xml:space="preserve"><value>مصروف</value></data>
+  <data name="Finance.TransactionOtherIncome" xml:space="preserve"><value>إيراد آخر</value></data>
+  <data name="Finance.TransactionRefund" xml:space="preserve"><value>استرداد</value></data>
+  <data name="Finance.ConfirmDeleteTransaction" xml:space="preserve"><value>حذف العملية؟</value></data>
+  <data name="Finance.NoTransactions" xml:space="preserve"><value>لا توجد عمليات مالية مسجلة بعد</value></data>
+  <data name="Finance.AddTransactionTitle" xml:space="preserve"><value>تسجيل عملية مالية</value></data>
+  <data name="Finance.ReferenceOptional" xml:space="preserve"><value>المرجع (اختياري)</value></data>
+  <data name="Finance.Notes" xml:space="preserve"><value>ملاحظات</value></data>
+  <data name="Finance.SaveTransaction" xml:space="preserve"><value>حفظ العملية</value></data>
+  <data name="Archives.Title" xml:space="preserve"><value>البحث في الأرشيف</value></data>
+  <data name="Archives.TypeIncoming" xml:space="preserve"><value>وارد</value></data>
+  <data name="Archives.TypeOutgoing" xml:space="preserve"><value>صادر</value></data>
+  <data name="Archives.TypeInternalMemo" xml:space="preserve"><value>مذكرة داخلية</value></data>
+  <data name="Archives.TypeOther" xml:space="preserve"><value>أخرى</value></data>
+  <data name="Archives.Dashboard" xml:space="preserve"><value>لوحة الأرشفة</value></data>
+  <data name="Archives.NewDocument" xml:space="preserve"><value>أرشفة مستند جديد</value></data>
+  <data name="Archives.SearchScreen" xml:space="preserve"><value>شاشة البحث</value></data>
+  <data name="Archives.ResultCount" xml:space="preserve"><value>نتيجة</value></data>
+  <data name="Archives.ArchiveNumber" xml:space="preserve"><value>الرقم الأرشفي</value></data>
+  <data name="Archives.SearchKeyword" xml:space="preserve"><value>كلمة بحث</value></data>
+  <data name="Archives.SearchPlaceholder" xml:space="preserve"><value>العنوان / الموضوع / المرسل</value></data>
+  <data name="Archives.Year" xml:space="preserve"><value>السنة</value></data>
+  <data name="Archives.Type" xml:space="preserve"><value>النوع</value></data>
+  <data name="Archives.FromDate" xml:space="preserve"><value>من تاريخ</value></data>
+  <data name="Archives.ToDate" xml:space="preserve"><value>إلى تاريخ</value></data>
+  <data name="Archives.ClearSearch" xml:space="preserve"><value>إلغاء البحث</value></data>
+  <data name="Archives.DocumentTitle" xml:space="preserve"><value>العنوان</value></data>
+  <data name="Archives.FromTo" xml:space="preserve"><value>من / إلى</value></data>
+  <data name="Archives.DocumentDate" xml:space="preserve"><value>تاريخ المستند</value></data>
+  <data name="Archives.File" xml:space="preserve"><value>الملف</value></data>
+  <data name="Archives.NoResults" xml:space="preserve"><value>لا توجد مستندات مطابقة للبحث</value></data>
+  <data name="Archives.TotalDocuments" xml:space="preserve"><value>إجمالي المستندات المؤرشفة</value></data>
+  <data name="Archives.More" xml:space="preserve"><value>المزيد</value></data>
+  <data name="Archives.ThisMonth" xml:space="preserve"><value>مستندات هذا الشهر</value></data>
+  <data name="Archives.Last6Months" xml:space="preserve"><value>مستندات آخر 6 أشهر</value></data>
+  <data name="Archives.DistributionByType" xml:space="preserve"><value>التوزيع حسب النوع</value></data>
+  <data name="Archives.LatestDocuments" xml:space="preserve"><value>أحدث المستندات المؤرشفة</value></data>
+  <data name="Archives.AdvancedSearch" xml:space="preserve"><value>بحث متقدم</value></data>
+  <data name="Archives.NoDocuments" xml:space="preserve"><value>لا توجد مستندات بعد — ابدأ بأرشفة أول مستند</value></data>
+  <data name="Archives.UploadNew" xml:space="preserve"><value>رفع مستند جديد</value></data>
+  <data name="Archives.Documents" xml:space="preserve"><value>المستندات</value></data>
+  <data name="Archives.DocumentData" xml:space="preserve"><value>بيانات المستند</value></data>
+  <data name="Archives.TitlePlaceholder" xml:space="preserve"><value>عنوان المستند</value></data>
+  <data name="Archives.SubjectPlaceholder" xml:space="preserve"><value>الموضوع الرئيسي للمستند</value></data>
+  <data name="Archives.SenderPlaceholder" xml:space="preserve"><value>الجهة المرسلة (لوارد)</value></data>
+  <data name="Archives.RecipientPlaceholder" xml:space="preserve"><value>الجهة المرسلة إليها (لصادر)</value></data>
+  <data name="Archives.NotesPlaceholder" xml:space="preserve"><value>ملاحظات إضافية</value></data>
+  <data name="Archives.AllowedFilesHint" xml:space="preserve"><value>الملفات المسموحة: PDF، صور، ومستندات Office — بحد أقصى 20 ميجابايت</value></data>
+  <data name="Archives.ArchiveDocument" xml:space="preserve"><value>أرشفة المستند</value></data>
+  <data name="Archives.DetailsTitle" xml:space="preserve"><value>تفاصيل المستند</value></data>
+  <data name="Archives.DownloadFile" xml:space="preserve"><value>تحميل الملف</value></data>
+  <data name="Archives.BackToSearch" xml:space="preserve"><value>رجوع للبحث</value></data>
+  <data name="Archives.IncomingFrom" xml:space="preserve"><value>وارد من</value></data>
+  <data name="Archives.OutgoingTo" xml:space="preserve"><value>صادر إلى</value></data>
+  <data name="Archives.Subject" xml:space="preserve"><value>الموضوع</value></data>
+  <data name="Archives.Notes" xml:space="preserve"><value>ملاحظات</value></data>
+  <data name="Archives.DocumentFile" xml:space="preserve"><value>ملف المستند</value></data>
+  <data name="Archives.AddedOn" xml:space="preserve"><value>أُضيف بتاريخ</value></data>
+  <data name="Archives.AddedBy" xml:space="preserve"><value>بواسطة</value></data>
+  <data name="Archives.ConfirmDeleteDocument" xml:space="preserve"><value>هل تريد حذف هذا المستند نهائيًا؟</value></data>
+  <data name="Archives.DeleteDocument" xml:space="preserve"><value>حذف المستند</value></data>
+  <data name="Archives.ArchiveInfo" xml:space="preserve"><value>معلومات الأرشفة</value></data>
+  <data name="Archives.SequenceNumber" xml:space="preserve"><value>الرقم التسلسلي</value></data>
+  <data name="Archives.OriginalFileName" xml:space="preserve"><value>اسم الملف الأصلي</value></data>
+  <data name="Archives.FileSize" xml:space="preserve"><value>حجم الملف</value></data>
+  <data name="Reports.Title" xml:space="preserve"><value>التقارير</value></data>
+  <data name="Reports.TitleMain" xml:space="preserve"><value>التقارير والتحليلات</value></data>
+  <data name="Reports.TotalCourses" xml:space="preserve"><value>إجمالي الدورات</value></data>
+  <data name="Reports.TotalSchedules" xml:space="preserve"><value>إجمالي الدورات </value></data>
+  <data name="Reports.CompletedCourses" xml:space="preserve"><value>دورات منجزة</value></data>
+  <data name="Reports.InProgressCourses" xml:space="preserve"><value>دورات قيد التنفيذ</value></data>
+  <data name="Reports.TotalRegistrations" xml:space="preserve"><value>إجمالي التسجيلات</value></data>
+  <data name="Reports.PendingRegistrations" xml:space="preserve"><value>تسجيلات معلقة</value></data>
+  <data name="Reports.IssuedCertificates" xml:space="preserve"><value>شهادات مصدرة</value></data>
+  <data name="Reports.AttendanceRecords" xml:space="preserve"><value>سجلات الحضور</value></data>
+  <data name="Reports.CourseStatus" xml:space="preserve"><value>حالة الدورات</value></data>
+  <data name="Reports.CoursesByCategory" xml:space="preserve"><value>الدورات حسب التصنيف</value></data>
+  <data name="Reports.TopCourses" xml:space="preserve"><value>الأكثر تسجيلاً (الدورات الأعلى إقبالاً)</value></data>
+  <data name="Reports.Course" xml:space="preserve"><value>الدورة</value></data>
+  <data name="Reports.RegisteredCount" xml:space="preserve"><value>عدد المسجلين</value></data>
+  <data name="Reports.NoData" xml:space="preserve"><value>لا توجد بيانات</value></data>
+  <data name="Reports.GeneralIndicators" xml:space="preserve"><value>مؤشرات عامة</value></data>
+  <data name="Reports.ScheduleCompletionRate" xml:space="preserve"><value>نسبة إنجاز الدورات </value></data>
+  <data name="Reports.AverageTraineesPerSchedule" xml:space="preserve"><value>متوسط المتدربين لكل جدول</value></data>
+  <data name="Reports.TotalInstructors" xml:space="preserve"><value>إجمالي المدربين</value></data>
+  <data name="Reports.TotalTrainees" xml:space="preserve"><value>إجمالي المتدربين</value></data>
+  <data name="Reports.ScheduleStatus" xml:space="preserve"><value>حالة الدورات  التدريبية</value></data>
+  <data name="Reports.Schedules" xml:space="preserve"><value>الدورات </value></data>
+  <data name="Nav.TrainingPlansReport" xml:space="preserve"><value>تقرير الخطط التدريبية</value></data>
+  <data name="TrainingPlans.Report" xml:space="preserve"><value>تقرير</value></data>
+  <data name="TrainingPlans.ReportTitle" xml:space="preserve"><value>التقرير التفصيلي للخطط التدريبية</value></data>
+  <data name="TrainingPlans.Filter" xml:space="preserve"><value>التصفية</value></data>
+  <data name="TrainingPlans.AllCategories" xml:space="preserve"><value>كل الأنواع</value></data>
+  <data name="TrainingPlans.AllYears" xml:space="preserve"><value>كل السنوات</value></data>
+  <data name="TrainingPlans.AllQuarters" xml:space="preserve"><value>كل الأرباع</value></data>
+  <data name="TrainingPlans.AllStatuses" xml:space="preserve"><value>كل الحالات</value></data>
+  <data name="TrainingPlans.SearchPlaceholder" xml:space="preserve"><value>البحث باسم الخطة...</value></data>
+  <data name="TrainingPlans.Reset" xml:space="preserve"><value>إعادة تعيين</value></data>
+  <data name="TrainingPlans.Print" xml:space="preserve"><value>طباعة</value></data>
+  <data name="TrainingPlans.TotalPlans" xml:space="preserve"><value>إجمالي الخطط</value></data>
+  <data name="TrainingPlans.TotalCourses" xml:space="preserve"><value>إجمالي الدورات</value></data>
+  <data name="TrainingPlans.TotalHours" xml:space="preserve"><value>إجمالي الساعات</value></data>
+  <data name="TrainingPlans.TotalSchedules" xml:space="preserve"><value>إجمالي الدورات </value></data>
+  <data name="TrainingPlans.TotalRegistrations" xml:space="preserve"><value>إجمالي التسجيلات</value></data>
+  <data name="TrainingPlans.CourseCode" xml:space="preserve"><value>رمز الدورة</value></data>
+  <data name="TrainingPlans.CourseName" xml:space="preserve"><value>اسم الدورة</value></data>
+  <data name="TrainingPlans.Period" xml:space="preserve"><value>الفترة</value></data>
+  <data name="TrainingPlans.Registrations" xml:space="preserve"><value>التسجيلات</value></data>
+  <data name="TrainingPlans.Schedules" xml:space="preserve"><value>الدورات </value></data>
+  <data name="TrainingPlans.Instructor" xml:space="preserve"><value>المدربون</value></data>
+  <data name="TrainingPlans.CreatedBy" xml:space="preserve"><value>أُنشئ بواسطة</value></data>
+  <data name="TrainingPlans.NoResults" xml:space="preserve"><value>لا توجد خطط تدريبية مطابقة للفلاتر المحددة</value></data>
+  <data name="TrainingPlans.PrintedOn" xml:space="preserve"><value>تاريخ الطباعة</value></data>
+  <data name="Nav.Certificates" xml:space="preserve"><value>الشهادات</value></data>
+  <data name="Certificates.Issue" xml:space="preserve"><value>إصدار شهادة</value></data>
+  <data name="Certificates.IssueNew" xml:space="preserve"><value>إصدار شهادة جديدة</value></data>
+  <data name="Certificates.Download" xml:space="preserve"><value>تحميل</value></data>
+  <data name="Certificates.Revoke" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Certificates.RevokeConfirm" xml:space="preserve"><value>هل أنت متأكد من رغبتك في إلغاء هذه الشهادة؟</value></data>
+  <data name="Certificates.RevocationReason" xml:space="preserve"><value>سبب الإلغاء (اختياري)</value></data>
+  <data name="Certificates.ExpiryDate" xml:space="preserve"><value>تاريخ الانتهاء</value></data>
+  <data name="Certificates.NoCertificates" xml:space="preserve"><value>لا توجد شهادات مصدرة حتى الآن</value></data>
+  <data name="Certificates.DuplicateError" xml:space="preserve"><value>توجد شهادة بالفعل لهذا المتدرب وهذا الجدول التدريبي</value></data>
+  <data name="Certificates.IssuedSuccess" xml:space="preserve"><value>تم إصدار الشهادة بنجاح</value></data>
+  <data name="Certificates.RevokedSuccess" xml:space="preserve"><value>تم إلغاء الشهادة بنجاح</value></data>
+  <data name="Certificates.TraineeRequired" xml:space="preserve"><value>يرجى اختيار المتدرب</value></data>
+  <data name="Certificates.ScheduleRequired" xml:space="preserve"><value>يرجى اختيار جدول الدورة</value></data>
+  <data name="Certificates.SelectTrainee" xml:space="preserve"><value>-- اختر المتدرب --</value></data>
+  <data name="Certificates.SelectSchedule" xml:space="preserve"><value>-- اختر جدول الدورة --</value></data>
+  <data name="Certificates.TraineeNotFound" xml:space="preserve"><value>المتدرب غير موجود</value></data>
+  <data name="Certificates.ScheduleNotFound" xml:space="preserve"><value>جدول الدورة غير موجود</value></data>
+  <data name="Certificates.Schedule" xml:space="preserve"><value>جدول الدورة</value></data>
+  <data name="Certificates.Print" xml:space="preserve"><value>طباعة</value></data>
+  <data name="Certificates.Issuer" xml:space="preserve"><value>صادر بواسطة</value></data>
+  <data name="Reports.CoursesReport" xml:space="preserve"><value>تقرير الدورات</value></data>
+  <data name="Reports.RegistrationsReport" xml:space="preserve"><value>تقرير التسجيلات</value></data>
+  <data name="Reports.FinanceReport" xml:space="preserve"><value>التقرير المالي</value></data>
+  <data name="Reports.AttendanceReport" xml:space="preserve"><value>تقرير الحضور</value></data>
+  <data name="Reports.ExamsReport" xml:space="preserve"><value>تقرير الامتحانات</value></data>
+  <data name="Reports.CertificatesReport" xml:space="preserve"><value>تقرير الشهادات</value></data>
+  <data name="Reports.InstructorsReport" xml:space="preserve"><value>تقرير المدربين</value></data>
+  <data name="Reports.ExploreReport" xml:space="preserve"><value>فتح</value></data>
+  <data name="Reports.ReportCatalog" xml:space="preserve"><value>تقارير تفصيلية</value></data>
+  <data name="Reports.AllYears" xml:space="preserve"><value>كل السنوات</value></data>
+  <data name="Reports.AllCourses" xml:space="preserve"><value>كل الدورات</value></data>
+  <data name="Reports.AllStatuses" xml:space="preserve"><value>كل الحالات</value></data>
+  <data name="Reports.From" xml:space="preserve"><value>من</value></data>
+  <data name="Reports.To" xml:space="preserve"><value>إلى</value></data>
+  <data name="Reports.Category" xml:space="preserve"><value>التصنيف</value></data>
+  <data name="Reports.EnrolledDate" xml:space="preserve"><value>تاريخ التسجيل</value></data>
+  <data name="Reports.Period" xml:space="preserve"><value>الفترة</value></data>
+  <data name="Reports.Total" xml:space="preserve"><value>الإجمالي</value></data>
+  <data name="Reports.Records" xml:space="preserve"><value>السجلات</value></data>
+  <data name="Reports.Sessions" xml:space="preserve"><value>الجلسات</value></data>
+  <data name="Reports.AttendanceRate" xml:space="preserve"><value>نسبة الحضور</value></data>
+  <data name="Reports.AvgScore" xml:space="preserve"><value>متوسط الدرجات</value></data>
+  <data name="Reports.Passed" xml:space="preserve"><value>ناجح</value></data>
+  <data name="Reports.Failed" xml:space="preserve"><value>راسب</value></data>
+  <data name="Reports.PassRate" xml:space="preserve"><value>نسبة النجاح</value></data>
+  <data name="Reports.CoursesCount" xml:space="preserve"><value>الدورات</value></data>
+  <data name="Reports.ScheduleCount" xml:space="preserve"><value>الدورات </value></data>
+  <data name="Reports.Days" xml:space="preserve"><value>الأيام</value></data>
+  <data name="Reports.TraineesCount" xml:space="preserve"><value>المتدربون</value></data>
+  <data name="Reports.TotalPaid" xml:space="preserve"><value>إجمالي المحصل</value></data>
+  <data name="Reports.TotalOutstanding" xml:space="preserve"><value>إجمالي المتبقي</value></data>
+  <data name="Reports.PayPending" xml:space="preserve"><value>قيد الانتظار</value></data>
+  <data name="Reports.PayApproved" xml:space="preserve"><value>معتمد</value></data>
+  <data name="Reports.StatusValid" xml:space="preserve"><value>صالحة</value></data>
+  <data name="Reports.StatusRevoked" xml:space="preserve"><value>ملغاة</value></data>
+  <data name="Reports.NoResults" xml:space="preserve"><value>لا توجد نتائج</value></data>
+  <data name="Reports.TraineesReport" xml:space="preserve"><value>تقرير المتدربين</value></data>
+  <data name="Reports.CourseCategory" xml:space="preserve"><value>فئة الدورة</value></data>
+  <data name="Reports.TraineeType" xml:space="preserve"><value>فئة المتدرب</value></data>
+  <data name="Reports.Grade" xml:space="preserve"><value>التقدير</value></data>
+  <data name="Reports.Score" xml:space="preserve"><value>الدرجة</value></data>
+  <data name="Reports.GradeExcellent" xml:space="preserve"><value>ممتاز</value></data>
+  <data name="Reports.GradeVeryGood" xml:space="preserve"><value>جيد جدا</value></data>
+  <data name="Reports.GradeGood" xml:space="preserve"><value>جيد</value></data>
+  <data name="Reports.GradeAcceptable" xml:space="preserve"><value>مقبول</value></data>
+  <data name="Reports.GradeFail" xml:space="preserve"><value>راسب</value></data>
+  <data name="Reports.NotGraded" xml:space="preserve"><value>بدون درجة</value></data>
+  <data name="Reports.ByCourseCategory" xml:space="preserve"><value>حسب فئة الدورة</value></data>
+  <data name="Reports.ByTraineeType" xml:space="preserve"><value>حسب فئة المتدرب</value></data>
+  <data name="Reports.GradeDistribution" xml:space="preserve"><value>توزيع التقديرات</value></data>
+  <data name="Reports.WithoutGrade" xml:space="preserve"><value>بدون تقدير</value></data>
+  <data name="Dash.TotalSchedules" xml:space="preserve"><value>إجمالي الدورات </value></data>
+  <data name="Dash.CompletedSchedules" xml:space="preserve"><value>الدورات  المكتملة</value></data>
+  <data name="Dash.Registrations" xml:space="preserve"><value>التسجيلات</value></data>
+  <data name="Dash.PendingRegistrations" xml:space="preserve"><value>تسجيلات قيد الانتظار</value></data>
+  <data name="Dash.AttendanceRecords" xml:space="preserve"><value>سجلات الحضور</value></data>
+  <data name="Dash.FeesTotal" xml:space="preserve"><value>إجمالي الرسوم</value></data>
+  <data name="Dash.FeesCollected" xml:space="preserve"><value>المحصّل</value></data>
+  <data name="Dash.FeesOutstanding" xml:space="preserve"><value>المتبقي</value></data>
+  <data name="Dash.CoursesByCategory" xml:space="preserve"><value>الدورات حسب التصنيف</value></data>
+  <data name="Dash.CoursesByStatus" xml:space="preserve"><value>الدورات حسب الحالة</value></data>
+  <data name="Dash.SchedulesByStatus" xml:space="preserve"><value>الدورات  حسب الحالة</value></data>
+  <data name="Dash.TopCourses" xml:space="preserve"><value>الدورات الأكثر تسجيلا</value></data>
+  <data name="Dash.RecentCertificates" xml:space="preserve"><value>أحدث الشهادات</value></data>
+  <data name="Dash.PeriodFilter" xml:space="preserve"><value>الفترة</value></data>
+  <data name="Surveys.Title" xml:space="preserve"><value>الاستطلاعات</value></data>
+  <data name="Surveys.NoTrainees" xml:space="preserve"><value>لا يوجد متدربون مسجلون في هذا الجدول</value></data>
+  <data name="Surveys.SavedSuccess" xml:space="preserve"><value>تم حفظ التقييم لـ {0} متدرب (متدربين)</value></data>
+  <data name="Surveys.Course" xml:space="preserve"><value>الدورة</value></data>
+  <data name="Surveys.Instructor" xml:space="preserve"><value>المدرب</value></data>
+  <data name="Surveys.Period" xml:space="preserve"><value>الفترة</value></data>
+  <data name="Surveys.Responses" xml:space="preserve"><value>الإجابات</value></data>
+  <data name="Surveys.AverageRating" xml:space="preserve"><value>متوسط التقييم</value></data>
+  <data name="Surveys.Actions" xml:space="preserve"><value>الإجراءات</value></data>
+  <data name="Surveys.Fill" xml:space="preserve"><value>تعبئة</value></data>
+  <data name="Surveys.Results" xml:space="preserve"><value>النتائج</value></data>
+  <data name="Surveys.RatingScale" xml:space="preserve"><value>مقياس التقييم: 1 = سيئ جداً، 5 = ممتاز</value></data>
+  <data name="Surveys.Anonymous" xml:space="preserve"><value>إجابة مجهولة</value></data>
+  <data name="Surveys.Trainee" xml:space="preserve"><value>المتدرب</value></data>
+  <data name="Surveys.InstructorRating" xml:space="preserve"><value>تقييم المدرب</value></data>
+  <data name="Surveys.ContentRating" xml:space="preserve"><value>محتوى الدورة</value></data>
+  <data name="Surveys.FacilitiesRating" xml:space="preserve"><value>القاعة والتجهيزات</value></data>
+  <data name="Surveys.Notes" xml:space="preserve"><value>ملاحظات / تعليقات</value></data>
+  <data name="Surveys.AlreadySaved" xml:space="preserve"><value>تم تسجيل التقييم مسبقاً</value></data>
+  <data name="Surveys.SaveRatings" xml:space="preserve"><value>حفظ التقييم</value></data>
+  <data name="Surveys.Overall" xml:space="preserve"><value>الإجمالي</value></data>
+  <data name="Surveys.EvaluationCount" xml:space="preserve"><value>عدد التقييمات</value></data>
+  <data name="Surveys.Question" xml:space="preserve"><value>السؤال</value></data>
+  <data name="Surveys.Comments" xml:space="preserve"><value>التعليقات</value></data>
+  <data name="Surveys.NoComments" xml:space="preserve"><value>لا توجد تعليقات بعد</value></data>
+  <data name="Exports.Excel" xml:space="preserve"><value>إكسل</value></data>
+  <data name="Exports.Pdf" xml:space="preserve"><value>PDF</value></data>
+  <data name="Exports.ExcelTitle" xml:space="preserve"><value>تصدير إلى إكسل</value></data>
+  <data name="Exports.PdfTitle" xml:space="preserve"><value>تصدير إلى PDF</value></data>
+  <data name="Conflicts.Title" xml:space="preserve"><value>كشف تعارض الموارد</value></data>
+  <data name="Conflicts.InstructorSection" xml:space="preserve"><value>تعارض المدربين</value></data>
+  <data name="Conflicts.RoomSection" xml:space="preserve"><value>تعارض القاعات</value></data>
+  <data name="Conflicts.EquipmentSection" xml:space="preserve"><value>تعارض المعدات</value></data>
+  <data name="Conflicts.Resource" xml:space="preserve"><value>المورد</value></data>
+  <data name="Conflicts.CourseA" xml:space="preserve"><value>الدورة (أ)</value></data>
+  <data name="Conflicts.TimesA" xml:space="preserve"><value>الفترة (أ)</value></data>
+  <data name="Conflicts.CourseB" xml:space="preserve"><value>الدورة (ب)</value></data>
+  <data name="Conflicts.TimesB" xml:space="preserve"><value>الفترة (ب)</value></data>
+  <data name="Conflicts.Total" xml:space="preserve"><value>الإجمالي</value></data>
+  <data name="Conflicts.NoConflicts" xml:space="preserve"><value>لا توجد تعارضات في الموارد</value></data>
+  <data name="Conflicts.SaveBlocked" xml:space="preserve"><value>المدرب أو القاعة المحددة محجوز في جدول متداخل آخر</value></data>
+  <data name="Nav.Conflicts" xml:space="preserve"><value>كشف التعارض</value></data>
+  <data name="Attendance.QrTitle" xml:space="preserve"><value>حضور QR اليومي</value></data>
+  <data name="Attendance.QrHint" xml:space="preserve"><value>شارك هذا الكود مع المتدربين</value></data>
+  <data name="Attendance.QrText" xml:space="preserve"><value>يمسح المتدربون الكود بهواتفهم لتسجيل حضورهم لهذه الجلسة تلقائياً.</value></data>
+  <data name="Attendance.CheckInTitle" xml:space="preserve"><value>تسجيل الحضور اليومي</value></data>
+  <data name="Attendance.Course" xml:space="preserve"><value>الدورة</value></data>
+  <data name="Attendance.EmployeeNumber" xml:space="preserve"><value>رقم الموظف</value></data>
+  <data name="Attendance.CheckInHint" xml:space="preserve"><value>أدخل رقم موظفك لتأكيد حضورك.</value></data>
+  <data name="Attendance.CheckInRegister" xml:space="preserve"><value>تسجيل الحضور</value></data>
+  <data name="Attendance.CheckInSuccess" xml:space="preserve"><value>تم تسجيل حضورك بنجاح</value></data>
+  <data name="Attendance.CheckInAlready" xml:space="preserve"><value>تم تسجيل حضورك مسبقاً</value></data>
+  <data name="Attendance.CheckInTime" xml:space="preserve"><value>وقت الحضور</value></data>
+  <data name="Attendance.CheckInAgain" xml:space="preserve"><value>تسجيل حضور آخر</value></data>
+  <data name="Attendance.CheckInNotFound" xml:space="preserve"><value>لا يوجد متدرب مسجل يتطابق مع رقم الموظف لهذه الجلسة.</value></data>
+  <data name="Attendance.CheckInRequired" xml:space="preserve"><value>يرجى إدخال رقم الموظف.</value></data>
+  <data name="Attendance.CheckInInvalid" xml:space="preserve"><value>رابط التسجيل غير صالح أو منتهي الصلاحية.</value></data>
+  <data name="Attendance.PresentCount" xml:space="preserve"><value>الحاضرون الآن</value></data>
+  <data name="Attendance.CheckInQrNote" xml:space="preserve"><value>تسجيل حضور بالكود</value></data>
+  <data name="Archives.RecordsArchive" xml:space="preserve"><value>سجلات الأرشيف</value></data>
+  <data name="Archives.RecordsArchiveCallout" xml:space="preserve"><value>سجلات التدريب المؤرشفة</value></data>
+  <data name="Archives.RecordsArchiveHint" xml:space="preserve"><value>تُنقل الجلسات التدريبية المكتملة إلى الأرشيف تلقائياً. السجلات المعروضة هنا للعرض فقط وهي محفوظة للرجوع إليها وإعداد التقارير.</value></data>
+  <data name="Archives.ArchivedSchedules" xml:space="preserve"><value>الجدول المؤرشفة</value></data>
+  <data name="Archives.ArchivedRegistrations" xml:space="preserve"><value>التسجيلات المؤرشفة</value></data>
+  <data name="Archives.ArchivedCompleted" xml:space="preserve"><value>المتدربون المكتملون</value></data>
+  <data name="Archives.ArchivedCollected" xml:space="preserve"><value>المبالغ المحصلة</value></data>
+  <data name="Archives.CompletedRecords" xml:space="preserve"><value>السجلات المكتملة</value></data>
+  <data name="Archives.ArchivedSchedule" xml:space="preserve"><value>الجدول</value></data>
+  <data name="Archives.ArchivedCourse" xml:space="preserve"><value>الدورة</value></data>
+  <data name="Archives.ArchivedInstructor" xml:space="preserve"><value>المدرب</value></data>
+  <data name="Archives.ArchivedPeriod" xml:space="preserve"><value>الفترة</value></data>
+  <data name="Archives.ArchivedTrainees" xml:space="preserve"><value>المتدربون</value></data>
+  <data name="Archives.ArchivedCompletedCount" xml:space="preserve"><value>المكتمل</value></data>
+  <data name="Archives.ArchivedCollectedAmount" xml:space="preserve"><value>المحصل</value></data>
+  <data name="Archives.ArchivedLabel" xml:space="preserve"><value>مؤرشف</value></data>
+  <data name="Archives.NoArchivedRecords" xml:space="preserve"><value>لا توجد سجلات مؤرشفة</value></data>
+  <data name="Archives.RecordsArchiveReadOnly" xml:space="preserve"><value>هذه الصفحة للعرض فقط. استخدم النسخ الاحتياطي/الاستعادة لحفظ البيانات.</value></data>
+  <data name="Archives.Reset" xml:space="preserve"><value>إعادة تعيين</value></data>
+  <data name="Nav.ArchivedRecords" xml:space="preserve"><value>سجلات الأرشيف</value></data>
+  <data name="Nav.ArchiveBackup" xml:space="preserve"><value>نسخ احتياطي</value></data>
+  <data name="Nav.ArchiveRestore" xml:space="preserve"><value>استعادة</value></data>
+  <data name="ArchiveBackup.Title" xml:space="preserve"><value>النسخ الاحتياطي لقاعدة البيانات</value></data>
+  <data name="ArchiveBackup.Create" xml:space="preserve"><value>إنشاء نسخة احتياطية</value></data>
+  <data name="ArchiveBackup.CreateHint" xml:space="preserve"><value>إنشاء نسخة كاملة من قاعدة البيانات يمكنك الاحتفاظ بها أو استخدامها لاستعادة النظام لاحقاً.</value></data>
+  <data name="ArchiveBackup.CreateButton" xml:space="preserve"><value>إنشاء نسخة احتياطية الآن</value></data>
+  <data name="ArchiveBackup.About" xml:space="preserve"><value>حول النسخ الاحتياطي</value></data>
+  <data name="ArchiveBackup.Hint" xml:space="preserve"><value>يتم إنشاء ملف نسخة احتياطية (.bak) جديد في كل مرة تضغط فيها على الزر، دون حذف النسخ السابقة.</value></data>
+  <data name="ArchiveBackup.Location" xml:space="preserve"><value>مجلد التخزين</value></data>
+  <data name="ArchiveBackup.Existing" xml:space="preserve"><value>النسخ الاحتياطية الموجودة</value></data>
+  <data name="ArchiveBackup.FileName" xml:space="preserve"><value>اسم الملف</value></data>
+  <data name="ArchiveBackup.Size" xml:space="preserve"><value>الحجم</value></data>
+  <data name="ArchiveBackup.CreatedAt" xml:space="preserve"><value>تاريخ الإنشاء</value></data>
+  <data name="ArchiveBackup.ConfirmDelete" xml:space="preserve"><value>حذف ملف النسخة الاحتياطية؟</value></data>
+  <data name="ArchiveBackup.NoBackups" xml:space="preserve"><value>لا توجد نسخ احتياطية</value></data>
+  <data name="ArchiveBackup.Created" xml:space="preserve"><value>تم إنشاء النسخة الاحتياطية: {0}</value></data>
+  <data name="ArchiveBackup.CreatedFailed" xml:space="preserve"><value>فشل إنشاء النسخة الاحتياطية: {0}</value></data>
+  <data name="ArchiveBackup.Deleted" xml:space="preserve"><value>تم حذف ملف النسخة الاحتياطية</value></data>
+  <data name="ArchiveRestore.Title" xml:space="preserve"><value>استعادة قاعدة البيانات</value></data>
+  <data name="ArchiveRestore.Warning" xml:space="preserve"><value>منطقة الخطر</value></data>
+  <data name="ArchiveRestore.WarningHint" xml:space="preserve"><value>الاستعادة تستبدل محتوى قاعدة البيانات الحالية بالنسخة المرفوعة. قد تنقطع الجلسات المفتوحة لفترة وجيزة.</value></data>
+  <data name="ArchiveRestore.Restore" xml:space="preserve"><value>الاستعادة من ملف</value></data>
+  <data name="ArchiveRestore.FileLabel" xml:space="preserve"><value>ملف النسخة الاحتياطية (.bak)</value></data>
+  <data name="ArchiveRestore.FileHint" xml:space="preserve"><value>يُقبل فقط ملفات .bak الناتجة عن ميزة النسخ الاحتياطي.</value></data>
+  <data name="ArchiveRestore.RestoreButton" xml:space="preserve"><value>استعادة قاعدة البيانات</value></data>
+  <data name="ArchiveRestore.Success" xml:space="preserve"><value>تمت استعادة قاعدة البيانات بنجاح. يرجى تحديث الصفحة للمتابعة.</value></data>
+  <data name="ArchiveRestore.Failed" xml:space="preserve"><value>فشلت الاستعادة: {0}</value></data>
+  <data name="ArchiveRestore.InvalidFile" xml:space="preserve"><value>يرجى اختيار ملف نسخة احتياطية صالح بامتداد .bak.</value></data>
+</root>

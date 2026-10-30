@@ -1,0 +1,300 @@
+@{
+    ViewData["Title"] = @T["Reports.Title"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@T["Reports.TitleMain"]</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-chart-bar mr-2"></i>@T["Reports.ReportCatalog"]</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover align-middle mb-0">
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-book text-info mr-2"></i>@T["Reports.CoursesReport"]</td>
+                                    <td class="text-nowrap text-left">
+                                        <a asp-action="CourseReport" class="btn btn-outline-info btn-sm">@T["Reports.ExploreReport"]</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-user-plus text-warning mr-2"></i>@T["Reports.RegistrationsReport"]</td>
+                                    <td class="text-nowrap text-left">
+                                        <a asp-action="RegistrationReport" class="btn btn-outline-info btn-sm">@T["Reports.ExploreReport"]</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-coins text-success mr-2"></i>@T["Reports.FinanceReport"]</td>
+                                    <td class="text-nowrap text-left">
+                                        <a asp-action="FinanceReport" class="btn btn-outline-info btn-sm">@T["Reports.ExploreReport"]</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-clipboard-check text-primary mr-2"></i>@T["Reports.AttendanceReport"]</td>
+                                    <td class="text-nowrap text-left">
+                                        <a asp-action="AttendanceReport" class="btn btn-outline-info btn-sm">@T["Reports.ExploreReport"]</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-graduation-cap text-secondary mr-2"></i>@T["Reports.ExamsReport"]</td>
+                                    <td class="text-nowrap text-left">
+                                        <a asp-action="ExamReport" class="btn btn-outline-info btn-sm">@T["Reports.ExploreReport"]</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-certificate text-danger mr-2"></i>@T["Reports.CertificatesReport"]</td>
+                                    <td class="text-nowrap text-left">
+                                        <a asp-action="CertificateReport" class="btn btn-outline-info btn-sm">@T["Reports.ExploreReport"]</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-chalkboard-teacher text-dark mr-2"></i>@T["Reports.InstructorsReport"]</td>
+                                    <td class="text-nowrap text-left">
+                                        <a asp-action="InstructorReport" class="btn btn-outline-info btn-sm">@T["Reports.ExploreReport"]</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-users text-success mr-2"></i>@T["Reports.TraineesReport"]</td>
+                                    <td class="text-nowrap text-left">
+                                        <a asp-action="TraineeReport" class="btn btn-outline-info btn-sm">@T["Reports.ExploreReport"]</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info"><i class="fas fa-book"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@T["Reports.TotalCourses"]</span>
+                        <span class="info-box-number">@ViewBag.TotalCourses</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="fas fa-calendar"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@T["Reports.TotalSchedules"]</span>
+                        <span class="info-box-number">@ViewBag.TotalSchedules</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fas fa-check-circle"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@T["Reports.CompletedCourses"]</span>
+                        <span class="info-box-number">@ViewBag.CompletedSchedules</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-primary"><i class="fas fa-running"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@T["Reports.InProgressCourses"]</span>
+                        <span class="info-box-number">@ViewBag.ActiveSchedules</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-secondary"><i class="fas fa-user-check"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@T["Reports.TotalRegistrations"]</span>
+                        <span class="info-box-number">@ViewBag.TotalRegistrations</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="fas fa-hourglass-half"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@T["Reports.PendingRegistrations"]</span>
+                        <span class="info-box-number">@ViewBag.PendingRegistrations</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-danger"><i class="fas fa-certificate"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@T["Reports.IssuedCertificates"]</span>
+                        <span class="info-box-number">@ViewBag.TotalCertificates</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fas fa-clipboard-check"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@T["Reports.AttendanceRecords"]</span>
+                        <span class="info-box-number">@ViewBag.AttendanceRecords</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Reports.CourseStatus"]</h3></div>
+                    <div class="card-body">
+                        <canvas id="statusChart" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Reports.CoursesByCategory"]</h3></div>
+                    <div class="card-body">
+                        <canvas id="categoryChart" height="250"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Reports.TopCourses"]</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>@T["Reports.Course"]</th>
+                                    <th>@T["Reports.RegisteredCount"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int i = 1; }
+                                @foreach (var c in ViewBag.TopCourses)
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@c.NameAr</td>
+                                        <td><span class="badge bg-primary">@c.Count</span></td>
+                                    </tr>
+                                    i++;
+                                }
+                                @if (ViewBag.TopCourses.Count == 0)
+                                {
+                                    <tr><td colspan="3" class="text-center text-muted">@T["Reports.NoData"]</td></tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@T["Reports.GeneralIndicators"]</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>@T["Reports.ScheduleCompletionRate"]</span>
+                            <span class="badge bg-success">%@ViewBag.RegistrationRate</span>
+                        </div>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-success" style="width: @ViewBag.RegistrationRate%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>@T["Reports.AverageTraineesPerSchedule"]</span>
+                            <span class="badge bg-info">@ViewBag.AverageTraineesPerSchedule.ToString("0.0")</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>@T["Reports.TotalInstructors"]</span>
+                            <span class="badge bg-warning">@ViewBag.TotalInstructors</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>@T["Reports.TotalTrainees"]</span>
+                            <span class="badge bg-primary">@ViewBag.TotalTrainees</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header"><h3 class="card-title">@T["Reports.ScheduleStatus"]</h3></div>
+                    <div class="card-body">
+                        <canvas id="scheduleStatusChart" height="180" style="max-height: 200px"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        var statusCtx = document.getElementById('statusChart');
+        if (statusCtx) {
+            new Chart(statusCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.StatusLabels)),
+                    datasets: [{ data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.StatusCounts)),
+                        backgroundColor: ['#6c757d', '#007bff', '#ffc107', '#28a745', '#dc3545'] }]
+                },
+                options: { responsive: true }
+            });
+        }
+        var categoryCtx = document.getElementById('categoryChart');
+        if (categoryCtx) {
+            new Chart(categoryCtx, {
+                type: 'pie',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.CategoryLabels)),
+                    datasets: [{ data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.CategoryCounts)),
+                        backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#17a2b8', '#6f42c1', '#fd7e14', '#20c997'] }]
+                },
+                options: { responsive: true }
+            });
+        }
+        var scheduleCtx = document.getElementById('scheduleStatusChart');
+        if (scheduleCtx) {
+            new Chart(scheduleCtx, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.ScheduleStatusLabels)),
+                    datasets: [{
+                        label: '@T["Reports.Schedules"]',
+                        data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.ScheduleStatusCounts)),
+                        backgroundColor: 'rgba(23,162,184,0.5)',
+                        borderColor: 'rgba(23,162,184,1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+            });
+        }
+    </script>
+}

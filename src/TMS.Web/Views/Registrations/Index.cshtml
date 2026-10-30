@@ -1,0 +1,143 @@
+@model List<TMS.Core.Entities.Trainees.Registration>
+@{
+    ViewData["Title"] = @T["Registrations.Title"];
+    var ps = ViewBag.SelectedSchedule as int?;
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6"><h1>@T["Registrations.RegisteredTrainees"]</h1></div>
+            <div class="col-sm-6">
+                <div class="float-end">
+                    @if (ps.HasValue)
+                    {
+                        <a asp-action="Create" asp-route-courseScheduleId="@ps" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> @T["Registrations.AddNew"]
+                        </a>
+                    }
+                    <a asp-controller="Courses" asp-action="Index" class="btn btn-secondary">@T["Registrations.Courses"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <form asp-action="Filter" method="post" class="row g-2">
+                    <div class="col-md-5">
+                        <select name="courseScheduleId" asp-items="ViewBag.Schedules" class="form-control">
+                            <option value="">-- @T["Registrations.AllSchedules"] --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-info">@T["Registrations.Filter"]</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@T["Registrations.Trainee"]</th>
+                            <th>@T["Registrations.CourseSchedule"]</th>
+                            <th>@T["Common.Status"]</th>
+                            <th>@T["Registrations.Fee"]</th>
+                            <th>@T["Registrations.Paid"]</th>
+                            <th>@T["Registrations.PaymentStatus"]</th>
+                            <th>@T["Registrations.UpdateFee"]</th>
+                            <th>@T["Common.Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var r in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <strong>@r.Trainee?.User?.FullNameAr</strong><br />
+                                    <small class="text-muted">@(r.Trainee?.EmployeeNumber ?? T["Registrations.PrivateTrainee"].Value)</small>
+                                </td>
+                                <td>
+                                    @r.CourseSchedule?.Course?.NameAr<br />
+                                    <small class="text-muted">@(r.CourseSchedule?.StartDate.ToString("yyyy-MM-dd"))</small>
+                                </td>
+                                <td>
+                                    @switch (r.Status)
+                                    {
+                                        case TMS.Core.Enums.RegistrationStatus.Registered:
+                                            <span class="badge bg-primary">@T["Registrations.StatusRegistered"]</span>
+                                            break;
+                                        case TMS.Core.Enums.RegistrationStatus.Confirmed:
+                                            <span class="badge bg-success">@T["Registrations.StatusConfirmed"]</span>
+                                            break;
+                                        case TMS.Core.Enums.RegistrationStatus.Completed:
+                                            <span class="badge bg-info">@T["Registrations.StatusCompleted"]</span>
+                                            break;
+                                        case TMS.Core.Enums.RegistrationStatus.Dropped:
+                                            <span class="badge bg-danger">@T["Registrations.StatusDropped"]</span>
+                                            break;
+                                        case TMS.Core.Enums.RegistrationStatus.Waitlisted:
+                                            <span class="badge bg-warning">@T["Registrations.StatusWaitlisted"]</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>@(r.FeeAmount?.ToString("N2") ?? "-")</td>
+                                <td>@(r.AmountPaid?.ToString("N2") ?? "-")</td>
+                                <td>
+                                    @switch (r.PaymentStatus)
+                                    {
+                                        case TMS.Core.Enums.PaymentStatus.Unpaid:
+                                            <span class="badge bg-danger">@T["Registrations.PaymentUnpaid"]</span>
+                                            break;
+                                        case TMS.Core.Enums.PaymentStatus.Partial:
+                                            <span class="badge bg-warning">@T["Registrations.PaymentPartial"]</span>
+                                            break;
+                                        case TMS.Core.Enums.PaymentStatus.Paid:
+                                            <span class="badge bg-success">@T["Registrations.PaymentPaid"]</span>
+                                            break;
+                                        default:
+                                            <span class="badge bg-secondary">@r.PaymentStatus</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>
+                                    <form asp-action="SetFee" asp-route-id="@r.Id" method="post" class="d-flex gap-1">
+                                        <input name="feeAmount" type="number" step="0.01" value="@(r.FeeAmount ?? 0)" class="form-control form-control-sm" style="width:80px" title="@T["Registrations.Fee"]" />
+                                        <input name="amountPaid" type="number" step="0.01" value="@(r.AmountPaid ?? 0)" class="form-control form-control-sm" style="width:80px" title="@T["Registrations.Paid"]" />
+                                        <select name="paymentStatus" class="form-control form-control-sm" style="width:110px">
+                                            <option value="3" selected="@(r.PaymentStatus == TMS.Core.Enums.PaymentStatus.Unpaid)">@T["Registrations.PaymentUnpaid"]</option>
+                                            <option value="4" selected="@(r.PaymentStatus == TMS.Core.Enums.PaymentStatus.Partial)">@T["Registrations.PaymentPartial"]</option>
+                                            <option value="2" selected="@(r.PaymentStatus == TMS.Core.Enums.PaymentStatus.Paid)">@T["Registrations.PaymentPaid"]</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-sm btn-primary" title="@T["Registrations.SaveFee"]"><i class="fas fa-check"></i></button>
+                                    </form>
+                                </td>
+                                <td class="text-nowrap">
+                                    @if (r.Status == TMS.Core.Enums.RegistrationStatus.Waitlisted)
+                                    {
+                                        <form asp-action="Confirm" asp-route-id="@r.Id" method="post" class="d-inline">
+                                            <button type="submit" class="btn btn-success btn-sm" title="@T["Registrations.Confirm"]"><i class="fas fa-check-circle"></i></button>
+                                        </form>
+                                    }
+                                    @if (r.Status != TMS.Core.Enums.RegistrationStatus.Dropped)
+                                    {
+                                        <form asp-action="Remove" asp-route-id="@r.Id" method="post" class="d-inline" onsubmit="return confirm('@T["Registrations.ConfirmDrop"]');">
+                                            <button type="submit" class="btn btn-danger btn-sm" title="@T["Registrations.Drop"]"><i class="fas fa-user-minus"></i></button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                        @if (!Model.Any())
+                        {
+                            <tr><td colspan="8" class="text-center text-muted py-4">@T["Registrations.NoResults"]</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

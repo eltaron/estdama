@@ -1,0 +1,109 @@
+@model TMS.Web.ViewModels.Courses.CourseFormViewModel
+@{
+    ViewData["Title"] = @T["Courses.AddNew"];
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <h1>@T["Courses.CreateTitle"]</h1>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@T["Courses.Data"]</h3>
+            </div>
+            <form asp-action="Create" method="post">
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="NameAr" class="form-label"></label>
+                                <input asp-for="NameAr" class="form-control" />
+                                <span asp-validation-for="NameAr" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="NameEn" class="form-label"></label>
+                                <input asp-for="NameEn" class="form-control" />
+                                <span asp-validation-for="NameEn" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="DescriptionAr" class="form-label"></label>
+                                <textarea asp-for="DescriptionAr" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="ObjectivesAr" class="form-label"></label>
+                                <textarea asp-for="ObjectivesAr" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label asp-for="Hours" class="form-label"></label>
+                                <input asp-for="Hours" class="form-control" />
+                                <span asp-validation-for="Hours" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label asp-for="MinTrainees" class="form-label"></label>
+                                <input asp-for="MinTrainees" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label asp-for="MaxTrainees" class="form-label"></label>
+                                <input asp-for="MaxTrainees" class="form-control" />
+                                <span asp-validation-for="MaxTrainees" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label asp-for="FeePerTrainee" class="form-label"></label>
+                                <input asp-for="FeePerTrainee" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="CategoryId" class="form-label"></label>
+                                <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control">
+                                    <option value="">-- @T["Courses.Select"] --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="TargetAudience" class="form-label"></label>
+                                <select asp-for="TargetAudience" asp-items="ViewBag.AudienceList" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label asp-for="Status" class="form-label"></label>
+                                <select asp-for="Status" asp-items="ViewBag.StatusList" class="form-control"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> @T["Common.Save"]</button>
+                    <a asp-action="Index" class="btn btn-secondary">@T["Courses.Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
